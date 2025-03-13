@@ -27,5 +27,14 @@ struct HangulKitTests {
         #expect("ㅏ".hangul.isHangulAlphabet() == true)
         #expect("a".hangul.isHangulAlphabet() == false)
     }
+    
+    // isHangul은 한글 문자열을 받으면 true를 반환한다.
+    @Test func isHangul() async throws {
+        #expect("값".hangul.isHangul() == true)
+        #expect("ㄱ".hangul.isHangul() == true)
+        #expect("ㅏ".hangul.isHangul() == true)
+        #expect("저는 고양이를 좋아합니다".hangul.isHangul() == true)
+        #expect("a a".hangul.isHangul() == false)
+    }
 
 }
