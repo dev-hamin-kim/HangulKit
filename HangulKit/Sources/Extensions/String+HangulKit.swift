@@ -18,4 +18,9 @@ extension HangulKitWrapper where Base == String {
         
         return rangeOfHangulAlphabet.contains(base)
     }
+    
+    public func isHangul() -> Bool {
+        return base.range(of: "\\p{Hangul}", options: .regularExpression) != nil
+    }
+    
 }

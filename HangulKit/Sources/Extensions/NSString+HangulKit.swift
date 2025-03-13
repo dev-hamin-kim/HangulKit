@@ -18,4 +18,8 @@ extension HangulKitWrapper where Base: NSString {
         
         return rangeOfHangulAlphabet.contains(base as String)
     }
+    
+    public func isHangul() -> Bool {
+        return (base as String).range(of: "\\p{Hangul}", options: .regularExpression) != nil
+    }
 }
