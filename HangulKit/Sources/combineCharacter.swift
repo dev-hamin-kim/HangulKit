@@ -30,8 +30,11 @@ public extension Hangul {
         let jongsungIndex = Jongseong.list.firstIndex(of: jongseong)
         
         let choseongOfTargetConsonant = chosungIndex * Jungseong.count * Jongseong.count
+        let choseongOfTargetVowel = jungsungIndex * Jongseong.count
         
-        let unicodeValue: UInt32 = Hangul.CompleteHangulEndUnicodeScalar + UInt32(jongsungIndex!)
+        let unicodeValue: UInt32 =
+        Hangul.CompleteHangulEndUnicodeScalar +
+        UInt32(jongsungIndex! + choseongOfTargetConsonant + choseongOfTargetVowel)
         
         return Character(Unicode.Scalar(unicodeValue)!)
     }
