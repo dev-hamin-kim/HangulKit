@@ -5,37 +5,51 @@
 //  Created by 김하민 on 3/11/25.
 //
 
-import Foundation
+//import Foundation
 
-public struct Hangul {
+public extension Hangul {
     
     // es-hangul에서의 이름은 isHangulCharacter이지만,
     // Swift의 특성 상
     // 음절을 의미하는 Syllable으로 변경하였음.
-    public func isHangulSyllable(_ character: Character) -> Bool {
+    static func isHangulSyllable(_ string: String) -> Bool {
         // 타입 선언 생략 시 컴파일러가 ClosedRange<String>으로 추론함.
-        let rangeOfHangul: ClosedRange<Character> = "가"..."힣"
+        let rangeOfHangul = "가"..."힣"
         
-        return rangeOfHangul.contains(character)
+        return rangeOfHangul.contains(string)
     }
     
-    public func isHangulAlphabet(_ character: Character) -> Bool {
-        let rangeOfHangulAlphabet: ClosedRange<Character> = "ㄱ"..."ㅣ"
+    static func isHangulAlphabet(_ string: String) -> Bool {
+        let rangeOfHangulAlphabet = "ㄱ"..."ㅣ"
         
-        return rangeOfHangulAlphabet.contains(character)
+        return rangeOfHangulAlphabet.contains(string)
     }
     
-    public func isHangul(_ character: Character) -> Bool {
-        return true
+    static func isHangul(_ string: String) -> Bool {
+        return string.range(of: "\\p{Hangul}", options: .regularExpression) != nil
     }
     
+    // es-hangul은 assertHangul이라는 함수가 있으나,
+    // Swift의 특성 상, 필요하지 않을 것으로 생각되어 구현하지 않았음.
+    // isHangul만 사용해도 충분하다고 결론. parseHangul과 safeParseHangul도 동일.
+    
+    // 이해하기 힘든 binaryAssembleAlphabets라는 함수명보다, Swift에서 지속적으로 사용해왔던 함수명을 차용.
+    
+    ///  두 개의 한글 자모를 합칩니다. 완성된 한글 문자는 취급하지 않습니다.
+    ///  ```
+    ///  binaryAssembleAlphabets('ㄱ', 'ㅏ') // 가
+    ///  binaryAssembleAlphabets('ㅗ', 'ㅏ') // ㅘ
+    ///  ```
+    static func reduce(lhs: String, rhs: String) -> String {
+        return String()
+    }
 }
 
-extension CharacterSet {
-    static var hangul: CharacterSet {
-        var characterSet: CharacterSet = []
-        characterSet.formUnion(.init(charactersIn: "가"..."힣"))
-        return characterSet
-    }
-}
+//extension CharacterSet {
+//    static var hangul: CharacterSet {
+//        var characterSet: CharacterSet = []
+//        characterSet.formUnion(.init(charactersIn: "가"..."힣"))
+//        return characterSet
+//    }
+//}
 
