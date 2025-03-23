@@ -178,7 +178,7 @@ public struct Hangul {
         "ㅣ": ["ㅣ"],
     ]
     
-    static let HangulDigits = [
+    static let Digits = [
         "",
         "만",
         "억",
@@ -201,11 +201,11 @@ public struct Hangul {
         "업",
     ]
     
-    static let HangulDigitsMax = HangulDigits.count * 4
+    static let DigitsMax = Digits.count * 4
     
-    static let HangulNumbers = ["", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"]
-    static let HangulNumbersForDecimal = ["영", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"]
-    static let HangulCardinal = ["", "십", "백", "천"]
+    static let Numbers = ["", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"]
+    static let NumbersForDecimal = ["영", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"]
+    static let Cardinal = ["", "십", "백", "천"]
 }
 
 
