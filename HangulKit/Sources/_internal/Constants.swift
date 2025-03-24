@@ -74,8 +74,8 @@ public struct Hangul {
         static let count = 27
         
         /// 종성으로 올 수 있는 한글 글자
-        static let list: [Character?] = [
-            nil,
+        static let list: [Character] = [
+            Character(""),
             "ㄱ",
             "ㄲ",
             "ㄳ",
@@ -116,8 +116,8 @@ public struct Hangul {
     static let CompleteHangulStartUnicodeScalar = "가".unicodeScalars.first!.value
     static let CompleteHangulEndUnicodeScalar = "힣".unicodeScalars.first!.value
     
-    static let NumberOfJongseong = 28
-    static let NumberOfJungseong = 21
+    static let NumberOfJongseong: UInt32 = 28
+    static let NumberOfJungseong: UInt32 = 21
     
     // 기존 es-hangul에서는 DISASSEMBLED_CONSONANTS_BY_CONSONANT라는 명칭을 사용하나,
     // DISASSEMBLED_CONSONANTS만 적더라도 충분히 의미가 전달된다 판단됨.
