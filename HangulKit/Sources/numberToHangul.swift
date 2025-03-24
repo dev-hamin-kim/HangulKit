@@ -7,10 +7,6 @@
 
 public extension Hangul {
     
-    enum InputError: Error {
-        case notANumber
-    }
-    
     // Swift 특성상 JS/TS를 사용하는 es-hangul과는 다르게 정수/실수 중 하나만을 사용가능.
     // 따라서 로직이 조금 차이가 있으니 유의.
     static func numberToHangul<T: SignedInteger>(_ number: T, withSpacing: Bool = false) -> String {
