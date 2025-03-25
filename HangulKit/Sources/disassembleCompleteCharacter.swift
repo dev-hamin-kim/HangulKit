@@ -14,7 +14,10 @@ public extension Hangul {
     static func disassembleCompleteCharacter(_ letter: Character) throws
     -> (choseong: String, jungseong: String, jongseong: String) {
         
-        guard isHangul(letter.description) else { throw InputError.notAHangul }
+        guard CompleteHangulStartUnicodeScalar <= letter.unicodeScalars.first!.value
+                && letter.unicodeScalars.first!.value <= CompleteHangulEndUnicodeScalar
+                // "가"..."힣".contains(letter.description)보다 효율적인가...?
+        else { throw InputError.notACompletedHangul }
         
         let charCode = letter.unicodeScalars.first!.value
         

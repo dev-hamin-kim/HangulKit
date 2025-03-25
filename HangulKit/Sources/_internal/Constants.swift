@@ -109,6 +109,7 @@ public struct Hangul {
     enum InputError: Error {
         case notANumber
         case notAHangul
+        case notACompletedHangul
     }
     
     static let JasoHangulNFD = "각힣".precomposedStringWithCanonicalMapping.unicodeScalars.map { String($0) }
