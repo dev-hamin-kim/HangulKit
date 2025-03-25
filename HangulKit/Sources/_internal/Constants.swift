@@ -16,7 +16,7 @@ public struct Hangul {
         static let range = "ㄱ"..."ㅎ"
         
         /// 초성으로 올 수 있는 한글 글자
-        static let list: [Character] = [
+        static let list: [String] = [
             "ㄱ",
             "ㄲ",
             "ㄴ",
@@ -44,7 +44,7 @@ public struct Hangul {
         static let count = 21
         
         /// 중성으로 올 수 있는 한글 글자
-        static let list: [Character] = [
+        static let list: [String] = [
             "ㅏ",
             "ㅐ",
             "ㅑ",
@@ -54,17 +54,17 @@ public struct Hangul {
             "ㅕ",
             "ㅖ",
             "ㅗ",
-            "ㅘ",
-            "ㅙ",
-            "ㅚ",
+            "ㅗㅏ",
+            "ㅗㅐ",
+            "ㅗㅣ",
             "ㅛ",
             "ㅜ",
-            "ㅝ",
-            "ㅞ",
-            "ㅟ",
+            "ㅜㅓ",
+            "ㅜㅔ",
+            "ㅜㅣ",
             "ㅠ",
             "ㅡ",
-            "ㅢ",
+            "ㅡㅣ",
             "ㅣ",
         ]
     }
@@ -74,28 +74,28 @@ public struct Hangul {
         static let count = 27
         
         /// 종성으로 올 수 있는 한글 글자
-        static let list: [Character] = [
-            Character(""),
+        static let list: [String] = [
+            "",
             "ㄱ",
-            "ㄲ",
-            "ㄳ",
+            "ㄱㄱ",
+            "ㄱㅅ",
             "ㄴ",
-            "ㄵ",
-            "ㄶ",
+            "ㄴㅈ",
+            "ㄴㅎ",
             "ㄷ",
             "ㄹ",
-            "ㄺ",
-            "ㄻ",
-            "ㄼ",
-            "ㄽ",
-            "ㄾ",
-            "ㄿ",
-            "ㅀ",
+            "ㄹㄱ",
+            "ㄹㅁ",
+            "ㄹㅂ",
+            "ㄹㅅ",
+            "ㄹㅌ",
+            "ㄹㅍ",
+            "ㄹㅎ",
             "ㅁ",
             "ㅂ",
-            "ㅄ",
+            "ㅂㅅ",
             "ㅅ",
-            "ㅆ",
+            "ㅅㅅ",
             "ㅇ",
             "ㅈ",
             "ㅊ",
