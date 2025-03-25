@@ -11,8 +11,8 @@ public extension Hangul {
     
     /// 완전한 한글 문자열을 초성, 중성, 종성으로 분리합니다.
     ///
-    static func disassembleCompleteCharacter(letter: Character) throws
-    -> (choseong: Character, jungseong: Character, jongseong: Character) {
+    static func disassembleCompleteCharacter(_ letter: Character) throws
+    -> (choseong: String, jungseong: String, jongseong: String) {
         
         guard isHangul(letter.description) else { throw InputError.notAHangul }
         

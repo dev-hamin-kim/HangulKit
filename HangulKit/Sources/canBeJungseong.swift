@@ -17,7 +17,7 @@ public extension Hangul {
     /// canBeJungseong('ㄱㅅ') // false
     /// canBeJungseong('가') // false
     ///
-    static func canBeJungseong(_ character: Character) -> Bool {
-        return Hangul.Jungseong.list.contains(character)
+    static func canBeJungseong(_ string: String) -> Bool {
+        return Hangul.Jungseong.list.contains(string)
     }
 }
