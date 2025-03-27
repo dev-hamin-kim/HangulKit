@@ -22,7 +22,7 @@ public extension Hangul {
 //            
 //            if let char = Hangul.DisassembledConsonants[char] { }
 
-            var disassembledCharacter = try? disassembleCompleteCharacter(char)
+            let disassembledCharacter = try? disassembleCompleteCharacter(char)
             
             guard let disassembledCharacter else {
                 if let char = Hangul.DisassembledVowels[char] { result.append(char) }
