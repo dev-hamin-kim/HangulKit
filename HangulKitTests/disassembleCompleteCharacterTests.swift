@@ -15,13 +15,13 @@ struct disassembleCompleteCharacterTests {
         #expect(throws: Never.self) {
             try Hangul.disassembleCompleteCharacter("값") == (choseong: "ㄱ",
                                                              jungseong: "ㅏ",
-                                                             jongseong: "ㅂㅅ")
+                                                             jongseong: "ㅄ")
         }
         
         #expect(throws: Never.self) {
             try Hangul.disassembleCompleteCharacter("리") == (choseong: "ㄹ",
                                                              jungseong: "ㅣ",
-                                                             jongseong: "")
+                                                             jongseong: nil)
         }
         
         #expect(throws: Never.self) {

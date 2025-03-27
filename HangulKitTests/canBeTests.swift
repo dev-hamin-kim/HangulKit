@@ -18,30 +18,30 @@ struct canBeTests {
         // 초성이 될 수 없다고 판단되는 경우
         #expect(Hangul.canBeChoseong("ㅏ") == false)
         #expect(Hangul.canBeChoseong("ㅘ") == false)
-        #expect(Hangul.canBeChoseong("ㄱㅅ") == false)
+        #expect(Hangul.canBeChoseong("ㄳ") == false)
         #expect(Hangul.canBeChoseong("가") == false)
     }
     
     @Test func canBeJungseong() async throws {
         // 중성이 될 수 있다고 판단되는 경우
-        #expect(Hangul.canBeJungseong("ㅗㅏ") == true)
+        #expect(Hangul.canBeJungseong("ㅘ") == true)
         #expect(Hangul.canBeJungseong("ㅏ") == true)
         
         // 중성이 될 수 없다고 판단되는 경우
         #expect(Hangul.canBeJungseong("ㄱ") == false)
-        #expect(Hangul.canBeJungseong("ㄱㅅ") == false)
+        #expect(Hangul.canBeJungseong("ㄳ") == false)
         #expect(Hangul.canBeJungseong("가") == false)
     }
     
     @Test func canBeJongseong() async throws {
         // 종성이 될 수 있다고 판단되는 경우
         #expect(Hangul.canBeJongseong("ㄱ") == true)
-        #expect(Hangul.canBeJongseong("ㄱㅅ") == true)
-        #expect(Hangul.canBeJongseong("ㅂㅅ") == true)
+        #expect(Hangul.canBeJongseong("ㄳ") == true)
+        #expect(Hangul.canBeJongseong("ㅄ") == true)
         
         // 종성이 될 수 없다고 판단되는 경우
-        #expect(Hangul.canBeJongseong("ㅎㄹ") == false)
-        #expect(Hangul.canBeJongseong("ㅗㅏ") == false)
+        #expect(Hangul.canBeJongseong("ㅃ") == false)
+        #expect(Hangul.canBeJongseong("ㅘ") == false)
         #expect(Hangul.canBeJongseong("ㅏ") == false)
         #expect(Hangul.canBeJongseong("ㅏ") == false)
     }
