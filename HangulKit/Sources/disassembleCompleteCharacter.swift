@@ -12,7 +12,7 @@ public extension Hangul {
     /// 완전한 한글 문자열을 초성, 중성, 종성으로 분리합니다.
     ///
     static func disassembleCompleteCharacter(_ letter: Character) throws
-    -> (choseong: String, jungseong: String, jongseong: String) {
+    -> (choseong: Character, jungseong: Character, jongseong: Character?) {
         
         guard CompleteHangulStartUnicodeScalar <= letter.unicodeScalars.first!.value
                 && letter.unicodeScalars.first!.value <= CompleteHangulEndUnicodeScalar

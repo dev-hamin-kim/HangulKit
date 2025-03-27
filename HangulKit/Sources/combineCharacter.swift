@@ -17,9 +17,9 @@ public extension Hangul {
     /// ```
     /// combineCharacter('ㄱ', 'ㅏ', 'ㅂㅅ') // '값'
     /// combineCharacter('ㅌ', 'ㅗ') // '토'
-    static func combineCharacter(choseong: String,
-                                 jungseong: String,
-                                 jongseong: String = "") throws -> Character {
+    static func combineCharacter(choseong: Character,
+                                 jungseong: Character,
+                                 jongseong: Character? = nil) throws -> Character {
         
         guard canBeChoseong(choseong) else { throw CombineCharacterError.invalidChoseong }
         guard canBeJungseong(jungseong) else { throw CombineCharacterError.invalidJungseong }
