@@ -16,7 +16,7 @@ public struct Hangul {
         static let range = "ㄱ"..."ㅎ"
         
         /// 초성으로 올 수 있는 한글 글자
-        static let list: [String] = [
+        static let list: [Character] = [
             "ㄱ",
             "ㄲ",
             "ㄴ",
@@ -44,7 +44,7 @@ public struct Hangul {
         static let count = 21
         
         /// 중성으로 올 수 있는 한글 글자
-        static let list: [String] = [
+        static let list: [Character] = [
             "ㅏ",
             "ㅐ",
             "ㅑ",
@@ -54,17 +54,17 @@ public struct Hangul {
             "ㅕ",
             "ㅖ",
             "ㅗ",
-            "ㅗㅏ",
-            "ㅗㅐ",
-            "ㅗㅣ",
+            "ㅘ",
+            "ㅙ",
+            "ㅚ",
             "ㅛ",
             "ㅜ",
-            "ㅜㅓ",
-            "ㅜㅔ",
-            "ㅜㅣ",
+            "ㅝ",
+            "ㅞ",
+            "ㅟ",
             "ㅠ",
             "ㅡ",
-            "ㅡㅣ",
+            "ㅢ",
             "ㅣ",
         ]
     }
@@ -74,28 +74,28 @@ public struct Hangul {
         static let count = 27
         
         /// 종성으로 올 수 있는 한글 글자
-        static let list: [String] = [
-            "",
+        static let list: [Character?] = [
+            nil,
             "ㄱ",
-            "ㄱㄱ",
-            "ㄱㅅ",
+            "ㄲ",
+            "ㄳ",
             "ㄴ",
-            "ㄴㅈ",
-            "ㄴㅎ",
+            "ㄵ",
+            "ㄶ",
             "ㄷ",
             "ㄹ",
-            "ㄹㄱ",
-            "ㄹㅁ",
-            "ㄹㅂ",
-            "ㄹㅅ",
-            "ㄹㅌ",
-            "ㄹㅍ",
-            "ㄹㅎ",
+            "ㄺ",
+            "ㄻ",
+            "ㄼ",
+            "ㄽ",
+            "ㄾ",
+            "ㄿ",
+            "ㅀ",
             "ㅁ",
             "ㅂ",
-            "ㅂㅅ",
+            "ㅄ",
             "ㅅ",
-            "ㅅㅅ",
+            "ㅆ",
             "ㅇ",
             "ㅈ",
             "ㅊ",
@@ -123,9 +123,9 @@ public struct Hangul {
     // 기존 es-hangul에서는 DISASSEMBLED_CONSONANTS_BY_CONSONANT라는 명칭을 사용하나,
     // DISASSEMBLED_CONSONANTS만 적더라도 충분히 의미가 전달된다 판단됨.
     // (한글을 사용하는 사람이라면 자,모음이 결합된다는 규칙을 익히 알고 있기 때문에...)
-    static let DisassembledConsonants: [String: [Character]] = [
+    static let DisassembledConsonants: [Character?: [Character]] = [
         // (from es-hangul) 종성이 없는 경우 '빈' 초성으로 관리하는 것이 편리하여, 빈 문자열도 포함한다.
-        "": [],
+        nil: [],
         "ㄱ": ["ㄱ"],
         "ㄲ": ["ㄲ"],
         "ㄳ": ["ㄱ", "ㅅ"],
@@ -158,7 +158,7 @@ public struct Hangul {
         "ㅎ": ["ㅎ"],
     ]
     
-    static let DisassembledVowels: [String: [Character]] = [
+    static let DisassembledVowels: [Character: [Character]] = [
         "ㅏ": ["ㅏ"],
         "ㅐ": ["ㅐ"],
         "ㅑ": ["ㅑ"],
