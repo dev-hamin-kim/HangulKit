@@ -27,14 +27,14 @@ public extension Hangul {
         
         let chosungIndex = Choseong.list.firstIndex(of: choseong)!
         let jungsungIndex = Jungseong.list.firstIndex(of: jungseong)!
-        let jongsungIndex = Jongseong.list.firstIndex(of: jongseong)
+        let jongsungIndex = Jongseong.list.firstIndex(of: jongseong) ?? 0 // nil일 경우 받침 없이 처리
         
         let choseongOfTargetConsonant = chosungIndex * Jungseong.count * Jongseong.count
         let choseongOfTargetVowel = jungsungIndex * Jongseong.count
         
         let unicodeValue: UInt32 =
-        Hangul.CompleteHangulEndUnicodeScalar +
-        UInt32(jongsungIndex! + choseongOfTargetConsonant + choseongOfTargetVowel)
+        Hangul.CompleteHangulStartUnicodeScalar +
+        UInt32(jongsungIndex + choseongOfTargetConsonant + choseongOfTargetVowel)
         
         return Character(Unicode.Scalar(unicodeValue)!)
     }

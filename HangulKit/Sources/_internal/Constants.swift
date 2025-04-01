@@ -71,7 +71,7 @@ public struct Hangul {
     
     struct Jongseong {
         static let unicodeValue = 0x11A8
-        static let count = 27
+        static let count = 28
         
         /// 종성으로 올 수 있는 한글 글자
         static let list: [Character?] = [
