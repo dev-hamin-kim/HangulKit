@@ -26,5 +26,7 @@ struct disassembleToGroupsTests {
         #expect(Hangul.disassembleToGroups("사과 짱") == [["ㅅ", "ㅏ"], ["ㄱ", "ㅗ", "ㅏ"], [" "], ["ㅉ", "ㅏ", "ㅇ"]])
         #expect(Hangul.disassembleToGroups("ㄵ") == [["ㄴ", "ㅈ"]])
         #expect(Hangul.disassembleToGroups("ㅘ") == [["ㅗ", "ㅏ"]])
+        
+        #expect(Hangul.disassembleToGroups("뷁") == [["ㅂ", "ㅜ", "ㅔ", "ㄹ", "ㄱ"]])
     }
 }
