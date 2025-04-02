@@ -15,7 +15,6 @@ public extension Hangul {
         
         let isNegative = number.signum() == -1
         let absouluteValue = number.magnitude
-        let decimalPart = absouluteValue
         
         let absouluteValueString = String(describing: absouluteValue)
         
@@ -73,7 +72,7 @@ public extension Hangul {
             placeIndex += 1
         }
         
-        var result: String = koreanParts
+        let result: String = koreanParts
             .filter { $0 != "" }
             .joined(separator: withSpacing ? " " : "")
             .trimmingCharacters(in: .whitespacesAndNewlines)
