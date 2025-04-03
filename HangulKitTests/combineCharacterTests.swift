@@ -8,9 +8,9 @@
 import Testing
 @testable import HangulKit
 
-struct combineTests {
+struct combineCharacterTests {
     
-    @Test func combineTest() async throws {
+    @Test func combineCharacterTest() async throws {
         // 종성으로 겹받침으로 구성될 수 있는 문자 두 개를 받으면 겹받침을 생성한다. (ㄱ, ㅏ, ㅂㅅ)
         #expect(throws: Never.self) {
             try Hangul.combineCharacter(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅄ") == "값"
