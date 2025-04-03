@@ -9,20 +9,17 @@
 
 public extension Hangul {
     
-    // es-hangul에서의 이름은 isHangulCharacter이지만,
-    // Swift의 특성 상
-    // 음절을 의미하는 Syllable으로 변경하였음.
-    static func isHangulSyllable(_ string: String) -> Bool {
+    static func isHangulCharacter(_ input: Character) -> Bool {
         // 타입 선언 생략 시 컴파일러가 ClosedRange<String>으로 추론함.
-        let rangeOfHangul = "가"..."힣"
+        let rangeOfHangul: ClosedRange<Character> = "가"..."힣"
         
-        return rangeOfHangul.contains(string)
+        return rangeOfHangul.contains(input)
     }
     
-    static func isHangulAlphabet(_ string: String) -> Bool {
-        let rangeOfHangulAlphabet = "ㄱ"..."ㅣ"
+    static func isHangulAlphabet(_ input: Character) -> Bool {
+        let rangeOfHangulAlphabet: ClosedRange<Character> = "ㄱ"..."ㅣ"
         
-        return rangeOfHangulAlphabet.contains(string)
+        return rangeOfHangulAlphabet.contains(input)
     }
     
     static func isHangul(_ string: String) -> Bool {
