@@ -40,6 +40,12 @@ public extension Hangul {
 
         return result
     }
+    
+    static func excludeLastElement(_ array: [Character]) -> (array: [Character], excludedElement: Character?) {
+        let lastElement = array.last // Get last element or default to ""
+        let newArray = Array(array.dropLast()) // Remove last element
+        return (newArray, lastElement)
+    }
 }
 
 //extension CharacterSet {
