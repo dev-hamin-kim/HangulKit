@@ -143,6 +143,15 @@ public extension Hangul {
         return "\(source)\(nextCharacter)"
     }
     
+    static func binaryAssemble(_ source: String, _ nextCharacter: Character) -> String {
+        
+        guard source.isEmpty == false else { return nextCharacter.description }
+        
+        let lastCharacter = source.last!
+        
+        return [String(source.dropLast(1)), binaryAssembleCharacters(lastCharacter, nextCharacter)].joined()
+    }
+    
     // MARK: 이거 좀 덜 복잡하게 할 수 있는 방법이 없을까...?
     static let curriedCombineCharacter:
     (_ choseong: Character) ->
