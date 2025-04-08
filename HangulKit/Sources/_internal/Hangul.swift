@@ -59,6 +59,102 @@ public extension Hangul {
         
         return combinedInputs
     }
+    
+    static func binaryAssembleCharacters(_ source: Character, _ nextCharacter: Character) -> String {
+        
+        // MARK: 이 가드문들이 던지는 에러를 적절하게 작성할 것.
+        guard isHangulCharacter(source) || isHangulAlphabet(source) else { return "" }
+        guard isHangulAlphabet(nextCharacter) else { return "" }
+        
+        var sourceJamos = disassembleToGroups(source.description)[0]
+        
+        let isSingleCharacter = sourceJamos.count == 1
+        
+        if isSingleCharacter {
+            let sourceCharacter = sourceJamos[0]
+            return binaryAssembleAlphabets(sourceCharacter, nextCharacter).description
+        }
+
+        let lastJamo = sourceJamos.removeLast()
+        let secondLastJamo = sourceJamos.removeLast()
+        let restOfJamos = sourceJamos
+        
+        let needsLinking = canBeChoseong(lastJamo) && canBeJungseong(nextCharacter)
+        
+        if needsLinking { return linkHangulCharacters(source, nextCharacter) }
+        
+        let fixConsonant = curriedCombineCharacter
+        let combineJungseong = fixConsonant(restOfJamos.first ?? secondLastJamo)
+        
+        // source의 마지막 한글과 nextCharacter가 합쳐서 중성이 될 수 있을 때.
+        let lastJamoAndNextCharacterCombined = Hangul.assembledVowels["\(lastJamo)\(nextCharacter)"] ?? " "
+        
+        if canBeJungseong(lastJamoAndNextCharacterCombined) {
+            return combineJungseong(lastJamoAndNextCharacterCombined)(nil).description
+        }
+        
+        // source의 마지막 두 글자가 합쳐서 중성, 그리고 nextCharacter가 종성이 될 수 있을 때.
+        let lastTwoCombined = Hangul.assembledVowels["\(secondLastJamo)\(lastJamo)"] ?? " "
+
+        if canBeJungseong(lastTwoCombined) && canBeJongseong(nextCharacter) {
+            return combineJungseong(lastTwoCombined)(nextCharacter).description
+        }
+        
+        // source의 마지막 한 글자가 중성, nextCharacter가 종성이 될 수 있을 때.
+        if canBeJungseong(lastJamo) && canBeJongseong(nextCharacter) {
+            return combineJungseong(lastJamo)(nextCharacter).description
+        }
+        
+        let fixVowel = combineJungseong
+        
+        // 여기부터는 es-hangul과 다른 구조를 택함.
+        // JS/TS와 Swift의 차이점 때문에 새로 짜는 것이 낫겠다 판단함.
+        
+        // source의 마지막 한 글자와 nextCharacter가 합쳐저 종성이 될 수 있을 때
+        let restOfJamosCombined = Hangul.assembledConsonants["\(lastJamo)\(nextCharacter)"] ?? " "
+        
+        if canBeJongseong(restOfJamosCombined) && restOfJamos.count == 1 {
+            return fixVowel(secondLastJamo)(restOfJamosCombined).description
+        }
+        
+        if canBeJongseong(restOfJamosCombined) && restOfJamos.count == 2 {
+            let combinedVowels = Hangul.assembledVowels["\(restOfJamos[1])\(secondLastJamo)"] ?? " "
+            
+            return fixVowel(combinedVowels)(restOfJamosCombined).description
+        }
+        
+        // 위까지의 로직을 차라리 초성 유무, 중성 유무 + 겹낱자 여부, 종성 유무 + 겹낱자 여부 이렇게? 바꾸는 건 어떨지 생각...?
+        
+//        if restOfJamos.count >= 3 {
+//            let restOfJamosCombined = Hangul.assembledVowels["\(restOfJamos[1])\(restOfJamos[2])"] ?? " "
+//            let combineJongseong = fixVowel(
+//                canBeJungseong(restOfJamosCombined) ? restOfJamosCombined : restOfJamos[1]
+//            )
+//            
+//            let lastConsonant = lastJamo
+//            let lastConsonantNextCharacterCombined = Hangul.assembledConsonants["\(lastConsonant)\(nextCharacter)"] ?? " "
+//            
+//            if hasBatchim(source, .single) &&
+//                canBeJongseong(lastConsonantNextCharacterCombined) {
+//                return combineJongseong(lastConsonantNextCharacterCombined).description
+//            }
+//        }
+        
+        return "\(source)\(nextCharacter)"
+    }
+    
+    // MARK: 이거 좀 덜 복잡하게 할 수 있는 방법이 없을까...?
+    static let curriedCombineCharacter:
+    (_ choseong: Character) ->
+    (_ jungseong: Character) ->
+    (_ jongseong: Character?) -> Character
+    = { choseong in
+        return { jungseong in
+            return { jongseong in
+                return try! combineCharacter(choseong: choseong, jungseong: jungseong, jongseong: jongseong)
+            }
+        }
+    }
 }
 
 //extension CharacterSet {
