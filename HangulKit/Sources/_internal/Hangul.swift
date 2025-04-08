@@ -46,6 +46,19 @@ public extension Hangul {
         let newArray = Array(array.dropLast()) // Remove last element
         return (newArray, lastElement)
     }
+    
+    static func binaryAssembleAlphabets(_ source: Character, _ nextCharacter: Character) -> String {
+        let combinedInputs = "\(source)\(nextCharacter)"
+        let correspondingVowel = Hangul.assembledVowels[combinedInputs]
+        
+        if let correspondingVowel { return correspondingVowel.description }
+        
+        if !canBeJungseong(source) && canBeJungseong(nextCharacter) {
+            return try! combineCharacter(choseong: source, jungseong: nextCharacter).description
+        }
+        
+        return combinedInputs
+    }
 }
 
 //extension CharacterSet {
