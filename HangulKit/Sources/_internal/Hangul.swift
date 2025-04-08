@@ -30,15 +30,15 @@ public extension Hangul {
     // Swift의 특성 상, 필요하지 않을 것으로 생각되어 구현하지 않았음.
     // isHangul만 사용해도 충분하다고 결론. parseHangul과 safeParseHangul도 동일.
     
-    // 이해하기 힘든 binaryAssembleAlphabets라는 함수명보다, Swift에서 지속적으로 사용해왔던 함수명을 차용.
-    
-    ///  두 개의 한글 자모를 합칩니다. 완성된 한글 문자는 취급하지 않습니다.
-    ///  ```
-    ///  binaryAssembleAlphabets('ㄱ', 'ㅏ') // 가
-    ///  binaryAssembleAlphabets('ㅗ', 'ㅏ') // ㅘ
-    ///  ```
-    static func reduce(lhs: String, rhs: String) -> String {
-        return String()
+    /// 연음 법칙을 적용하여 두 개의 한글 문자를 연결합니다.
+    static func linkHangulCharacters(_ lhs: Character, _ rhs: Character) -> String {
+        var sourceJamo = disassembleToGroups(lhs.description)[0]
+        let lastJamo = sourceJamo.removeLast()
+        
+        var result = removeLastCharacter(lhs.description)
+        try! result.append(combineCharacter(choseong: lastJamo, jungseong: rhs))
+
+        return result
     }
 }
 
