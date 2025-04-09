@@ -11,8 +11,8 @@ public extension Hangul {
         var result: [[Character]] = []
         
         for char in string {
-            guard char != " " else {
-                result.append([" "])
+            guard isHangul(String(char)) else {
+                result.append([char])
                 continue
             }
             
