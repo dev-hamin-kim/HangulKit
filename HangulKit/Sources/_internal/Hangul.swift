@@ -63,8 +63,9 @@ public extension Hangul {
     static func binaryAssembleCharacters(_ source: Character, _ nextCharacter: Character) -> String {
         
         // MARK: 이 가드문들이 던지는 에러를 적절하게 작성할 것.
+        guard source.isWhitespace == false else { return " \(nextCharacter)" }
         guard isHangulCharacter(source) || isHangulAlphabet(source) else { return "" }
-        guard isHangulAlphabet(nextCharacter) else { return "" }
+        guard isHangulAlphabet(nextCharacter) else { return "\(source)\(nextCharacter)" }
         
         var sourceJamos = disassembleToGroups(source.description)[0]
         
