@@ -146,11 +146,16 @@ public extension Hangul {
     
     static func binaryAssemble(_ source: String, _ nextCharacter: Character) -> String {
         
-        guard source.isEmpty == false else { return nextCharacter.description }
+        guard source != " " else { return " " + "\(nextCharacter)" }
         
-        let lastCharacter = source.last!
+        guard let lastCharacter = source.last else { return "\(nextCharacter)" }
         
-        return [String(source.dropLast(1)), binaryAssembleCharacters(lastCharacter, nextCharacter)].joined()
+        let result = [
+            String(source.dropLast(1)),
+            binaryAssembleCharacters(lastCharacter, nextCharacter),
+        ].joined()
+        
+        return result
     }
     
     // MARK: 이거 좀 덜 복잡하게 할 수 있는 방법이 없을까...?
