@@ -84,14 +84,33 @@ struct numberToHangulTests {
     func decimalNumbers() async throws {
         #expect(throws: Never.self) {
             try Hangul.numberToHangul(0.1) == "영점일"
+        }
+        
+        #expect(throws: Never.self) {
             try Hangul.numberToHangul(12_345.678) == "일만이천삼백사십오점육칠팔"
+        }
+        
+        #expect(throws: Never.self) {
             try Hangul.numberToHangul(-0.1) == "마이너스영점일"
+        }
+        
+        #expect(throws: Never.self) {
             try Hangul.numberToHangul(-12_345.678) == "마이너스일만이천삼백사십오점육칠팔"
         }
+        
         #expect(throws: Never.self) {
             try Hangul.numberToHangul(0.1, withSpacing: true) == "영점 일"
+        }
+        
+        #expect(throws: Never.self) {
             try Hangul.numberToHangul(12_345.678, withSpacing: true) == "일만 이천삼백사십오점 육칠팔"
+        }
+        
+        #expect(throws: Never.self) {
             try Hangul.numberToHangul(-0.1, withSpacing: true) == "마이너스 영점 일"
+        }
+        
+        #expect(throws: Never.self) {
             try Hangul.numberToHangul(-12_345.678, withSpacing: true) == "마이너스 일만 이천삼백사십오점 육칠팔"
         }
     }
@@ -100,7 +119,13 @@ struct numberToHangulTests {
     func invalidInputs() async throws {
         #expect(throws: Hangul.InputError.notANumber) {
             try Hangul.numberToHangul(Double.nan)
+        }
+        
+        #expect(throws: Hangul.InputError.notANumber) {
             try Hangul.numberToHangul(Float.nan)
+        }
+        
+        #expect(throws: Hangul.InputError.notANumber) {
             try Hangul.numberToHangul(Float16.nan)
         }
     }
