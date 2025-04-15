@@ -7,12 +7,25 @@
 
 public extension Hangul {
     
-    
+    struct DisassembledCharacter: Equatable {
+        let choseong: Character
+        let jungseong: Character
+        let jongseong: Character?
+        
+        init(choseong: Character, jungseong: Character, jongseong: Character? = nil) {
+            self.choseong = choseong
+            self.jungseong = jungseong
+            self.jongseong = jongseong
+        }
+        
+        static public func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.choseong == rhs.choseong && lhs.jungseong == rhs.jungseong && lhs.jongseong == rhs.jongseong
+        }
+    }
     
     /// 완전한 한글 문자열을 초성, 중성, 종성으로 분리합니다.
     ///
-    static func disassembleCompleteCharacter(_ letter: Character) throws
-    -> (choseong: Character, jungseong: Character, jongseong: Character?) {
+    static func disassembleCompleteCharacter(_ letter: Character) throws -> DisassembledCharacter {
         
         guard CompleteHangulStartUnicodeScalar <= letter.unicodeScalars.first!.value
                 && letter.unicodeScalars.first!.value <= CompleteHangulEndUnicodeScalar
@@ -27,7 +40,7 @@ public extension Hangul {
         let jungseongIndex = ((hangulCode - jongseongIndex) / Hangul.NumberOfJongseong) % Hangul.NumberOfJungseong
         let choseongIndex = (hangulCode - jongseongIndex) / Hangul.NumberOfJongseong / Hangul.NumberOfJungseong
         
-        let result = (choseong: Hangul.Choseong.list[Int(choseongIndex)],
+        let result = DisassembledCharacter(choseong: Hangul.Choseong.list[Int(choseongIndex)],
                       jungseong: Hangul.Jungseong.list[Int(jungseongIndex)],
                       jongseong: Hangul.Jongseong.list[Int(jongseongIndex)])
         
