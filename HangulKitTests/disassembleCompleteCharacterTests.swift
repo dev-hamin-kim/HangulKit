@@ -13,27 +13,27 @@ struct disassembleCompleteCharacterTests {
     @Test("온전한 한글 한 글자")
     func completeHangul() {
         #expect(throws: Never.self) {
-            try Hangul.disassembleCompleteCharacter("값") == (choseong: "ㄱ",
-                                                             jungseong: "ㅏ",
-                                                             jongseong: "ㅄ")
+            try Hangul.disassembleCompleteCharacter("값") == Hangul.DisassembledCharacter(choseong: "ㄱ",
+                                                                                         jungseong: "ㅏ",
+                                                                                         jongseong: "ㅄ")
         }
         
         #expect(throws: Never.self) {
-            try Hangul.disassembleCompleteCharacter("리") == (choseong: "ㄹ",
-                                                             jungseong: "ㅣ",
-                                                             jongseong: nil)
+            try Hangul.disassembleCompleteCharacter("리") == Hangul.DisassembledCharacter(choseong: "ㄹ",
+                                                                                         jungseong: "ㅣ",
+                                                                                         jongseong: nil)
         }
         
         #expect(throws: Never.self) {
-            try Hangul.disassembleCompleteCharacter("빚") == (choseong: "ㅂ",
-                                                             jungseong: "ㅣ",
-                                                             jongseong: "ㅈ")
+            try Hangul.disassembleCompleteCharacter("빚") == Hangul.DisassembledCharacter(choseong: "ㅂ",
+                                                                                         jungseong: "ㅣ",
+                                                                                         jongseong: "ㅈ")
         }
         
         #expect(throws: Never.self) {
-            try Hangul.disassembleCompleteCharacter("박") == (choseong: "ㅂ",
-                                                             jungseong: "ㅏ",
-                                                             jongseong: "ㄱ")
+            try Hangul.disassembleCompleteCharacter("박") == Hangul.DisassembledCharacter(choseong: "ㅂ",
+                                                                                         jungseong: "ㅏ",
+                                                                                         jongseong: "ㄱ")
         }
     }
     
