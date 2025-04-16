@@ -11,7 +11,7 @@ public extension Hangul {
     static let 한글_자모 = ["기역", "니은", "리을", "미음", "비읍", "시옷", "이응"]
     static let 특별한_한글_자모 = ["디귿", "지읒", "치읓", "키읔", "티읕", "피읖", "히읗"]
     
-    static let 특별한_한글_자모의_발음 = [
+    static let 특별한_한글_자모의_발음 [Character: Character] = [
         "ㄷ": "ㅅ",
         "ㅈ": "ㅅ",
         "ㅊ": "ㅅ",
@@ -22,29 +22,28 @@ public extension Hangul {
     ]
     
     // 17항
-    static let 음의_동화_받침 = [
+    static let 음의_동화_받침: [Character: Character] = [
         "ㄷ": "ㅈ",
         "ㅌ": "ㅊ",
-        "ㄹㅌ": "ㅊ"
+        "ㄾ": "ㅊ"
     ]
     
     // 'ㄴ,ㄹ'이 덧나는 동화작용
-    static let ㄴㄹ이_덧나는_모음: CharacterSet = ["ㅏ", "ㅐ", "ㅓ", "ㅔ", "ㅗ", "ㅜ", "ㅟ"]
-    static let ㄴㄹ이_덧나는_후속음절_모음: CharacterSet = ["ㅑ", "ㅕ", "ㅛ", "ㅠ", "ㅣ", "ㅒ", "ㅖ"]
-    static let ㄴㄹ이_덧나서_받침_ㄴ_변환: CharacterSet = ["ㄱ", "ㄴ", "ㄷ", "ㅁ", "ㅂ", "ㅇ"]
+    static let ㄴㄹ이_덧나는_모음: Set<Character> = ["ㅏ", "ㅐ", "ㅓ", "ㅔ", "ㅗ", "ㅜ", "ㅟ"]
+    static let ㄴㄹ이_덧나는_후속음절_모음: Set<Character> = ["ㅑ", "ㅕ", "ㅛ", "ㅠ", "ㅣ", "ㅒ", "ㅖ"]
+    static let ㄴㄹ이_덧나서_받침_ㄴ_변환: Set<Character> = ["ㄱ", "ㄴ", "ㄷ", "ㅁ", "ㅂ", "ㅇ"]
     static let ㄴㄹ이_덧나서_받침_ㄹ_변환: Character = "ㄹ"
     
     // 19항
-    static let 자음동화_받침_ㄴ_변환: CharacterSet = ["ㅁ", "ㅇ", "ㄱ", "ㅂ"]
-    
+    static let 자음동화_받침_ㄴ_변환: Set<Character> = ["ㅁ", "ㅇ", "ㄱ", "ㅂ"]
     
     // 18항
-    static let 비음화_받침_ㅇ_변환 = ["ㄱ", "ㄲ", "ㅋ", "ㄱㅅ", "ㄹㄱ"]
-    static let 비음화_받침_ㄴ_변환 = ["ㄷ", "ㅅ", "ㅆ", "ㅈ", "ㅊ", "ㅌ", "ㅎ"]
-    static let 비음화_받침_ㅁ_변환 = ["ㅂ", "ㅍ", "ㄹㅂ", "ㄹㅍ", "ㅂㅅ"]
+    static let 비음화_받침_ㅇ_변환: Set<Character> = ["ㄱ", "ㄲ", "ㅋ", "ㄳ", "ㄺ"]
+    static let 비음화_받침_ㄴ_변환: Set<Character> = ["ㄷ", "ㅅ", "ㅆ", "ㅈ", "ㅊ", "ㅌ", "ㅎ"]
+    static let 비음화_받침_ㅁ_변환: Set<Character> = ["ㅂ", "ㅍ", "ㄼ", "ㄿ", "ㅄ"]
     
     // 12항
-    static let 발음변환_받침_ㅎ = ["ㅎ", "ㄴㅎ", "ㄹㅎ"]
+    static let 발음변환_받침_ㅎ: Set<Character> = ["ㅎ", "ㄶ", "ㅀ"]
     static let 발음변환_받침_ㅎ_발음: [Character: Character] = [
         "ㄱ": "ㅋ",
         "ㄷ": "ㅌ",
@@ -52,7 +51,7 @@ public extension Hangul {
         "ㅅ": "ㅆ",
     ]
     
-    static let 발음변환_첫소리_ㅎ: [Character] = ["ㄱ", "ㄺ", "ㄷ", "ㅂ", "ㄼ", "ㅈ", "ㄵ"]
+    static let 발음변환_첫소리_ㅎ: Set<Character> = ["ㄱ", "ㄺ", "ㄷ", "ㅂ", "ㄼ", "ㅈ", "ㄵ"]
     
     static let 발음변환_첫소리_ㅎ_발음: [Character: Character] = [
         "ㄱ": "ㅋ",
@@ -65,27 +64,27 @@ public extension Hangul {
     ]
     
     // 9항, 10항, 11항
-    static let 받침_대표음_발음 = [
+    static let 받침_대표음_발음: [Character: Character] = [
         "ㄲ": "ㄱ",
         "ㅋ": "ㄱ",
-        "ㄱㅅ": "ㄱ",
-        "ㄹㄱ": "ㄱ",
+        "ㄳ": "ㄱ",
+        "ㄺ": "ㄱ",
         "ㅅ": "ㄷ",
         "ㅆ": "ㄷ",
         "ㅈ": "ㄷ",
         "ㅊ": "ㄷ",
         "ㅌ": "ㄷ",
         "ㅍ": "ㅂ",
-        "ㅂㅅ": "ㅂ",
-        "ㄹㅍ": "ㅂ",
-        "ㄴㅈ": "ㄴ",
-        "ㄹㅂ": "ㄹ",
-        "ㄹㅅ": "ㄹ",
-        "ㄹㅌ": "ㄹ",
-        "ㄹㅁ": "ㅁ",
+        "ㅄ": "ㅂ",
+        "ㄿ": "ㅂ",
+        "ㄵ": "ㄴ",
+        "ㄼ": "ㄹ",
+        "ㄽ": "ㄹ",
+        "ㄾ": "ㄹ",
+        "ㄻ": "ㅁ",
     ]
     
-    static let 된소리 = [
+    static let 된소리: [Character: Character] = [
         "ㄱ": "ㄲ",
         "ㄷ": "ㄸ",
         "ㅂ": "ㅃ",
@@ -94,12 +93,12 @@ public extension Hangul {
     ]
     
     // 23항
-    static let 된소리_받침 = [
+    static let 된소리_받침: Set<Character> = [
         "ㄱ",
         "ㄲ",
         "ㅋ",
-        "ㄱㅅ",
-        "ㄹㄱ",
+        "ㄳ",
+        "ㄺ",
         "ㄷ",
         "ㅅ",
         "ㅆ",
@@ -108,11 +107,11 @@ public extension Hangul {
         "ㅌ",
         "ㅂ",
         "ㅍ",
-        "ㄹㅂ",
-        "ㄹㅍ",
-        "ㅂㅅ",
+        "ㄼ",
+        "ㄿ",
+        "ㅄ",
     ]
     
     // 24항, 25항
-    static let 어간_받침 = ["ㄴ", "ㄴㅈ", "ㅁ", "ㄹㅁ", "ㄹㅂ", "ㄹㅌ"]
+    static let 어간_받침: Set<Character> = ["ㄴ", "ㄵ", "ㅁ", "ㄻ", "ㄼ", "ㄾ"]
 }
