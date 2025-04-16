@@ -11,7 +11,7 @@ public extension Hangul {
     static let 한글_자모 = ["기역", "니은", "리을", "미음", "비읍", "시옷", "이응"]
     static let 특별한_한글_자모 = ["디귿", "지읒", "치읓", "키읔", "티읕", "피읖", "히읗"]
     
-    static let 특별한_한글_자모의_발음 [Character: Character] = [
+    static let 특별한_한글_자모의_발음: [Character: Character] = [
         "ㄷ": "ㅅ",
         "ㅈ": "ㅅ",
         "ㅊ": "ㅅ",
