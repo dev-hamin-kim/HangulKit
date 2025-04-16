@@ -13,8 +13,19 @@ public extension Hangul {
     static func replace받침ㅎ(of currentSyllable: Syllable) -> Syllable {
         let choseong = currentSyllable.choseong
         let jungseong = currentSyllable.jungseong
-        let jongseong = currentSyllable.jongseong == "ㅎ" ? nil : currentSyllable.jongseong
+        guard let jongseong = currentSyllable.jongseong else { return Syllable(choseong: choseong,
+                                                                               jungseong: jungseong) }
         
-        return DisassembledCharacter(choseong: choseong, jungseong: jungseong, jongseong: jongseong)
+        guard 발음변환_받침_ㅎ.contains(jongseong) else { return Syllable(choseong: choseong,
+                                                                   jungseong: jungseong,
+                                                                   jongseong: jongseong) }
+        
+        var ㅎInJongseongRemoved: Character?
+        
+        if jongseong == "ㅎ" { ㅎInJongseongRemoved = nil }
+        else if jongseong == "ㅀ" { ㅎInJongseongRemoved = "ㄹ" }
+        else if jongseong == "ㄶ" { ㅎInJongseongRemoved = "ㄴ" }
+        
+        return Syllable(choseong: choseong, jungseong: jungseong, jongseong: ㅎInJongseongRemoved)
     }
 }
