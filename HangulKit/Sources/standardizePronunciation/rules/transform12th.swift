@@ -7,6 +7,25 @@
 
 public extension Hangul {
     
+    static func transform12th(currentSyllable: Syllable, nextSyllable: Syllable?) -> (Syllable, Syllable?) {
+        guard let currentJongseong = currentSyllable.jongseong else { return (currentSyllable, nextSyllable) }
+        
+        var current = currentSyllable
+        
+        guard var next = nextSyllable else {
+            current = handleCurrentJongseongIsㅇ(current: current)
+            return handleNextChoseongIsㅎ(current: current, next: nextSyllable)
+        }
+        
+        if 발음변환_받침_ㅎ.contains(currentJongseong) {
+            (current, next) = handleNextChoseongIsㄱㄷㅈㅅ(current: current, next: next)
+            (current, next) = handleNextChoseongIsㄴ(current: current, next: next)
+            (current, next) = handleNextChoseongIsㅇ(current: current, next: next)
+        }
+        
+        return handleNextChoseongIsㅎ(current: current, next: next)
+    }
+    
     static fileprivate func handleNextChoseongIsㄱㄷㅈㅅ(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
         let ㄱㄷㅈㅅ: [Character] = ["ㄱ", "ㄷ", "ㅈ", "ㅅ"]
         
