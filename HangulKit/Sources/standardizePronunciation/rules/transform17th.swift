@@ -32,7 +32,7 @@ public extension Hangul {
                                    jungseong: next.jungseong,
                                    jongseong: next.jongseong)
         
-        return (current, next)
+        return (updatedCurrent, updatedNext)
     }
     
     static fileprivate func handleChoseongIsㅎAndㄷ(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
