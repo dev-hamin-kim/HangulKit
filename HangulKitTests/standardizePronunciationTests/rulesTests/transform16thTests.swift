@@ -12,7 +12,7 @@ struct transform16thTests {
     typealias Syllable = Hangul.Syllable
     
     @Test("제16항 - 한글 자모의 이름은 그 받침소리를 연음하되, 'ㄷ, ㅈ, ㅊ, ㅋ, ㅌ, ㅍ, ㅎ'의 경우에는 특별히 다음과 같이 발음한다")
-    func transform16th() {
+    func test1() {
         let current = try! Hangul.disassembleCompleteCharacter("귿")
         let next = try! Hangul.disassembleCompleteCharacter("이")
         let phrase = "디귿이"
@@ -29,7 +29,7 @@ struct transform16thTests {
     }
     
     @Test("제14항 - 겹받침이 모음으로 시작된 조사나 어미, 접미사와 결합되는 경우에는, 뒤엣것만을 뒤 음절 첫소리로 옮겨 발음한다.")
-    func transform14th() {
+    func test2() {
         let current = try! Hangul.disassembleCompleteCharacter("역")
         let next = try! Hangul.disassembleCompleteCharacter("이")
         let phrase = "기역이"
