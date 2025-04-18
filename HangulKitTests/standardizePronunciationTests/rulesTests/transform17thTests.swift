@@ -11,7 +11,7 @@ import Testing
 struct transform17thTests {
     typealias Syllable = Hangul.Syllable
     
-    @Test("제17항 - 받침 'ㄷ', 'ㅌ(ㄾ)'이 조사나 접미사의 모음 'ㅣ'와 결합되는 경우에는, 'ㅈ', 'ㅊ'으로 바꾸어서 뒤 음절 첫소리로 옮겨 발음한다")
+    @Test("받침 'ㄷ', 'ㅌ(ㄾ)'이 조사나 접미사의 모음 'ㅣ'와 결합되는 경우에는, 'ㅈ', 'ㅊ'으로 바꾸어서 뒤 음절 첫소리로 옮겨 발음한다")
     func test1() {
         let current = try! Hangul.disassembleCompleteCharacter("굳")
         let next = try! Hangul.disassembleCompleteCharacter("이")
@@ -24,7 +24,7 @@ struct transform17thTests {
         #expect(Hangul.transform17th(currentSyllable: current, nextSyllable: next) == transformed)
     }
 
-    @Test("제17항 - 'ㄷ' 뒤에 접미사 '히'가 결합되어 '티'를 이루는 것은 '치'로 발음한다")
+    @Test("'ㄷ' 뒤에 접미사 '히'가 결합되어 '티'를 이루는 것은 '치'로 발음한다")
     func test2() {
         let current = try! Hangul.disassembleCompleteCharacter("굳")
         let next = try! Hangul.disassembleCompleteCharacter("히")
