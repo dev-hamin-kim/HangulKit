@@ -23,8 +23,8 @@ public extension Hangul {
     static fileprivate let 쌍받침: Set<Character> = ["ㄲ", "ㅆ"]
     
     static func transform13And14th(currentSyllable: Syllable, nextSyllable: Syllable) -> (Syllable, Syllable) {
-        let 제13_14항주요조건 = (currentSyllable.jongseong != nil) && nextSyllable.choseong == "ㅇ"
-        guard 제13_14항주요조건 else { return (currentSyllable, nextSyllable) }
+        let 제13_14항주요조건_충족 = (currentSyllable.jongseong != nil) && nextSyllable.choseong == "ㅇ"
+        guard 제13_14항주요조건_충족 else { return (currentSyllable, nextSyllable) }
         
         var (updatedCurrent, updatedNext) = (currentSyllable, nextSyllable)
         
