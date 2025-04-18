@@ -7,6 +7,19 @@
 
 public extension Hangul {
     
+    static func transform17th(currentSyllable: Syllable, nextSyllable: Syllable) -> (Syllable, Syllable) {
+        let 제17항주요조건_충족 = nextSyllable.jungseong == "ㅣ"
+        
+        guard 제17항주요조건_충족 else { return (currentSyllable, nextSyllable) }
+        
+        var (current, next) = (currentSyllable, nextSyllable)
+        
+        (current, next) = handleChoseongIsㅇ(current: current, next: next)
+        (current, next) = handleChoseongIsㅎAndㄷ(current: current, next: next)
+        
+        return (current, next)
+    }
+    
     static fileprivate func handleChoseongIsㅇ(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
         guard let currentJongseong = current.jongseong else { return (current, next) }
         guard next.choseong == "ㅇ" && 음의_동화_받침[currentJongseong] != nil else { return (current, next) }
