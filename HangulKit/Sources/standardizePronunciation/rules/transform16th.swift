@@ -7,12 +7,37 @@
 
 public extension Hangul {
     
+    static func transform16th(
+        currentSyllable: Syllable,
+        nextSyllable: Syllable,
+        phrase: String,
+        index: Int
+    ) -> (Syllable, Syllable) {
+        let 제16항주요조건_충족 = currentSyllable.jongseong != nil && nextSyllable.choseong == 음가가_없는_자음
+        
+        guard 제16항주요조건_충족 else { return (currentSyllable, nextSyllable) }
+        
+        // MARK: 가독성이 별로이니 나중에 고칠 방법을 찾을 것.
+        let first = phrase.index(phrase.startIndex, offsetBy: index - 1)
+        let second = phrase.index(phrase.startIndex, offsetBy: index)
+        let combinedSyllables = String(phrase[first]) + String(phrase[second])
+        
+        var (current, next) = (currentSyllable, nextSyllable)
+        
+        (current, next) = handleSpecialHangulCharacters(current: current, next: next,
+                                                        combinedSyllables: combinedSyllables)
+        (current, next) = handleHangulCharacters(current: current, next: next,
+                                                 combinedSyllables: combinedSyllables)
+        
+        return (current, next)
+    }
+    
     static fileprivate func handleHangulCharacters(
         current: Syllable,
         next: Syllable,
         combinedSyllables: String
     ) -> (Syllable, Syllable) {
-         
+        
         guard 한글_자모.contains(combinedSyllables) else { return (current, next) }
         
         let updatedCurrent = Syllable(choseong: current.choseong,
