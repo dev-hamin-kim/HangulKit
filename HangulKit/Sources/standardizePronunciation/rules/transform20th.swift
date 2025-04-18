@@ -7,6 +7,15 @@
 
 public extension Hangul {
 
+    static func transform20th(currentSyllable: Syllable, nextSyllable: Syllable) -> (Syllable, Syllable) {
+        var (current, next) = (currentSyllable, nextSyllable)
+        
+        current = applyMainCondition(current: current, next: next)
+        next = applySupplementaryCondition(current: current, next: next)
+        
+        return (current, next)
+    }
+    
     static fileprivate func applyMainCondition(current: Syllable, next: Syllable) -> Syllable {
         guard current.jongseong == "ㄴ" && next.choseong == "ㄹ" else { return current }
         
