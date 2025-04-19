@@ -7,6 +7,16 @@
 
 public extension Hangul {
     
+    static func transformNLAssimilation(currentSyllable: Syllable, nextSyllable: Syllable) -> (Syllable, Syllable) {
+        // ㄴㄹ이 덧나는 조건을 갖추지 못하면 early return
+        guard currentSyllable.jongseong != nil,
+              nextSyllable.choseong == "ㅇ",
+              ㄴㄹ이_덧나는_후속음절_모음.contains(nextSyllable.jungseong)
+        else { return (currentSyllable, nextSyllable) }
+
+        return applyㄴㄹ덧남(current: currentSyllable, next: nextSyllable)
+    }
+    
     static fileprivate func applyㄴㄹ덧남(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
         guard let currentJongseong = current.jongseong else { return (current, next) }
         
