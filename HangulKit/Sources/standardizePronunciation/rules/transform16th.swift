@@ -18,9 +18,11 @@ public extension Hangul {
         guard 제16항주요조건_충족 else { return (currentSyllable, nextSyllable) }
         
         // MARK: 가독성이 별로이니 나중에 고칠 방법을 찾을 것.
-        let first = phrase.index(phrase.startIndex, offsetBy: index - 1)
+        let isIndexZero = index == 0
+        
+        let first = isIndexZero ? phrase.startIndex : phrase.index(phrase.startIndex, offsetBy: index - 1)
         let second = phrase.index(phrase.startIndex, offsetBy: index)
-        let combinedSyllables = String(phrase[first]) + String(phrase[second])
+        let combinedSyllables = isIndexZero ? "" : String(phrase[first]) + String(phrase[second])
         
         var (current, next) = (currentSyllable, nextSyllable)
         
