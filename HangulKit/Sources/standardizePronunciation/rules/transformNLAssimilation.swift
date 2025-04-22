@@ -30,7 +30,7 @@ public extension Hangul {
         }
         
         var updatedCurrentJongseong: Character = currentJongseong
-        var updatedNextChoseong: Character = " "
+        var updatedNextChoseong: Character = next.choseong
         
         if ㄴㄹ이_덧나서_받침_ㄴ_변환.contains(currentJongseong) {
             updatedCurrentJongseong = currentJongseong == "ㄱ" ? "ㅇ" : currentJongseong
