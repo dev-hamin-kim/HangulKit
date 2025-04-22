@@ -13,7 +13,7 @@ public extension Hangul {
         guard let currentJongseong = currentSyllable.jongseong,
               제18항주요조건_충족 else { return currentSyllable }
         
-        var newJongseong: Character?
+        var newJongseong: Character = currentJongseong
         
         if 비음화_받침_ㅇ_변환.contains(currentJongseong) { newJongseong = "ㅇ" }
         if 비음화_받침_ㄴ_변환.contains(currentJongseong) { newJongseong = "ㄴ" }
