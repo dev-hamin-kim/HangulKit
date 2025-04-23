@@ -7,21 +7,6 @@
 
 public extension Hangul {
     
-    static fileprivate let 홀받침: Set<Character> = [
-        "ㄱ", "ㄴ", "ㄷ", "ㄹ",
-        "ㅁ", "ㅂ", "ㅅ", "ㅇ",
-        "ㅈ", "ㅊ", "ㅋ", "ㅌ",
-        "ㅍ", "ㅎ"
-    ]
-    
-    static fileprivate let 겹받침: Set<Character> = [
-        "ㄳ", "ㄵ", "ㄶ", "ㄺ",
-        "ㄻ", "ㄼ", "ㄽ", "ㄾ",
-        "ㄿ", "ㅀ", "ㅄ"
-    ]
-    
-    static fileprivate let 쌍받침: Set<Character> = ["ㄲ", "ㅆ"]
-    
     static func transform13And14th(currentSyllable: Syllable, nextSyllable: Syllable) -> (Syllable, Syllable) {
         let 제13_14항주요조건_충족 = (currentSyllable.jongseong != nil) && nextSyllable.choseong == "ㅇ"
         guard 제13_14항주요조건_충족 else { return (currentSyllable, nextSyllable) }

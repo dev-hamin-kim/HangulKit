@@ -114,4 +114,20 @@ public extension Hangul {
     
     // 24항, 25항
     static let 어간_받침: Set<Character> = ["ㄴ", "ㄵ", "ㅁ", "ㄻ", "ㄼ", "ㄾ"]
+    
+    
+    static let 홀받침: Set<Character> = [
+        "ㄱ", "ㄴ", "ㄷ", "ㄹ",
+        "ㅁ", "ㅂ", "ㅅ", "ㅇ",
+        "ㅈ", "ㅊ", "ㅋ", "ㅌ",
+        "ㅍ", "ㅎ"
+    ]
+    
+    static let 겹받침: Set<Character> = [
+        "ㄳ", "ㄵ", "ㄶ", "ㄺ",
+        "ㄻ", "ㄼ", "ㄽ", "ㄾ",
+        "ㄿ", "ㅀ", "ㅄ"
+    ]
+    
+    static let 쌍받침: Set<Character> = ["ㄲ", "ㅆ"]
 }
