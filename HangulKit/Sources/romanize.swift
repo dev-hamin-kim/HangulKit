@@ -70,6 +70,46 @@ public extension Hangul {
         "ㅇ": "ng",
         nil: "",
     ]
+
+    static func romanize(hangul: String) -> String {
+        let changedHangul = standardizePronunciation(hangul, hardConversion: false)
+        let arrayHangul = Array(changedHangul)
+        
+        return arrayHangul
+            .enumerated()
+            .map { (i, _) in
+                romanizeSyllableHangul(arrayHangul, index: i)
+            }
+            .joined()
+    }
     
+    static fileprivate func romanizeSyllableHangul(_ arrayHangul: [Character], index: Int) -> String {
+        let syllable = arrayHangul[index]
+        
+        if isHangulCharacter(syllable) {
+            let disassemble = try! disassembleCompleteCharacter(syllable)
+            
+            var choseong = 초성_알파벳_발음[disassemble.choseong] ?? "l"
+            let jungseong = 중성_알파벳_발음[disassemble.jungseong] ?? ""
+            let jongseong = 종성_알파벳_발음[disassemble.jongseong] ?? ""
+            
+            // 'ㄹ'은 모음 앞에서는 'r'로, 자음 앞이나 어말에서는 'l'로 적는다. 단, 'ㄹㄹ'은 'll'로 적는다. (ex.울릉, 대관령),
+            if disassemble.choseong == "ㄹ" && index > 0 && isHangulCharacter(arrayHangul[index - 1]) {
+                let prevDisassemble = try! disassembleCompleteCharacter(arrayHangul[index - 1])
+                
+                if prevDisassemble.jongseong == "ㄹ" {
+                    choseong = "l"
+                }
+            }
+            
+            return choseong + jungseong + jongseong
+        }
+        
+        if let jungseongOnly = 중성_알파벳_발음[syllable] { return jungseongOnly }
+        
+        if let choseongOnly = 초성_알파벳_발음[syllable] { return choseongOnly }
+        
+        return String(syllable)
+    }
     
 }
