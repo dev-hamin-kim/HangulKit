@@ -76,7 +76,10 @@ public extension Hangul {
                                    jongseong: next?.jongseong)
         
         let updatedCurrent = Syllable(choseong: current.choseong,
-                                      jungseong: current.jungseong)
+                                      jungseong: current.jungseong,
+                                      jongseong: 겹받침.contains(current.jongseong ?? " ")
+                                      ? DisassembledConsonants[current.jongseong]![0]
+                                      : nil)
         
         return (updatedCurrent, updatedNext)
     }
