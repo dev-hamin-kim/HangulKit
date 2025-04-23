@@ -38,4 +38,12 @@ public extension Hangul {
         
         return Character(Unicode.Scalar(unicodeValue)!)
     }
+    
+    static func combineCharacter(_ syllable: Syllable) -> Character {
+        do {
+            return try combineCharacter(choseong: syllable.choseong, jungseong: syllable.jungseong, jongseong: syllable.jongseong)
+        } catch {
+            fatalError("Invalid syllable: \(syllable)")
+        }
+    }
 }
