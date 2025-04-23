@@ -7,7 +7,7 @@
 
 public extension Hangul {
     
-    static let jungseongAlphabetPronounciation: [Character: String] = [
+    static let 중성_알파벳_발음: [Character: String] = [
         // MARK: - 단모음
         "ㅏ": "a",
         "ㅓ": "eo",
@@ -33,7 +33,7 @@ public extension Hangul {
         "ㅢ": "ui",
     ]
     
-    static let choseongAlphabetPronounciation: [Character: String] = [
+    static let 초성_알파벳_발음: [Character: String] = [
         // MARK: - 파열음
         "ㄱ": "g",
         "ㄲ": "kk",
@@ -60,7 +60,7 @@ public extension Hangul {
         "ㄹ": "r",
     ]
     
-    static let jongseongAlphabetPronounciation: [Character?: String] = [
+    static let 종성_알파벳_발음: [Character?: String] = [
         "ㄱ": "k",
         "ㄴ": "n",
         "ㄷ": "t",
