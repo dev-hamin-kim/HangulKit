@@ -51,7 +51,7 @@ public extension Hangul {
     static func numberToHangul<T: UnsignedInteger>(_ number: T, withSpacing: Bool = false) -> String {
         
         if number == 0 { return "영" }
-
+        
         let numberAsString = String(describing: number)
         
         var koreanParts: [String] = []
@@ -76,7 +76,7 @@ public extension Hangul {
             .filter { $0 != "" }
             .joined(separator: withSpacing ? " " : "")
             .trimmingCharacters(in: .whitespacesAndNewlines)
-
+        
         return result
     }
     
@@ -141,7 +141,7 @@ public extension Hangul {
     }
     
     /// numberToHangul 메서드에서 내부적으로 사용되는 함수.
-    static func numberToKoreanUpToThousands<T: StringProtocol>(_ number: T) -> String {
+    static fileprivate func numberToKoreanUpToThousands<T: StringProtocol>(_ number: T) -> String {
         var koreanDigits = number
             .reversed()
             .enumerated()
@@ -161,4 +161,9 @@ public extension Hangul {
         
         return koreanDigits
     }
+    
+    // TODO: 이렇게 따로 빼서 리팩터링 하기.
+//    static fileprivate func integerPartToKorean() -> String {
+//        return ""
+//    }
 }
