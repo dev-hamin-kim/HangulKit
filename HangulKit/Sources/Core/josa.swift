@@ -40,7 +40,7 @@ public extension Hangul {
     // Swift에서 주로 봐온 함수 명명 형식이, josaPicker 대신 pickJosa라고 할 것 같아서 그렇게 하였다.
     // (Swift API design guidelines에서 본 것 같긴 한데 기억이 안난다. 나중에 추가할 것.)
     static func pickJosa(of word: String, within options: JosaOption) -> String {
-        if word.isEmpty { return "" }
+        if word.isEmpty { return options.rawValue.components(separatedBy: "/")[0] }
         
         let has받침 = Hangul.hasBatchim(word.last!)
         var index = has받침 ? 0 : 1
