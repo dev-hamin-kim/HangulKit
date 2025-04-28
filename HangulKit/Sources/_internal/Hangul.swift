@@ -291,7 +291,7 @@ public struct Hangul {
     
     /// 연음 법칙을 적용하여 두 개의 한글 문자를 연결합니다.
     static func linkHangulCharacters(_ lhs: Character, _ rhs: Character) -> String {
-        var sourceJamo = disassembleToGroups(lhs.description)[0]
+        var sourceJamo: [Character] = disassembleToGroups(lhs.description)[0]
         let lastJamo = sourceJamo.removeLast()
         
         var result = removeLastCharacter(lhs.description)
@@ -326,7 +326,7 @@ public struct Hangul {
         guard isHangulCharacter(source) || isHangulAlphabet(source) else { return "" }
         guard isHangulAlphabet(nextCharacter) else { return "\(source)\(nextCharacter)" }
         
-        var sourceJamos = disassembleToGroups(source.description)[0]
+        var sourceJamos: [Character] = disassembleToGroups(source.description)[0]
         
         let isSingleCharacter = sourceJamos.count == 1
         
