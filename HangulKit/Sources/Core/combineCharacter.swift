@@ -14,9 +14,12 @@ public extension Hangul {
     ///
     /// 인자로 초성, 중성, 종성을 받아 하나의 한글 문자를 반환합니다.
     ///
-    /// ```
-    /// combineCharacter('ㄱ', 'ㅏ', 'ㅂㅅ') // '값'
-    /// combineCharacter('ㅌ', 'ㅗ') // '토'
+    ///     let 값 = Hangul.combineCharacter(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅄ")
+    ///     print(값) // prints "값"
+    ///
+    ///     let 토 = Hangul.combineCharacter(choseong: "ㅌ", jungseong: "ㅗ")
+    ///     print(토) // prints "토"
+    ///
     static func combineCharacter(choseong: Character,
                                  jungseong: Character, // MARK: throws를 쓰는 게 맞는지 생각해보기
                                  jongseong: Character? = nil) throws -> Character {
@@ -39,6 +42,12 @@ public extension Hangul {
         return Character(Unicode.Scalar(unicodeValue)!)
     }
     
+    /// 인자로 Syllable 구조체를 받아 하나의 한글 Character를 반환합니다.
+    ///
+    ///     let syllable = Syllable(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅇ")
+    ///     let 강 = combineCharacter(syllable)
+    ///     print(강) // prints "강"
+    ///
     static func combineCharacter(_ syllable: Syllable) -> Character {
         do {
             return try combineCharacter(choseong: syllable.choseong, jungseong: syllable.jungseong, jongseong: syllable.jongseong)
