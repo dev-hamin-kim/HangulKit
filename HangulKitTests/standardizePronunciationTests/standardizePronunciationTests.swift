@@ -335,4 +335,14 @@ struct standardizePronunciationTests {
             #expect(Hangul.standardizePronunciation("넓게", hardConversion: false) == "널게")
         }
     }
+    
+//    @Suite("")
+//    struct bugs {
+//        @Test func test() async throws {
+//            #expect(Hangul.standardizePronunciation("전역") == "저녁")
+//            #expect(Hangul.standardizePronunciation("전 역") == "전 녁")
+//            #expect(Hangul.standardizePronunciation("힘듦") == "힘듬")
+//            #expect(Hangul.standardizePronunciation("힘듦이 있다") == "힘드미 읻따")
+//        }
+//    }
 }
