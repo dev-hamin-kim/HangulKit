@@ -74,4 +74,8 @@ public extension Hangul {
         
         return String(result)
     }
+    
+    static func convertQWERTYToAlphabet(_ character: Character) -> Character {
+        return qwertyKeyboardMap[character] ?? character
+    }
 }

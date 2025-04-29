@@ -27,4 +27,8 @@ public extension Hangul {
         
         return disassembled.reduce("") { binaryAssemble($0, $1) }
     }
+    
+    static func assemble(_ fragments: [Character]) -> String {
+        return fragments.reduce("") { binaryAssemble($0, $1) }
+    }
 }

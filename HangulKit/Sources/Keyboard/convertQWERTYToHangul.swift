@@ -16,7 +16,11 @@ public extension Hangul {
     static func convertQWERTYToHangul(_ word: String) -> String {
         if word.isEmpty { return "" }
         
-        return assemble(word.map { convertQWERTYToAlphabet(String($0)) }) // MARK: 이 줄의 비효율성을 고칠 것.
+        var result: [Character] = []
+        
+        word.forEach { result.append(convertQWERTYToAlphabet($0)) }
+        
+        return assemble(result)
     }
 }
 
