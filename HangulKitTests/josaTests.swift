@@ -129,7 +129,7 @@ struct pickJosaTests {
     
     @Test("첫 번째 매개변수가 빈 문자열이라면 옵션 중 첫 번째 값을 반환한다.")
     func pickJosa1() {
-        #expect(Hangul.pickJosa(of: "", within: .이_가) == "")
+        #expect(Hangul.pickJosa(of: "", within: .이_가) == "이")
     }
     
     @Test("주격조사")
@@ -152,8 +152,8 @@ struct pickJosaTests {
     
     @Test("방향의 격조사")
     func pickJosa5() {
-        #expect(Hangul.pickJosa(of: "", within: .이_가) == "")
-        #expect(Hangul.pickJosa(of: "", within: .이_가) == "")
+        #expect(Hangul.pickJosa(of: "바깥", within: .으로_로) == "으로")
+        #expect(Hangul.pickJosa(of: "내부", within: .으로_로) == "로")
     }
     
     @Test("방향의 격조사 ㄹ 받침 예외 처리")
