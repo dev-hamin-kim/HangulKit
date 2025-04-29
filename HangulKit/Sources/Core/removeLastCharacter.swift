@@ -6,16 +6,14 @@
 //
 
 public extension Hangul {
-    
-    /// 인자로 주어진 한글 문자열에서 가장 마지막 문자 하나를 제거하여 반환합니다.
-    ///  
-    /// ```
-    /// removeLastCharacter("안녕하세요 값") // 안녕하세요 갑
-    /// removeLastCharacter("아이오에스") // 아이오에ㅅ
-    /// removeLastCharacter("일요일") // 일요이
-    /// removeLastCharacter("전화") // 전호
-    /// removeLastCharacter("신세계") // 신세ㄱ
-    /// ```
+    /// 주어진 한글 문자열에서 가장 마지막 문자 하나를 제거하여 반환합니다.
+    ///
+    ///     Hangul.removeLastCharacter("안녕하세요 값") // returns "안녕하세요 갑"
+    ///     Hangul.removeLastCharacter("아이오에스") // returns "아이오에ㅅ"
+    ///     Hangul.removeLastCharacter("일요일") // returns "일요이"
+    ///     Hangul.removeLastCharacter("전화") // returns "전호"
+    ///     Hangul.removeLastCharacter("신세계") // returns "신세ㄱ"
+    ///
     static func removeLastCharacter(_ words: String) -> String {
         let lastCharacter = words.last
         
@@ -66,4 +64,8 @@ public extension Hangul {
         
         return [words.dropLast(1).description, result?.description ?? ""].joined()
     }
+    
+    // MARK: popLastCharacter 메서드 추가...?
+    // collection의 메서드 removeLast/popLast처럼...?
+    // 제거한 문자 하나를 반환하는...?
 }
