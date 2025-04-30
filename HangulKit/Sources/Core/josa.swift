@@ -28,8 +28,21 @@ public extension Hangul {
     
     static let 로_조사: [JosaOption] = [.으로_로, .으로서_로서, .으로써_로써, .으로부터_로부터]
     
-    // es-hangul에서의 이름은 josaPicker이지만,
+    // es-hangul에서의 이름은 josa이지만,
     // Swift에서 주로 봐온 함수 명명 형식이, josa 대신 putJosa라고 할 것 같아서 그렇게 하였다.
+    
+    /// 입력된 문자열 뒤에 선택한 조사 옵션 중 규칙에 알맞은 조사를 붙여 반환합니다.
+    ///
+    ///     let 샴푸에조사추가 = Hangul.addJosa(after: "샴푸", within: .이_가)
+    ///     print(샴푸에조사추가) // prints "샴푸가"
+    ///
+    ///     let 칫솔에조사추가 = Hangul.addJosa(after: "칫솔", within: .이_가)
+    ///     print(칫솔에조사추가) // prints "칫솔이"
+    ///
+    /// - Parameters:
+    ///     - word: 조사를 붙일 문자열
+    ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``JosaOption`` 중 하나 선택 가능
+    ///
     static func addJosa(after word: String, within options: JosaOption) -> String {
         if word.isEmpty { return "" }
         
@@ -39,8 +52,20 @@ public extension Hangul {
     // es-hangul에서의 이름은 josaPicker이지만,
     // Swift에서 주로 봐온 함수 명명 형식이, josaPicker 대신 pickJosa라고 할 것 같아서 그렇게 하였다.
     // (Swift API design guidelines에서 본 것 같긴 한데 기억이 안난다. 나중에 추가할 것.)
+    
+    /// 입력된 문자열에 뒤따를 선택한 조사 옵션 중 규칙에 알맞은 조사를 반환합니다.
+    ///
+    ///     let 샴푸 = Hangul.pickJosa(of: "샴푸", within: .이_가)
+    ///     print(샴푸) // prints "가"
+    ///
+    ///     let 칫솔 = Hangul.pickJosa(of: "칫솔", within: .이_가)
+    ///     print(칫솔) // prints "이"
+    ///
+    /// - Parameters:
+    ///     - word: 조사를 판단할 문자열
+    ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``JosaOption`` 중 하나 선택 가능
     static func pickJosa(of word: String, within options: JosaOption) -> String {
-        if word.isEmpty { return "" }
+        if word.isEmpty { return options.rawValue.components(separatedBy: "/")[0] }
         
         let has받침 = Hangul.hasBatchim(word.last!)
         var index = has받침 ? 0 : 1

@@ -36,7 +36,28 @@ public extension Hangul {
         4: "네",
         20: "스무",
     ]
-        
+    
+    /// 숫자를 순 우리말 수사로 변환합니다. 주어진 숫자가 0보다 크고 100이하일 때 유효합니다.
+    ///
+    ///     Hangul.susa(of: 1) // returns "하나"
+    ///     Hangul.susa(of: 2) // returns "둘"
+    ///     Hangul.susa(of: 11) // returns "열하나"
+    ///     Hangul.susa(of: 21) // returns "스물하나"
+    ///     Hangul.susa(of: 99) // returns "아흔아홉"
+    ///     Hangul.susa(of: 100) // returns "백"
+    ///     Hangul.susa(of: 1, classifier: true) // returns "한"
+    ///     Hangul.susa(of: 2, classifier: true) // returns "두"
+    ///     Hangul.susa(of: 11, classifier: true) // returns "열한"
+    ///     Hangul.susa(of: 20, classifier: true) // returns "스무"
+    ///     Hangul.susa(of: 21, classifier: true) // returns "스물한"
+    ///
+    /// - Parameters:
+    ///     - num: 순 우리말 수사로 변환할 숫자입니다.
+    ///     - classifier: 수관형사를 사용할지 여부를 입력합니다. 기본값은 false입니다.
+    ///
+    /// - Note:
+    /// - `수사`란 숫자를 나타내는 우리말 단어입니다. [자세히 알아보기](https://ko.dict.naver.com/#/entry/koko/d0ce2b674cae4b44b9028f648dd458b0)
+    /// - `수관형사`는 사물의 수나 양을 나타내는 관형사입니다. "두 사람"의 "두", "세 근"의 "세" 따위를 뜻합니다. [자세히 알아보기](https://ko.dict.naver.com/#/entry/koko/c513782b82554ff499c80ec616c5b611)
     static func susa(of num: Int, classifier: Bool = false) -> String {
         guard 1...100 ~= num else { return "지원하지 않는 숫자입니다." }
         

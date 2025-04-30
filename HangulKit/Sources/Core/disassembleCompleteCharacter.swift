@@ -25,6 +25,19 @@ public extension Hangul {
     
     /// 완전한 한글 문자열을 초성, 중성, 종성으로 분리합니다.
     ///
+    ///
+    ///     let 값 = Hangul.dissassembleCompleteCharacter("값")
+    ///     print(값) // prints DisassembledCharacter(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅄ")
+    ///
+    ///     let 리 = Hangul.dissassembleCompleteCharacter("리")
+    ///     print(리) // prints DisassembledCharacter(choseong: "ㄹ", jungseong: "ㅣ")
+    ///
+    /// - Parameter letter:
+    /// 분리하고자 하는 완전한 한글 문자열
+    ///
+    /// - Returns:
+    /// 입력된 문자열의 초성, 중성, 종성을 프로퍼티로 갖는 ``Hangul/DisassembledCharacter`` 구조체를 반환
+    ///
     static func disassembleCompleteCharacter(_ letter: Character) throws -> DisassembledCharacter {
         
         guard CompleteHangulStartUnicodeScalar <= letter.unicodeScalars.first!.value

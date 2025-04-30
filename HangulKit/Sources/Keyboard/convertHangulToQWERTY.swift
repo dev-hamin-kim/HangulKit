@@ -43,6 +43,13 @@ public extension Hangul {
         "ㅣ": "l",
     ]
     
+    /// 두벌식 한글 자판에서 입력된 한글을 QWERTY 자판과 매칭되는 영어 알파벳으로 변환합니다.
+    ///
+    ///     Hangul.convertHangulToQwerty("겨노"); // returns "rush"
+    ///     Hangul.convertHangulToQwerty("쨰ㅉ"); // returns "WOW"
+    ///     Hangul.convertHangulToQwerty("iOS개발!"); // returns "iOSroqkf!"
+    ///     Hangul.convertHangulToQwerty("ㅇPdml"); // returns "dPdml"
+    ///     Hangul.convertHangulToQwerty(""); // returns ""
     static func convertHangulToQWERTY(_ word: String) -> String {
         
         if word.isEmpty { return "" }

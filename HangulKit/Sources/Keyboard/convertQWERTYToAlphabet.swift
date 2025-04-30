@@ -62,6 +62,10 @@ public extension Hangul {
         "M": "ㅡ",
     ]
     
+    /// QWERTY 자판에서 입력된 영어 알파벳을 동일한 위치의 두벌식 자판에 해당하는 한글 음소로 변환합니다.
+    ///
+    ///     Hangul.convertQWERTYToAlphabet("dkdldh에스") // returns ("ㅇㅏㅇㅣㅇㅗ에스")
+    ///     Hangul.convertQWERTYToAlphabet("RㅏㄱEㅜrl") // returns ("ㄲㅏㄱㄸㅜㄱㅣ")
     static func convertQWERTYToAlphabet(_ word: String) -> String {
         if word.isEmpty { return "" }
         
@@ -69,5 +73,9 @@ public extension Hangul {
             .map { qwertyKeyboardMap[$0] ?? $0 }
         
         return String(result)
+    }
+    
+    static func convertQWERTYToAlphabet(_ character: Character) -> Character {
+        return qwertyKeyboardMap[character] ?? character
     }
 }

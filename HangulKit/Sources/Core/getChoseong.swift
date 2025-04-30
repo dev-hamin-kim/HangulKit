@@ -7,6 +7,16 @@
 
 public extension Hangul {
     
+    /// 단어에서 초성을 추출합니다.
+    ///
+    ///     let apple = Hangul.getChoseong(of: "사과")
+    ///     print(apple) // prints "ㅅㄱ"
+    ///
+    ///     let spacing = Hangul.getChoseong(of: "띄어 쓰기")
+    ///     print(spacing) // prints "ㄸㅇ ㅆㄱ"
+    ///
+    /// - Parameters:
+    ///     - word: 초성을 추출할 단어
     static func getChoseong(_ word: String) -> String {
         
         guard isHangul(word) else { return word }
