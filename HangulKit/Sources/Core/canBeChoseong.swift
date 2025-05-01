@@ -11,10 +11,9 @@ public extension Hangul {
     ///
     ///     Hangul.canBeChoseong("ㄱ") // true
     ///     Hangul.canBeChoseong("ㅃ") // true
-    ///     Hangul.canBeChoseong("ㄱㅅ") // false
+    ///     Hangul.canBeChoseong("ㄳ") // false
     ///     Hangul.canBeChoseong("ㅏ") // false
     ///     Hangul.canBeChoseong("가") // false
-    ///
     static func canBeChoseong(_ character: Character) -> Bool {
         return Hangul.Choseong.list.contains(character)
     }

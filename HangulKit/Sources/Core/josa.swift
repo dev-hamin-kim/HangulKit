@@ -42,7 +42,6 @@ public extension Hangul {
     /// - Parameters:
     ///     - word: 조사를 붙일 문자열
     ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``JosaOption`` 중 하나 선택 가능
-    ///
     static func addJosa(after word: String, within options: JosaOption) -> String {
         if word.isEmpty { return "" }
         

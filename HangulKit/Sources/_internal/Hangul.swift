@@ -132,7 +132,7 @@ public struct Hangul {
         "ㄵ": ["ㄴ", "ㅈ"],
         "ㄶ": ["ㄴ", "ㅎ"],
         "ㄷ": ["ㄷ"],
-        "ㄸ": ["ㄸ"],//
+        "ㄸ": ["ㄸ"],
         "ㄹ": ["ㄹ"],
         "ㄺ": ["ㄹ", "ㄱ"],
         "ㄻ": ["ㄹ", "ㅁ"],
@@ -143,13 +143,13 @@ public struct Hangul {
         "ㅀ": ["ㄹ", "ㅎ"],
         "ㅁ": ["ㅁ"],
         "ㅂ": ["ㅂ"],
-        "ㅃ": ["ㅃ"],//
+        "ㅃ": ["ㅃ"],
         "ㅄ": ["ㅂ", "ㅅ"],
         "ㅅ": ["ㅅ"],
         "ㅆ": ["ㅆ"],
         "ㅇ": ["ㅇ"],
         "ㅈ": ["ㅈ"],
-        "ㅉ": ["ㅉ"],//
+        "ㅉ": ["ㅉ"],
         "ㅊ": ["ㅊ"],
         "ㅋ": ["ㅋ"],
         "ㅌ": ["ㅌ"],
@@ -299,13 +299,7 @@ public struct Hangul {
 
         return result
     }
-    
-    static func excludeLastElement(_ array: [Character]) -> (array: [Character], excludedElement: Character?) {
-        let lastElement = array.last // Get last element or default to ""
-        let newArray = Array(array.dropLast()) // Remove last element
-        return (newArray, lastElement)
-    }
-    
+
     static func binaryAssembleAlphabets(_ source: Character, _ nextCharacter: Character) -> String {
         let combinedInputs = "\(source)\(nextCharacter)"
         let correspondingVowel = Hangul.assembledVowels[combinedInputs]
@@ -430,12 +424,3 @@ public struct Hangul {
         }
     }
 }
-
-//extension CharacterSet {
-//    static var hangul: CharacterSet {
-//        var characterSet: CharacterSet = []
-//        characterSet.formUnion(.init(charactersIn: "가"..."힣"))
-//        return characterSet
-//    }
-//}
-

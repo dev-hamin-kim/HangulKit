@@ -10,7 +10,6 @@ public extension Hangul {
     static func disassemble(_ word: String) -> String {
         return String(disassembleToGroups(word))
     }
-
     
     static func disassemble(_ word: String) -> [Character] {
         return disassembleToGroups(word)
