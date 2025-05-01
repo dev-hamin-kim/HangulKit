@@ -20,18 +20,18 @@ public struct HangulKitWrapper<Base> {
 public protocol HangulKitCompatible {
     associatedtype HangulKitBase
     
-    static var hangul: HangulKitWrapper<HangulKitBase>.Type { get set }
+    static var hk: HangulKitWrapper<HangulKitBase>.Type { get set }
     
-    var hangul: HangulKitWrapper<HangulKitBase> { get set }
+    var hk: HangulKitWrapper<HangulKitBase> { get set }
 }
 
 extension HangulKitCompatible {
-    public static var hangul: HangulKitWrapper<Self>.Type {
+    public static var hk: HangulKitWrapper<Self>.Type {
         get { HangulKitWrapper<Self>.self }
         set { }
     }
     
-    public var hangul: HangulKitWrapper<Self> {
+    public var hk: HangulKitWrapper<Self> {
         get { HangulKitWrapper(self) }
         set { }
     }
