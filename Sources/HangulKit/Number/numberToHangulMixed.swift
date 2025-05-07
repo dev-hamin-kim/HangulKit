@@ -5,6 +5,8 @@
 //  Created by 김하민 on 4/14/25.
 //
 
+import Foundation
+
 public extension Hangul {
     
     // Swift 특성상 JS/TS를 사용하는 es-hangul과는 다르게 정수/실수 중 하나만을 사용가능.

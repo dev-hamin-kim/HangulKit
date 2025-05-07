@@ -5,6 +5,8 @@
 //  Created by 김하민 on 3/12/25.
 //
 
+import Foundation
+
 extension HangulKitWrapper where Base == String {
     
     public func isHangulSyllable() -> Bool {

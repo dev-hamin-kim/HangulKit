@@ -21,32 +21,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		955C813D2DCAD82D0046E375 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		958923EA2D8056EB00C23A62 /* HangulKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HangulKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		958923F42D8056EC00C23A62 /* HangulKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HangulKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		958923FC2D8056EC00C23A62 /* Exceptions for "HangulKit" folder in "HangulKit" target */ = {
+		955C81A22DCB5E6A0046E375 /* Exceptions for "Sources" folder in "HangulKit" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			publicHeaders = (
-				HangulKit.h,
+				HangulKit/HangulKit.h,
 			);
 			target = 958923E92D8056EB00C23A62 /* HangulKit */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		958923EC2D8056EB00C23A62 /* HangulKit */ = {
+		955C81722DCAD8420046E375 /* Sources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				958923FC2D8056EC00C23A62 /* Exceptions for "HangulKit" folder in "HangulKit" target */,
+				955C81A22DCB5E6A0046E375 /* Exceptions for "Sources" folder in "HangulKit" target */,
 			);
-			path = HangulKit;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		958923F82D8056EC00C23A62 /* HangulKitTests */ = {
+		958923F82D8056EC00C23A62 /* Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = HangulKitTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -73,8 +74,9 @@
 		958923E02D8056EB00C23A62 = {
 			isa = PBXGroup;
 			children = (
-				958923EC2D8056EB00C23A62 /* HangulKit */,
-				958923F82D8056EC00C23A62 /* HangulKitTests */,
+				955C813D2DCAD82D0046E375 /* Package.swift */,
+				955C81722DCAD8420046E375 /* Sources */,
+				958923F82D8056EC00C23A62 /* Tests */,
 				958923EB2D8056EB00C23A62 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,7 +117,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				958923EC2D8056EB00C23A62 /* HangulKit */,
+				955C81722DCAD8420046E375 /* Sources */,
 			);
 			name = HangulKit;
 			packageProductDependencies = (
@@ -138,7 +140,7 @@
 				958923F72D8056EC00C23A62 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				958923F82D8056EC00C23A62 /* HangulKitTests */,
+				958923F82D8056EC00C23A62 /* Tests */,
 			);
 			name = HangulKitTests;
 			packageProductDependencies = (
