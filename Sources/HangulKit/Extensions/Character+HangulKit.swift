@@ -5,6 +5,8 @@
 //  Created by 김하민 on 4/30/25.
 //
 
+extension Character: HangulKitCompatible { }
+
 extension HangulKitWrapper where Base == Character {
     /// 문자가 초성으로 위치할 수 있는 문자인지 검사합니다.
     ///
