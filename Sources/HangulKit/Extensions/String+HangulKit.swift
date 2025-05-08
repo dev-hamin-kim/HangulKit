@@ -35,7 +35,7 @@ extension HangulKitWrapper where Base == String {
     ///     let spacing = "띄어 쓰기".hk.getChoseong()
     ///     print(spacing) // prints "ㄸㅇ ㅆㄱ"
     public func getChoseong() -> String {
-        return HangulKit.getChoseong(base)
+        return HangulKit.getChoseong(of: base)
     }
     
     /// 문자열 뒤에 선택한 조사 옵션 중 규칙에 알맞은 조사를 붙여 반환합니다.
@@ -74,7 +74,7 @@ extension HangulKitWrapper where Base == String {
     ///     "전화".hk.removeLastCharacter() // returns "전호"
     ///     "신세계".hk.removeLastCharacter() // returns "신세ㄱ"
     public func removeLastCharacter() -> String {
-        return HangulKit.removeLastCharacter(base)
+        return HangulKit.removeLastCharacter(in: base)
     }
     
     /// 두벌식 한글 자판에서 입력된 한글을 QWERTY 자판과 매칭되는 영어 알파벳으로 변환합니다.

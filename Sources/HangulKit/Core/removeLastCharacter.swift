@@ -13,7 +13,7 @@ public extension HangulKit {
     ///     HangulKit.removeLastCharacter("일요일") // returns "일요이"
     ///     HangulKit.removeLastCharacter("전화") // returns "전호"
     ///     HangulKit.removeLastCharacter("신세계") // returns "신세ㄱ"
-    static func removeLastCharacter(_ words: String) -> String {
+    static func removeLastCharacter(in words: String) -> String {
         let lastCharacter = words.last
         
         guard let lastCharacter else { return "" }

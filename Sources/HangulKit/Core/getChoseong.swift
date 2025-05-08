@@ -17,7 +17,7 @@ public extension HangulKit {
     ///
     /// - Parameters:
     ///     - word: 초성을 추출할 단어
-    static func getChoseong(_ word: String) -> String {
+    static func getChoseong(of word: String) -> String {
         
         guard isHangul(word) else { return word }
         
