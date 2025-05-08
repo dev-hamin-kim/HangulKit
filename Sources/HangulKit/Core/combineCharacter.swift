@@ -31,8 +31,8 @@ public extension Hangul {
         let jungsungIndex = Jungseong.list.firstIndex(of: jungseong)!
         let jongsungIndex = Jongseong.list.firstIndex(of: jongseong) ?? 0 // nil일 경우 받침 없이 처리
         
-        let choseongOfTargetConsonant = chosungIndex * Jungseong.count * Jongseong.count
-        let choseongOfTargetVowel = jungsungIndex * Jongseong.count
+        let choseongOfTargetConsonant = chosungIndex * Jungseong.list.count * Jongseong.list.count
+        let choseongOfTargetVowel = jungsungIndex * Jongseong.list.count
         
         let unicodeValue: UInt32 =
         Hangul.CompleteHangulStartUnicodeScalar +

@@ -10,10 +10,6 @@
 public struct Hangul {
     
     struct Choseong {
-        static let unicodeValue = 0x1100
-        static let count = 19
-        static let range = "ㄱ"..."ㅎ"
-        
         /// 초성으로 올 수 있는 한글 글자
         static let list: [Character] = [
             "ㄱ",
@@ -39,9 +35,6 @@ public struct Hangul {
     }
     
     struct Jungseong {
-        static let unicodeValue = 0x314F
-        static let count = 21
-        
         /// 중성으로 올 수 있는 한글 글자
         static let list: [Character] = [
             "ㅏ",
@@ -69,9 +62,6 @@ public struct Hangul {
     }
     
     struct Jongseong {
-        static let unicodeValue = 0x11A8
-        static let count = 28
-        
         /// 종성으로 올 수 있는 한글 글자
         static let list: [Character?] = [
             nil,

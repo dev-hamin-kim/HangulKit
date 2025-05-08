@@ -31,7 +31,7 @@ public extension Hangul {
         
         let charCode = char.unicodeScalars.first!.value
         
-        let batchimCode = Int(charCode - Hangul.CompleteHangulStartUnicodeScalar) % Hangul.Jongseong.count
+        let batchimCode = Int(charCode - Hangul.CompleteHangulStartUnicodeScalar) % Hangul.Jongseong.list.count
         let batchim = Hangul.Jongseong.list[batchimCode]
         let batchimLength = Hangul.DisassembledConsonants[batchim]?.count
         
