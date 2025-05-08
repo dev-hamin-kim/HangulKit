@@ -26,7 +26,7 @@ extension HangulKitWrapper where Base == Int {
     ///     10.hk.days() // returns "열흘"
     ///     30.hk.days() // returns "서른날"
     public func days() -> String {
-        return Hangul.days(base)
+        return HangulKit.days(base)
     }
     
     /// 정수를 한글 서수사로 변환합니다.
@@ -50,7 +50,7 @@ extension HangulKitWrapper where Base == Int {
     /// - 1부터 99까지의 정수는 순우리말 서수사 문자열로 변환합니다.
     /// - 100 이상의 정수는 한자어 서수사 문자열로 변환합니다.
     public func seosusa() -> String {
-        return Hangul.seosusa(of: base)
+        return HangulKit.seosusa(of: base)
     }
     
     /// 정수를 순 우리말 수사로 변환합니다. 주어진 숫자가 0보다 크고 100이하일 때 유효합니다.
@@ -74,30 +74,30 @@ extension HangulKitWrapper where Base == Int {
     /// - `수사`란 숫자를 나타내는 우리말 단어입니다. [자세히 알아보기](https://ko.dict.naver.com/#/entry/koko/d0ce2b674cae4b44b9028f648dd458b0)
     /// - `수관형사`는 사물의 수나 양을 나타내는 관형사입니다. "두 사람"의 "두", "세 근"의 "세" 따위를 뜻합니다. [자세히 알아보기](https://ko.dict.naver.com/#/entry/koko/c513782b82554ff499c80ec616c5b611)
     public func susa(classifier: Bool = false) -> String {
-        return Hangul.susa(of: base, classifier: classifier)
+        return HangulKit.susa(of: base, classifier: classifier)
     }
 }
 
 extension HangulKitWrapper where Base: UnsignedInteger {
     // MARK: 주석 추가 필요
     public func numberToHangul(withSpacing: Bool = false) -> String {
-        return Hangul.numberToHangul(base, withSpacing: withSpacing)
+        return HangulKit.numberToHangul(base, withSpacing: withSpacing)
     }
     
     // MARK: 주석 추가 필요
     public func numberToHangulMixed(withSpacing: Bool = false) -> String {
-        return Hangul.numberToHangulMixed(base, withSpacing: withSpacing)
+        return HangulKit.numberToHangulMixed(base, withSpacing: withSpacing)
     }
 }
 
 extension HangulKitWrapper where Base: SignedInteger {
     // MARK: 주석 추가 필요
     public func numberToHangul(withSpacing: Bool = false) -> String {
-        return Hangul.numberToHangul(base, withSpacing: withSpacing)
+        return HangulKit.numberToHangul(base, withSpacing: withSpacing)
     }
     
     // MARK: 주석 추가 필요
     public func numberToHangulMixed(withSpacing: Bool = false) -> String {
-        return Hangul.numberToHangulMixed(base, withSpacing: withSpacing)
+        return HangulKit.numberToHangulMixed(base, withSpacing: withSpacing)
     }
 }

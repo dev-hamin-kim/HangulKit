@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/21/25.
 //
 
-public extension Hangul {
+public extension HangulKit {
     
     static func standardizePronunciation(_ hangul: String, hardConversion: Bool = true) -> String {
         if hangul.isEmpty { return "" }

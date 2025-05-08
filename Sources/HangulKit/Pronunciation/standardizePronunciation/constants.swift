@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/15/25.
 //
 
-extension Hangul {
+extension HangulKit {
     
     static let 음가가_없는_자음: Character = "ㅇ"
     static let 한글_자모 = ["기역", "니은", "리을", "미음", "비읍", "시옷", "이응"]

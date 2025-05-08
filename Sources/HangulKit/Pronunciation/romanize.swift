@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/15/25.
 //
 
-public extension Hangul {
+public extension HangulKit {
     
     static private let 중성_알파벳_발음: [Character: String] = [
         // MARK: - 단모음

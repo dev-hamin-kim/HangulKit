@@ -5,7 +5,7 @@
 //  Created by 김하민 on 3/18/25.
 //
 
-public extension Hangul {
+public extension HangulKit {
     
     enum CombineCharacterError: Error {
         case invalidChoseong, invalidJungseong, invalidJongseong
@@ -14,10 +14,10 @@ public extension Hangul {
     ///
     /// 인자로 초성, 중성, 종성을 받아 하나의 한글 문자를 반환합니다.
     ///
-    ///     let 값 = Hangul.combineCharacter(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅄ")
+    ///     let 값 = HangulKit.combineCharacter(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅄ")
     ///     print(값) // prints "값"
     ///
-    ///     let 토 = Hangul.combineCharacter(choseong: "ㅌ", jungseong: "ㅗ")
+    ///     let 토 = HangulKit.combineCharacter(choseong: "ㅌ", jungseong: "ㅗ")
     ///     print(토) // prints "토"
     static func combineCharacter(choseong: Character,
                                  jungseong: Character, // MARK: throws를 쓰는 게 맞는지 생각해보기
@@ -35,7 +35,7 @@ public extension Hangul {
         let choseongOfTargetVowel = jungsungIndex * Jongseong.list.count
         
         let unicodeValue: UInt32 =
-        Hangul.CompleteHangulStartUnicodeScalar +
+        HangulKit.CompleteHangulStartUnicodeScalar +
         UInt32(jongsungIndex + choseongOfTargetConsonant + choseongOfTargetVowel)
         
         return Character(Unicode.Scalar(unicodeValue)!)

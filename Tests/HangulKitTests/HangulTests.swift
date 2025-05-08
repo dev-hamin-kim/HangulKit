@@ -9,7 +9,7 @@ import Testing
 @testable import HangulKit
 
 struct HangulTests {
-//    let hangul = Hangul()
+//    let hangul = HangulKit()
 //    
 //    // isHangulSyllable은 완성된 한글 문자를 받으면 true를 반환한다.
 //    @Test func isHangulSyllable() async throws {

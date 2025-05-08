@@ -5,7 +5,7 @@
 //  Created by 김하민 on 3/24/25.
 //
 
-public extension Hangul {
+public extension HangulKit {
     
     struct DisassembledCharacter: Equatable {
         let choseong: Character
@@ -26,17 +26,17 @@ public extension Hangul {
     /// 완전한 한글 문자열을 초성, 중성, 종성으로 분리합니다.
     ///
     ///
-    ///     let 값 = Hangul.dissassembleCompleteCharacter("값")
+    ///     let 값 = HangulKit.dissassembleCompleteCharacter("값")
     ///     print(값) // prints DisassembledCharacter(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅄ")
     ///
-    ///     let 리 = Hangul.dissassembleCompleteCharacter("리")
+    ///     let 리 = HangulKit.dissassembleCompleteCharacter("리")
     ///     print(리) // prints DisassembledCharacter(choseong: "ㄹ", jungseong: "ㅣ")
     ///
     /// - Parameter letter:
     /// 분리하고자 하는 완전한 한글 문자열
     ///
     /// - Returns:
-    /// 입력된 문자열의 초성, 중성, 종성을 프로퍼티로 갖는 ``Hangul/DisassembledCharacter`` 구조체를 반환
+    /// 입력된 문자열의 초성, 중성, 종성을 프로퍼티로 갖는 ``HangulKit/DisassembledCharacter`` 구조체를 반환
     ///
     static func disassembleCompleteCharacter(_ letter: Character) throws -> DisassembledCharacter {
         
@@ -47,15 +47,15 @@ public extension Hangul {
         
         let charCode = letter.unicodeScalars.first!.value
         
-        let hangulCode = charCode - Hangul.CompleteHangulStartUnicodeScalar
+        let hangulCode = charCode - HangulKit.CompleteHangulStartUnicodeScalar
         
-        let jongseongIndex = hangulCode % Hangul.NumberOfJongseong
-        let jungseongIndex = ((hangulCode - jongseongIndex) / Hangul.NumberOfJongseong) % Hangul.NumberOfJungseong
-        let choseongIndex = (hangulCode - jongseongIndex) / Hangul.NumberOfJongseong / Hangul.NumberOfJungseong
+        let jongseongIndex = hangulCode % HangulKit.NumberOfJongseong
+        let jungseongIndex = ((hangulCode - jongseongIndex) / HangulKit.NumberOfJongseong) % HangulKit.NumberOfJungseong
+        let choseongIndex = (hangulCode - jongseongIndex) / HangulKit.NumberOfJongseong / HangulKit.NumberOfJungseong
         
-        let result = DisassembledCharacter(choseong: Hangul.Choseong.list[Int(choseongIndex)],
-                      jungseong: Hangul.Jungseong.list[Int(jungseongIndex)],
-                      jongseong: Hangul.Jongseong.list[Int(jongseongIndex)])
+        let result = DisassembledCharacter(choseong: HangulKit.Choseong.list[Int(choseongIndex)],
+                      jungseong: HangulKit.Jungseong.list[Int(jungseongIndex)],
+                      jongseong: HangulKit.Jongseong.list[Int(jongseongIndex)])
         
         return result
     }

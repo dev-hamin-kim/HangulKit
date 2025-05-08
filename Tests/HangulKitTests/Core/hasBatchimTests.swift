@@ -12,11 +12,11 @@ struct hasBatchimTests {
     
     @Test
     func example() {
-        #expect(Hangul.hasBatchim("값") == true)
-        #expect(Hangul.hasBatchim("토") == false)
-        #expect(Hangul.hasBatchim("갑", .single) == true)
-        #expect(Hangul.hasBatchim("값", .single) == false)
-        #expect(Hangul.hasBatchim("값", .double) == true)
-        #expect(Hangul.hasBatchim("토", .double) == false)
+        #expect(HangulKit.hasBatchim("값") == true)
+        #expect(HangulKit.hasBatchim("토") == false)
+        #expect(HangulKit.hasBatchim("갑", .single) == true)
+        #expect(HangulKit.hasBatchim("값", .single) == false)
+        #expect(HangulKit.hasBatchim("값", .double) == true)
+        #expect(HangulKit.hasBatchim("토", .double) == false)
     }
 }

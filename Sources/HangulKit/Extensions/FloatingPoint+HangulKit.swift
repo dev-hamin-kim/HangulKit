@@ -12,14 +12,14 @@ extension Float16: HangulKitCompatible { }
 extension HangulKitWrapper where Base: FloatingPoint {
     // MARK: 주석 추가 필요
     public func numberToHangul(withSpacing: Bool = false) -> String {
-        let result = try? Hangul.numberToHangul(base, withSpacing: withSpacing)
+        let result = try? HangulKit.numberToHangul(base, withSpacing: withSpacing)
         
         return result ?? "숫자로 표시할 수 없음"
     }
     
     // MARK: 주석 추가 필요
     public func numberToHangulMixed(withSpacing: Bool = false) -> String {
-        let result = try? Hangul.numberToHangul(base, withSpacing: withSpacing)
+        let result = try? HangulKit.numberToHangul(base, withSpacing: withSpacing)
         
         return result ?? "숫자로 표시할 수 없음"
     }

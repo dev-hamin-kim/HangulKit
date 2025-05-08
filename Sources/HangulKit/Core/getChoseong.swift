@@ -5,14 +5,14 @@
 //  Created by 김하민 on 4/11/25.
 //
 
-public extension Hangul {
+public extension HangulKit {
     
     /// 단어에서 초성을 추출합니다.
     ///
-    ///     let apple = Hangul.getChoseong(of: "사과")
+    ///     let apple = HangulKit.getChoseong(of: "사과")
     ///     print(apple) // prints "ㅅㄱ"
     ///
-    ///     let spacing = Hangul.getChoseong(of: "띄어 쓰기")
+    ///     let spacing = HangulKit.getChoseong(of: "띄어 쓰기")
     ///     print(spacing) // prints "ㄸㅇ ㅆㄱ"
     ///
     /// - Parameters:
@@ -34,11 +34,11 @@ public extension Hangul {
                 continue
             }
         
-            let value = char.unicodeScalars.first!.value - Hangul.CompleteHangulStartUnicodeScalar
+            let value = char.unicodeScalars.first!.value - HangulKit.CompleteHangulStartUnicodeScalar
             
             let index = Int(value / 588)
             
-            result.append(Hangul.Choseong.list[index])
+            result.append(HangulKit.Choseong.list[index])
 
         }
         

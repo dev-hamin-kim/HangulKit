@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/24/25.
 //
 
-public extension Hangul {
+public extension HangulKit {
     
     static private let susaMap = [
         1: "하나",
@@ -39,17 +39,17 @@ public extension Hangul {
     
     /// 숫자를 순 우리말 수사로 변환합니다. 주어진 숫자가 0보다 크고 100이하일 때 유효합니다.
     ///
-    ///     Hangul.susa(of: 1) // returns "하나"
-    ///     Hangul.susa(of: 2) // returns "둘"
-    ///     Hangul.susa(of: 11) // returns "열하나"
-    ///     Hangul.susa(of: 21) // returns "스물하나"
-    ///     Hangul.susa(of: 99) // returns "아흔아홉"
-    ///     Hangul.susa(of: 100) // returns "백"
-    ///     Hangul.susa(of: 1, classifier: true) // returns "한"
-    ///     Hangul.susa(of: 2, classifier: true) // returns "두"
-    ///     Hangul.susa(of: 11, classifier: true) // returns "열한"
-    ///     Hangul.susa(of: 20, classifier: true) // returns "스무"
-    ///     Hangul.susa(of: 21, classifier: true) // returns "스물한"
+    ///     HangulKit.susa(of: 1) // returns "하나"
+    ///     HangulKit.susa(of: 2) // returns "둘"
+    ///     HangulKit.susa(of: 11) // returns "열하나"
+    ///     HangulKit.susa(of: 21) // returns "스물하나"
+    ///     HangulKit.susa(of: 99) // returns "아흔아홉"
+    ///     HangulKit.susa(of: 100) // returns "백"
+    ///     HangulKit.susa(of: 1, classifier: true) // returns "한"
+    ///     HangulKit.susa(of: 2, classifier: true) // returns "두"
+    ///     HangulKit.susa(of: 11, classifier: true) // returns "열한"
+    ///     HangulKit.susa(of: 20, classifier: true) // returns "스무"
+    ///     HangulKit.susa(of: 21, classifier: true) // returns "스물한"
     ///
     /// - Parameters:
     ///     - num: 순 우리말 수사로 변환할 숫자입니다.

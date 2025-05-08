@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/18/25.
 //
 
-extension Hangul {
+extension HangulKit {
     static func transformHardConversion(currentSyllable: Syllable, nextSyllable: Syllable) -> Syllable {
         guard let currentJonseong = currentSyllable.jongseong,
               let updatedNextChoseong = 된소리[nextSyllable.choseong] else { return nextSyllable }

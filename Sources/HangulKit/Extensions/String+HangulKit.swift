@@ -35,7 +35,7 @@ extension HangulKitWrapper where Base == String {
     ///     let spacing = "띄어 쓰기".hk.getChoseong()
     ///     print(spacing) // prints "ㄸㅇ ㅆㄱ"
     public func getChoseong() -> String {
-        return Hangul.getChoseong(base)
+        return HangulKit.getChoseong(base)
     }
     
     /// 문자열 뒤에 선택한 조사 옵션 중 규칙에 알맞은 조사를 붙여 반환합니다.
@@ -48,8 +48,8 @@ extension HangulKitWrapper where Base == String {
     ///
     /// - Parameters:
     ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``Hangul/JosaOption`` 중 하나 선택 가능
-    public func addJosa(within options: Hangul.JosaOption) -> String {
-        return Hangul.addJosa(after: base, within: options)
+    public func addJosa(within options: HangulKit.JosaOption) -> String {
+        return HangulKit.addJosa(after: base, within: options)
     }
     
     /// 문자열에 뒤따를 선택한 조사 옵션 중 규칙에 알맞은 조사를 반환합니다.
@@ -62,8 +62,8 @@ extension HangulKitWrapper where Base == String {
     ///
     /// - Parameters:
     ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``JosaOption`` 중 하나 선택 가능
-    public func pickJosa(within options: Hangul.JosaOption) -> String {
-        return Hangul.pickJosa(of: base, within: options)
+    public func pickJosa(within options: HangulKit.JosaOption) -> String {
+        return HangulKit.pickJosa(of: base, within: options)
     }
     
     /// 한글 문자열에서 가장 마지막 문자 하나를 제거하여 반환합니다.
@@ -74,7 +74,7 @@ extension HangulKitWrapper where Base == String {
     ///     "전화".hk.removeLastCharacter() // returns "전호"
     ///     "신세계".hk.removeLastCharacter() // returns "신세ㄱ"
     public func removeLastCharacter() -> String {
-        return Hangul.removeLastCharacter(base)
+        return HangulKit.removeLastCharacter(base)
     }
     
     /// 두벌식 한글 자판에서 입력된 한글을 QWERTY 자판과 매칭되는 영어 알파벳으로 변환합니다.
@@ -85,7 +85,7 @@ extension HangulKitWrapper where Base == String {
     ///     "ㅇPdml".hk.convertHangulToQwerty(); // returns "dPdml"
     ///     "".hk.convertHangulToQwerty(); // returns ""
     public func convertHangulToQWERTY() -> String {
-        return Hangul.convertHangulToQWERTY(base)
+        return HangulKit.convertHangulToQWERTY(base)
     }
     
     /// QWERTY 자판에서 입력된 영어 알파벳을 동일한 위치의 두벌식 자판에 해당하는 한글 음소로 변환합니다.
@@ -93,7 +93,7 @@ extension HangulKitWrapper where Base == String {
     ///     "dkdldh에스".hk.convertQWERTYToAlphabet() // returns "ㅇㅏㅇㅣㅇㅗ에스"
     ///     "RㅏㄱEㅜrl".hk.convertQWERTYToAlphabet() // returns "ㄲㅏㄱㄸㅜㄱㅣ"
     public func convertQWERTYToAlphabet() -> String {
-        return Hangul.convertQWERTYToAlphabet(base)
+        return HangulKit.convertQWERTYToAlphabet(base)
     }
     
     /// QWERTY 자판에서 입력된 영어 알파벳을 동일한 위치의 두벌식 자판에 해당하는 한글 음소로 변환한 후 온전한 한글 문자와 문장으로 변환합니다.
@@ -104,7 +104,7 @@ extension HangulKitWrapper where Base == String {
     ///     "dkdldhdptm".hk.convertQWERTYToHangul() // returns "아이오에스"
     ///     "dkdl오에스".hk.convertQWERTYToHangul() // also returns "아이오에스"
     public func convertQWERTYToHangul() -> String {
-        return Hangul.convertQWERTYToHangul(base)
+        return HangulKit.convertQWERTYToHangul(base)
     }
     
     /// 날짜를 나타내는 숫자 문자열을 순 우리말 날짜로 변환해줍니다.
@@ -117,7 +117,7 @@ extension HangulKitWrapper where Base == String {
     public func days() -> String {
         guard let input = Int(base), 1...30 ~= input else { return "" }
         
-        return Hangul.days(input)
+        return HangulKit.days(input)
     }
 
     /// 숫자 문자열을 한글 서수사로 변환합니다.
@@ -143,7 +143,7 @@ extension HangulKitWrapper where Base == String {
     public func seosusa() -> String {
         guard let input = Int(base) else { return "" }
         
-        return Hangul.seosusa(of: input)
+        return HangulKit.seosusa(of: input)
     }
     
     /// 숫자 문자열을 순 우리말 수사로 변환합니다. 주어진 숫자가 0보다 크고 100이하일 때 유효합니다.
@@ -169,6 +169,6 @@ extension HangulKitWrapper where Base == String {
     public func susa(classifier: Bool = false) -> String {
         guard let input = Int(base) else { return "" }
         
-        return Hangul.susa(of: input, classifier: classifier)
+        return HangulKit.susa(of: input, classifier: classifier)
     }
 }

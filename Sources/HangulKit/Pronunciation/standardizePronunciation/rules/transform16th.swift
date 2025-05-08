@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/18/25.
 //
 
-extension Hangul {
+extension HangulKit {
     
     static func transform16th(
         currentSyllable: Syllable,

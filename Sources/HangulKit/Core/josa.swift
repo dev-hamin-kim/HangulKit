@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/11/25.
 //
 
-public extension Hangul {
+public extension HangulKit {
     
     enum JosaOption: String {
         // JS/TS에서와는 다르게 Swift에선 변수명에 슬래시(/) 못쓴다...........
@@ -33,10 +33,10 @@ public extension Hangul {
     
     /// 입력된 문자열 뒤에 선택한 조사 옵션 중 규칙에 알맞은 조사를 붙여 반환합니다.
     ///
-    ///     let 샴푸에조사추가 = Hangul.addJosa(after: "샴푸", within: .이_가)
+    ///     let 샴푸에조사추가 = HangulKit.addJosa(after: "샴푸", within: .이_가)
     ///     print(샴푸에조사추가) // prints "샴푸가"
     ///
-    ///     let 칫솔에조사추가 = Hangul.addJosa(after: "칫솔", within: .이_가)
+    ///     let 칫솔에조사추가 = HangulKit.addJosa(after: "칫솔", within: .이_가)
     ///     print(칫솔에조사추가) // prints "칫솔이"
     ///
     /// - Parameters:
@@ -54,10 +54,10 @@ public extension Hangul {
     
     /// 입력된 문자열에 뒤따를 선택한 조사 옵션 중 규칙에 알맞은 조사를 반환합니다.
     ///
-    ///     let 샴푸 = Hangul.pickJosa(of: "샴푸", within: .이_가)
+    ///     let 샴푸 = HangulKit.pickJosa(of: "샴푸", within: .이_가)
     ///     print(샴푸) // prints "가"
     ///
-    ///     let 칫솔 = Hangul.pickJosa(of: "칫솔", within: .이_가)
+    ///     let 칫솔 = HangulKit.pickJosa(of: "칫솔", within: .이_가)
     ///     print(칫솔) // prints "이"
     ///
     /// - Parameters:
@@ -66,18 +66,18 @@ public extension Hangul {
     static func pickJosa(of word: String, within options: JosaOption) -> String {
         if word.isEmpty { return options.rawValue.components(separatedBy: "/")[0] }
         
-        let has받침 = Hangul.hasBatchim(word.last!)
+        let has받침 = HangulKit.hasBatchim(word.last!)
         var index = has받침 ? 0 : 1
         
         var is종성ㄹ = false
         
         if has받침 {
-            let 종성 = try! Hangul.disassembleCompleteCharacter(word.last!).jongseong!
+            let 종성 = try! HangulKit.disassembleCompleteCharacter(word.last!).jongseong!
             
             is종성ㄹ = 종성 == "ㄹ"
         }
         
-        let isCaseOf로 = has받침 && is종성ㄹ && Hangul.로_조사.contains(options)
+        let isCaseOf로 = has받침 && is종성ㄹ && HangulKit.로_조사.contains(options)
         
         if options == .와_과 || isCaseOf로 {
             index = index == 0 ? 1 : 0

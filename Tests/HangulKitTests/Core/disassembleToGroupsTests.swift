@@ -12,8 +12,8 @@ struct disassembleToGroupsTests {
     
     @Test
     func disassembleToGroups() {
-        #expect(Hangul.disassembleToGroups("값") == [["ㄱ", "ㅏ", "ㅂ", "ㅅ"]])
-        #expect(Hangul.disassembleToGroups("값이 비싸다") ==
+        #expect(HangulKit.disassembleToGroups("값") == [["ㄱ", "ㅏ", "ㅂ", "ㅅ"]])
+        #expect(HangulKit.disassembleToGroups("값이 비싸다") ==
                 [
                     ["ㄱ", "ㅏ", "ㅂ", "ㅅ"],
                     ["ㅇ", "ㅣ"],
@@ -23,10 +23,10 @@ struct disassembleToGroupsTests {
                     ["ㄷ", "ㅏ"],
                 ]
         )
-        #expect(Hangul.disassembleToGroups("사과 짱") == [["ㅅ", "ㅏ"], ["ㄱ", "ㅗ", "ㅏ"], [" "], ["ㅉ", "ㅏ", "ㅇ"]])
-        #expect(Hangul.disassembleToGroups("ㄵ") == [["ㄴ", "ㅈ"]])
-        #expect(Hangul.disassembleToGroups("ㅘ") == [["ㅗ", "ㅏ"]])
+        #expect(HangulKit.disassembleToGroups("사과 짱") == [["ㅅ", "ㅏ"], ["ㄱ", "ㅗ", "ㅏ"], [" "], ["ㅉ", "ㅏ", "ㅇ"]])
+        #expect(HangulKit.disassembleToGroups("ㄵ") == [["ㄴ", "ㅈ"]])
+        #expect(HangulKit.disassembleToGroups("ㅘ") == [["ㅗ", "ㅏ"]])
         
-        #expect(Hangul.disassembleToGroups("뷁") == [["ㅂ", "ㅜ", "ㅔ", "ㄹ", "ㄱ"]])
+        #expect(HangulKit.disassembleToGroups("뷁") == [["ㅂ", "ㅜ", "ㅔ", "ㄹ", "ㄱ"]])
     }
 }

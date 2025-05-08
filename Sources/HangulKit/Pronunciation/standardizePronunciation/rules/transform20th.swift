@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/18/25.
 //
 
-extension Hangul {
+extension HangulKit {
 
     static func transform20th(currentSyllable: Syllable, nextSyllable: Syllable) -> (Syllable, Syllable) {
         var (current, next) = (currentSyllable, nextSyllable)

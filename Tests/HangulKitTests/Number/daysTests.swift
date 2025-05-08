@@ -12,20 +12,20 @@ struct daysTests {
     
     @Test
     func example() {
-        #expect(Hangul.days(1) == "하루")
-        #expect(Hangul.days(2) == "이틀")
-        #expect(Hangul.days(3) == "사흘")
-        #expect(Hangul.days(4) == "나흘")
-        #expect(Hangul.days(5) == "닷새")
-        #expect(Hangul.days(6) == "엿새")
-        #expect(Hangul.days(7) == "이레")
-        #expect(Hangul.days(8) == "여드레")
-        #expect(Hangul.days(9) == "아흐레")
-        #expect(Hangul.days(10) == "열흘")
-        #expect(Hangul.days(11) == "열하루")
-        #expect(Hangul.days(20) == "스무날")
-        #expect(Hangul.days(21) == "스무하루")
-        #expect(Hangul.days(30) == "서른날")
+        #expect(HangulKit.days(1) == "하루")
+        #expect(HangulKit.days(2) == "이틀")
+        #expect(HangulKit.days(3) == "사흘")
+        #expect(HangulKit.days(4) == "나흘")
+        #expect(HangulKit.days(5) == "닷새")
+        #expect(HangulKit.days(6) == "엿새")
+        #expect(HangulKit.days(7) == "이레")
+        #expect(HangulKit.days(8) == "여드레")
+        #expect(HangulKit.days(9) == "아흐레")
+        #expect(HangulKit.days(10) == "열흘")
+        #expect(HangulKit.days(11) == "열하루")
+        #expect(HangulKit.days(20) == "스무날")
+        #expect(HangulKit.days(21) == "스무하루")
+        #expect(HangulKit.days(30) == "서른날")
     }
     
     

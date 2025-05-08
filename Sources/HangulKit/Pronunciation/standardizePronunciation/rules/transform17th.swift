@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/18/25.
 //
 
-extension Hangul {
+extension HangulKit {
     
     static func transform17th(currentSyllable: Syllable, nextSyllable: Syllable) -> (Syllable, Syllable) {
         let 제17항주요조건_충족 = nextSyllable.jungseong == "ㅣ"

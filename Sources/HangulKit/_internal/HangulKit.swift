@@ -7,7 +7,7 @@
 
 //import Foundation
 
-public struct Hangul {
+public struct HangulKit {
     
     struct Choseong {
         /// 초성으로 올 수 있는 한글 글자
@@ -292,7 +292,7 @@ public struct Hangul {
 
     static func binaryAssembleAlphabets(_ source: Character, _ nextCharacter: Character) -> String {
         let combinedInputs = "\(source)\(nextCharacter)"
-        let correspondingVowel = Hangul.assembledVowels[combinedInputs]
+        let correspondingVowel = HangulKit.assembledVowels[combinedInputs]
         
         if let correspondingVowel { return correspondingVowel.description }
         
@@ -331,14 +331,14 @@ public struct Hangul {
         let combineJungseong = fixConsonant(restOfJamos.first ?? secondLastJamo)
         
         // source의 마지막 한글과 nextCharacter가 합쳐서 중성이 될 수 있을 때.
-        let lastJamoAndNextCharacterCombined = Hangul.assembledVowels["\(lastJamo)\(nextCharacter)"] ?? " "
+        let lastJamoAndNextCharacterCombined = HangulKit.assembledVowels["\(lastJamo)\(nextCharacter)"] ?? " "
         
         if canBeJungseong(lastJamoAndNextCharacterCombined) {
             return combineJungseong(lastJamoAndNextCharacterCombined)(nil).description
         }
         
         // source의 마지막 두 글자가 합쳐서 중성, 그리고 nextCharacter가 종성이 될 수 있을 때.
-        let lastTwoCombined = Hangul.assembledVowels["\(secondLastJamo)\(lastJamo)"] ?? " "
+        let lastTwoCombined = HangulKit.assembledVowels["\(secondLastJamo)\(lastJamo)"] ?? " "
 
         if canBeJungseong(lastTwoCombined) && canBeJongseong(nextCharacter) {
             return combineJungseong(lastTwoCombined)(nextCharacter).description
@@ -355,14 +355,14 @@ public struct Hangul {
         // JS/TS와 Swift의 차이점 때문에 새로 짜는 것이 낫겠다 판단함.
         
         // source의 마지막 한 글자와 nextCharacter가 합쳐저 종성이 될 수 있을 때
-        let restOfJamosCombined = Hangul.assembledConsonants["\(lastJamo)\(nextCharacter)"] ?? " "
+        let restOfJamosCombined = HangulKit.assembledConsonants["\(lastJamo)\(nextCharacter)"] ?? " "
         
         if canBeJongseong(restOfJamosCombined) && restOfJamos.count == 1 {
             return fixVowel(secondLastJamo)(restOfJamosCombined).description
         }
         
         if canBeJongseong(restOfJamosCombined) && restOfJamos.count == 2 {
-            let combinedVowels = Hangul.assembledVowels["\(restOfJamos[1])\(secondLastJamo)"] ?? " "
+            let combinedVowels = HangulKit.assembledVowels["\(restOfJamos[1])\(secondLastJamo)"] ?? " "
             
             return fixVowel(combinedVowels)(restOfJamosCombined).description
         }
@@ -370,13 +370,13 @@ public struct Hangul {
         // 위까지의 로직을 차라리 초성 유무, 중성 유무 + 겹낱자 여부, 종성 유무 + 겹낱자 여부 이렇게? 바꾸는 건 어떨지 생각...?
         
 //        if restOfJamos.count >= 3 {
-//            let restOfJamosCombined = Hangul.assembledVowels["\(restOfJamos[1])\(restOfJamos[2])"] ?? " "
+//            let restOfJamosCombined = HangulKit.assembledVowels["\(restOfJamos[1])\(restOfJamos[2])"] ?? " "
 //            let combineJongseong = fixVowel(
 //                canBeJungseong(restOfJamosCombined) ? restOfJamosCombined : restOfJamos[1]
 //            )
 //            
 //            let lastConsonant = lastJamo
-//            let lastConsonantNextCharacterCombined = Hangul.assembledConsonants["\(lastConsonant)\(nextCharacter)"] ?? " "
+//            let lastConsonantNextCharacterCombined = HangulKit.assembledConsonants["\(lastConsonant)\(nextCharacter)"] ?? " "
 //            
 //            if hasBatchim(source, .single) &&
 //                canBeJongseong(lastConsonantNextCharacterCombined) {

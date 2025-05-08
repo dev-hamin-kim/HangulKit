@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension Hangul {
+public extension HangulKit {
     
     // Swift 특성상 JS/TS를 사용하는 es-hangul과는 다르게 정수/실수 중 하나만을 사용가능.
     // 따라서 로직이 조금 차이가 있으니 유의.
@@ -59,7 +59,7 @@ public extension Hangul {
         
         if !decimalPart.isEmpty {
             let decimalKorean = decimalPart
-                .map { Hangul.Numbers[$0.wholeNumberValue!] }
+                .map { HangulKit.Numbers[$0.wholeNumberValue!] }
                 .joined()
             
             if withSpacing { result += "점 " + decimalKorean }
@@ -91,7 +91,7 @@ public extension Hangul {
                 
                 let formattedNumber = formatter.string(from: Int(currentPart)! as NSNumber) ?? ""
                 
-                koreanParts.insert(formattedNumber == "0" ? "" : formattedNumber + Hangul.Digits[placeIndex], at: 0)
+                koreanParts.insert(formattedNumber == "0" ? "" : formattedNumber + HangulKit.Digits[placeIndex], at: 0)
             }
             
             remainingDigits = String(remainingDigits.dropLast(4))

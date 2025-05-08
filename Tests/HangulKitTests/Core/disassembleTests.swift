@@ -12,10 +12,10 @@ struct disassembleTests {
     
     @Test
     func disassemble() {
-        #expect(Hangul.disassemble("값") == "ㄱㅏㅂㅅ")
-        #expect(Hangul.disassemble("값이 비싸다") == "ㄱㅏㅂㅅㅇㅣ ㅂㅣㅆㅏㄷㅏ")
-        #expect(Hangul.disassemble("사과 짱") == "ㅅㅏㄱㅗㅏ ㅉㅏㅇ")
-        #expect(Hangul.disassemble("ㄵ") == "ㄴㅈ")
-        #expect(Hangul.disassemble("ㅘ") == "ㅗㅏ")
+        #expect(HangulKit.disassemble("값") == "ㄱㅏㅂㅅ")
+        #expect(HangulKit.disassemble("값이 비싸다") == "ㄱㅏㅂㅅㅇㅣ ㅂㅣㅆㅏㄷㅏ")
+        #expect(HangulKit.disassemble("사과 짱") == "ㅅㅏㄱㅗㅏ ㅉㅏㅇ")
+        #expect(HangulKit.disassemble("ㄵ") == "ㄴㅈ")
+        #expect(HangulKit.disassemble("ㅘ") == "ㅗㅏ")
     }
 }

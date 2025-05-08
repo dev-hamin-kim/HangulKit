@@ -5,7 +5,7 @@
 //  Created by 김하민 on 3/19/25.
 //
 
-public extension Hangul {
+public extension HangulKit {
     
     // Swift 특성상 JS/TS를 사용하는 es-hangul과는 다르게 정수/실수 중 하나만을 사용가능.
     // 따라서 로직이 조금 차이가 있으니 유의.
@@ -29,7 +29,7 @@ public extension Hangul {
             let koreanNumber = numberToKoreanUpToThousands(currentPart)
             
             if koreanNumber != "" {
-                koreanParts.insert(koreanNumber + Hangul.Digits[placeIndex], at: 0)
+                koreanParts.insert(koreanNumber + HangulKit.Digits[placeIndex], at: 0)
             }
             
             remainingDigits = remainingDigits.dropLast(4)
@@ -65,7 +65,7 @@ public extension Hangul {
             let koreanNumber = numberToKoreanUpToThousands(currentPart)
             
             if koreanNumber != "" {
-                koreanParts.insert(koreanNumber + Hangul.Digits[placeIndex], at: 0)
+                koreanParts.insert(koreanNumber + HangulKit.Digits[placeIndex], at: 0)
             }
             
             remainingDigits = remainingDigits.dropLast(4)
@@ -108,7 +108,7 @@ public extension Hangul {
             let koreanNumber = numberToKoreanUpToThousands(currentPart)
             
             if koreanNumber != "" {
-                koreanParts.insert(koreanNumber + Hangul.Digits[placeIndex], at: 0)
+                koreanParts.insert(koreanNumber + HangulKit.Digits[placeIndex], at: 0)
             }
             
             remainingDigits = remainingDigits.dropLast(4)
@@ -126,7 +126,7 @@ public extension Hangul {
         
         if !decimalPart.isEmpty {
             let decimalKorean = decimalPart
-                .map { Hangul.Numbers[$0.wholeNumberValue!] }
+                .map { HangulKit.Numbers[$0.wholeNumberValue!] }
                 .joined()
             
             if withSpacing { result += "점 " + decimalKorean }
@@ -146,7 +146,7 @@ public extension Hangul {
             .reversed()
             .enumerated()
             .map { index, char in
-                char == "0" ? "" : Hangul.Numbers[char.wholeNumberValue!] + Hangul.Cardinal[index]
+                char == "0" ? "" : HangulKit.Numbers[char.wholeNumberValue!] + HangulKit.Cardinal[index]
             }
             .reversed()
             .joined()

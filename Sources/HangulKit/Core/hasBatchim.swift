@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/3/25.
 //
 
-public extension Hangul {
+public extension HangulKit {
     
     enum Batchim {
         case single, double, both
@@ -13,12 +13,12 @@ public extension Hangul {
     
     /// 입력된 한글 문자가 받침이 있는지 확인합니다.
     ///
-    ///     Hangul.hasBatchim("값") // true
-    ///     Hangul.hasBatchim("토") // false
-    ///     Hangul.hasBatchim("갑", .single) // true
-    ///     Hangul.hasBatchim("값", .single) // false
-    ///     Hangul.hasBatchim("값", .double) // true
-    ///     Hangul.hasBatchim("토", .double) // false
+    ///     HangulKit.hasBatchim("값") // true
+    ///     HangulKit.hasBatchim("토") // false
+    ///     HangulKit.hasBatchim("갑", .single) // true
+    ///     HangulKit.hasBatchim("값", .single) // false
+    ///     HangulKit.hasBatchim("값", .double) // true
+    ///     HangulKit.hasBatchim("토", .double) // false
     ///
     /// - Parameters:
     ///     - char: 받침이 있는지 확인할 한글 문자입니다.
@@ -31,9 +31,9 @@ public extension Hangul {
         
         let charCode = char.unicodeScalars.first!.value
         
-        let batchimCode = Int(charCode - Hangul.CompleteHangulStartUnicodeScalar) % Hangul.Jongseong.list.count
-        let batchim = Hangul.Jongseong.list[batchimCode]
-        let batchimLength = Hangul.DisassembledConsonants[batchim]?.count
+        let batchimCode = Int(charCode - HangulKit.CompleteHangulStartUnicodeScalar) % HangulKit.Jongseong.list.count
+        let batchim = HangulKit.Jongseong.list[batchimCode]
+        let batchimLength = HangulKit.DisassembledConsonants[batchim]?.count
         
         switch batchimOption {
         case .single:

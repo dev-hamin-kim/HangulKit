@@ -40,12 +40,12 @@ struct SeosusaTests {
         ]
         
         for (input, output) in validNumbers {
-            #expect(Hangul.seosusa(of: input) == output)
+            #expect(HangulKit.seosusa(of: input) == output)
         }
     }
     
     @Test("유효하지 않은 숫자에 대해 오류를 발생시켜야 한다.")
     func test2() async throws {
-        #expect(Hangul.seosusa(of: 0) == "1이상의 정수만 지원합니다.")
+        #expect(HangulKit.seosusa(of: 0) == "1이상의 정수만 지원합니다.")
     }
 }

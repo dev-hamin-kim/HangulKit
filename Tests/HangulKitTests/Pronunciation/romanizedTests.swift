@@ -16,7 +16,7 @@ struct romanizedTests {
         let output = ["baengma", "jongno", "wangsimni", "byeollae", "silla"]
         
         for (input, output) in zip(input, output) {
-            #expect(Hangul.romanize(hangul: input) == output)
+            #expect(HangulKit.romanize(hangul: input) == output)
         }
     }
     
@@ -26,7 +26,7 @@ struct romanizedTests {
         let output = ["hangnyeoul", "allyak"]
         
         for (input, output) in zip(input, output) {
-            #expect(Hangul.romanize(hangul: input) == output)
+            #expect(HangulKit.romanize(hangul: input) == output)
         }
     }
     
@@ -36,7 +36,7 @@ struct romanizedTests {
         let output = ["haedoji", "gachi", "guchida"]
         
         for (input, output) in zip(input, output) {
-            #expect(Hangul.romanize(hangul: input) == output)
+            #expect(HangulKit.romanize(hangul: input) == output)
         }
     }
     
@@ -46,7 +46,7 @@ struct romanizedTests {
         let output = ["joko", "nota", "japyeo", "nachi"]
         
         for (input, output) in zip(input, output) {
-            #expect(Hangul.romanize(hangul: input) == output)
+            #expect(HangulKit.romanize(hangul: input) == output)
         }
     }
     
@@ -56,7 +56,7 @@ struct romanizedTests {
         let output = ["apgujeong", "nakdonggang", "jukbyeon", "nakseongdae", "hapjeong", "paldang", "saetbyeol", "ulsan"]
         
         for (input, output) in zip(input, output) {
-            #expect(Hangul.romanize(hangul: input) == output)
+            #expect(HangulKit.romanize(hangul: input) == output)
         }
     }
     
@@ -66,7 +66,7 @@ struct romanizedTests {
         let output = ["gumi", "yeongdong", "baegam", "okcheon", "hapdeok", "hobeop", "wolgot", "beotkkot", "hanbat"]
         
         for (input, output) in zip(input, output) {
-            #expect(Hangul.romanize(hangul: input) == output)
+            #expect(HangulKit.romanize(hangul: input) == output)
         }
     }
     
@@ -76,7 +76,7 @@ struct romanizedTests {
         let output = ["guri", "seorak", "chilgok", "imsil", "ulleung", "daegwallyeong"]
         
         for (input, output) in zip(input, output) {
-            #expect(Hangul.romanize(hangul: input) == output)
+            #expect(HangulKit.romanize(hangul: input) == output)
         }
     }
 
@@ -86,7 +86,7 @@ struct romanizedTests {
         let output = ["g", "ganadarambs", "a", "wa"]
         
         for (input, output) in zip(input, output) {
-            #expect(Hangul.romanize(hangul: input) == output)
+            #expect(HangulKit.romanize(hangul: input) == output)
         }
     }
     
@@ -96,7 +96,7 @@ struct romanizedTests {
         let output = ["annyeonghaseyo.", "hangugeo!", "!?/", ""]
         
         for (input, output) in zip(input, output) {
-            #expect(Hangul.romanize(hangul: input) == output)
+            #expect(HangulKit.romanize(hangul: input) == output)
         }
     }
     
@@ -106,7 +106,7 @@ struct romanizedTests {
         let output = ["annyeonghaseyo es-hangul", "hangugeunkorea", "goyangineuncat"]
         
         for (input, output) in zip(input, output) {
-            #expect(Hangul.romanize(hangul: input) == output)
+            #expect(HangulKit.romanize(hangul: input) == output)
         }
     }
 }

@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/18/25.
 //
 
-extension Hangul {
+extension HangulKit {
     
     static func transformNLAssimilation(currentSyllable: Syllable, nextSyllable: Syllable) -> (Syllable, Syllable) {
         // ㄴㄹ이 덧나는 조건을 갖추지 못하면 early return

@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/10/25.
 //
 
-public extension Hangul {
+public extension HangulKit {
     
     static internal let daysMap: [Int: String] = [
         1: "하루",
@@ -29,10 +29,10 @@ public extension Hangul {
     
     /// 날짜를 나타내는 숫자를 순 우리말 날짜로 변환해줍니다.
     ///
-    ///     Hangul.days(1) // returns "하루"
-    ///     Hangul.days(3) // returns "사흘"
-    ///     Hangul.days(10) // returns "열흘"
-    ///     Hangul.days(30) // returns "서른날"
+    ///     HangulKit.days(1) // returns "하루"
+    ///     HangulKit.days(3) // returns "사흘"
+    ///     HangulKit.days(10) // returns "열흘"
+    ///     HangulKit.days(30) // returns "서른날"
     ///
     /// - Parameters:
     ///     - number: 순 우리말 날짜로 변환할 정수입니다. 1부터 30까지만 지원합니다.

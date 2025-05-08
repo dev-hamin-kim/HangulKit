@@ -34,14 +34,14 @@ struct susaTests {
     @Test("순 우리말 수사로 바꿔 반환해야 한다.")
     func test1() async throws {
         validNumbers.forEach { (num, word, _) in
-            #expect(Hangul.susa(of: num) == word)
+            #expect(HangulKit.susa(of: num) == word)
         }
     }
     
     @Test("순 우리말 수 관형사가 있다면 수 관형사로 없다면 수사로 반환해야 한다.")
     func test2() async throws {
         validNumbers.forEach { (num, _, classifier) in
-            #expect(Hangul.susa(of: num, classifier: true) == classifier)
+            #expect(HangulKit.susa(of: num, classifier: true) == classifier)
         }
     }
     
@@ -49,7 +49,7 @@ struct susaTests {
     func test3() async throws {
         let num = 0
         
-        #expect(Hangul.susa(of: num) == "지원하지 않는 숫자입니다.")
-        #expect(Hangul.susa(of: num, classifier: true) == "지원하지 않는 숫자입니다.")
+        #expect(HangulKit.susa(of: num) == "지원하지 않는 숫자입니다.")
+        #expect(HangulKit.susa(of: num, classifier: true) == "지원하지 않는 숫자입니다.")
     }
 }

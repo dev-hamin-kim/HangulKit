@@ -5,7 +5,7 @@
 //  Created by 김하민 on 3/25/25.
 //
 
-public extension Hangul {
+public extension HangulKit {
     
     static func disassembleToGroups(_ string: String) -> [[Character]] {
         var result: [[Character]] = []
@@ -19,14 +19,14 @@ public extension Hangul {
             let disassembledCharacter = try? disassembleCompleteCharacter(char)
             
             guard let disassembledCharacter else {
-                if let char = Hangul.DisassembledVowels[char] { result.append(char) }
-                if let char = Hangul.DisassembledConsonants[char] { result.append(char) }
+                if let char = HangulKit.DisassembledVowels[char] { result.append(char) }
+                if let char = HangulKit.DisassembledConsonants[char] { result.append(char) }
                 continue
             }
             
             let choseong = disassembledCharacter.choseong
             let jungseong = disassembledCharacter.jungseong
-            let decomposedJungseong = Hangul.DisassembledVowels[jungseong]
+            let decomposedJungseong = HangulKit.DisassembledVowels[jungseong]
             
             var decomposedJamo: [Character] = [choseong]
             decomposedJamo.append(contentsOf: decomposedJungseong!)
@@ -36,7 +36,7 @@ public extension Hangul {
                 continue
             }
             
-            let decomposedJongseong = Hangul.DisassembledConsonants[jongseong]
+            let decomposedJongseong = HangulKit.DisassembledConsonants[jongseong]
             
             decomposedJamo.append(contentsOf: decomposedJongseong!)
             result.append(decomposedJamo)
@@ -60,14 +60,14 @@ public extension Hangul {
             let disassembledCharacter = try? disassembleCompleteCharacter(char)
             
             guard let disassembledCharacter else {
-                if let char = Hangul.DisassembledVowels[char] { result.append(contentsOf: char) }
-                if let char = Hangul.DisassembledConsonants[char] { result.append(contentsOf: char) }
+                if let char = HangulKit.DisassembledVowels[char] { result.append(contentsOf: char) }
+                if let char = HangulKit.DisassembledConsonants[char] { result.append(contentsOf: char) }
                 continue
             }
             
             let choseong = disassembledCharacter.choseong
             let jungseong = disassembledCharacter.jungseong
-            let decomposedJungseong = Hangul.DisassembledVowels[jungseong]
+            let decomposedJungseong = HangulKit.DisassembledVowels[jungseong]
             
             var decomposedJamo: [Character] = [choseong]
             decomposedJamo.append(contentsOf: decomposedJungseong!)
@@ -77,7 +77,7 @@ public extension Hangul {
                 continue
             }
             
-            let decomposedJongseong = Hangul.DisassembledConsonants[jongseong]
+            let decomposedJongseong = HangulKit.DisassembledConsonants[jongseong]
             
             decomposedJamo.append(contentsOf: decomposedJongseong!)
             result.append(contentsOf: decomposedJamo)

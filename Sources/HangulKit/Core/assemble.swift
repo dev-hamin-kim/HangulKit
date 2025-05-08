@@ -5,16 +5,16 @@
 //  Created by 김하민 on 4/9/25.
 //
 
-public extension Hangul {
+public extension HangulKit {
     /// 인자로 받은 배열에 담긴 한글 문장과 문자를 한글 규칙에 맞게 합성합니다.
     ///
-    ///     var 아버지가 = Hangul.assemble(["아버지가", " ", "방ㅇ", "ㅔ ", 들ㅇ", "ㅓ갑니다"])
+    ///     var 아버지가 = HangulKit.assemble(["아버지가", " ", "방ㅇ", "ㅔ ", 들ㅇ", "ㅓ갑니다"])
     ///     print(아버지가) // prints "아버지가 방에 들어갑니다"
     ///
-    ///     아버지가 = Hangul.assemble(["아버지가", " ", "방에 ", "들어갑니다"])
+    ///     아버지가 = HangulKit.assemble(["아버지가", " ", "방에 ", "들어갑니다"])
     ///     print(아버지가) // also prints "아버지가 방에 들어갑니다"
     ///
-    ///     let 아버지 = Hangul.assemble(["ㅇ", "ㅏ", "ㅂ", "ㅓ", "ㅈ", "ㅣ"])
+    ///     let 아버지 = HangulKit.assemble(["ㅇ", "ㅏ", "ㅂ", "ㅓ", "ㅈ", "ㅣ"])
     ///     print(아버지) // prints "아버지"
     ///
     /// - Parameters:

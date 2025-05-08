@@ -5,14 +5,14 @@
 //  Created by 김하민 on 3/28/25.
 //
 
-public extension Hangul {
+public extension HangulKit {
     /// 주어진 한글 문자열에서 가장 마지막 문자 하나를 제거하여 반환합니다.
     ///
-    ///     Hangul.removeLastCharacter("안녕하세요 값") // returns "안녕하세요 갑"
-    ///     Hangul.removeLastCharacter("아이오에스") // returns "아이오에ㅅ"
-    ///     Hangul.removeLastCharacter("일요일") // returns "일요이"
-    ///     Hangul.removeLastCharacter("전화") // returns "전호"
-    ///     Hangul.removeLastCharacter("신세계") // returns "신세ㄱ"
+    ///     HangulKit.removeLastCharacter("안녕하세요 값") // returns "안녕하세요 갑"
+    ///     HangulKit.removeLastCharacter("아이오에스") // returns "아이오에ㅅ"
+    ///     HangulKit.removeLastCharacter("일요일") // returns "일요이"
+    ///     HangulKit.removeLastCharacter("전화") // returns "전호"
+    ///     HangulKit.removeLastCharacter("신세계") // returns "신세ㄱ"
     static func removeLastCharacter(_ words: String) -> String {
         let lastCharacter = words.last
         
@@ -39,7 +39,7 @@ public extension Hangul {
             let thirdIsJungseong = canBeJungseong(third)
             
             if thirdIsJungseong {
-                result = try! combineCharacter(choseong: first, jungseong: Hangul.assembledVowels["\(second)\(third)"]!)
+                result = try! combineCharacter(choseong: first, jungseong: HangulKit.assembledVowels["\(second)\(third)"]!)
             } else {
                 result = try! combineCharacter(choseong: first, jungseong: second, jongseong: third)
             }
@@ -53,9 +53,9 @@ public extension Hangul {
             let thirdIsJungseong = canBeJungseong(third)
             
             if thirdIsJungseong {
-                result = try! combineCharacter(choseong: first, jungseong: Hangul.assembledVowels["\(second)\(third)"]!, jongseong: fourth)
+                result = try! combineCharacter(choseong: first, jungseong: HangulKit.assembledVowels["\(second)\(third)"]!, jongseong: fourth)
             } else {
-                result = try! combineCharacter(choseong: first, jungseong: second, jongseong: Hangul.assembledConsonants["\(third)\(fourth)"])
+                result = try! combineCharacter(choseong: first, jungseong: second, jongseong: HangulKit.assembledConsonants["\(third)\(fourth)"])
             }
             
         default: return ""

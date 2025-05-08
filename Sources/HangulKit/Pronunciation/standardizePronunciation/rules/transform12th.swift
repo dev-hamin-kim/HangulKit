@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/15/25.
 //
 
-extension Hangul {
+extension HangulKit {
     
     static func transform12th(currentSyllable: Syllable, nextSyllable: Syllable?) -> (Syllable, Syllable?) {
         guard let currentJongseong = currentSyllable.jongseong else { return (currentSyllable, nextSyllable) }

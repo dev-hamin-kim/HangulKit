@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/24/25.
 //
 
-public extension Hangul {
+public extension HangulKit {
     
     static private let SeosusaMap = [
         1: "한",
@@ -37,19 +37,19 @@ public extension Hangul {
 
     /// 숫자를 한글 서수사로 변환합니다.
     ///
-    ///     Hangul.seosusa(of: 1) // returns "첫째"
-    ///     Hangul.seosusa(of: 2) // returns "둘째"
-    ///     Hangul.seosusa(of: 3) // returns "셋째"
-    ///     Hangul.seosusa(of: 10) // returns "열째"
-    ///     Hangul.seosusa(of: 11) // returns "열한째"
-    ///     Hangul.seosusa(of: 12) // returns "열두째"
-    ///     Hangul.seosusa(of: 13) // returns "열셋째"
-    ///     Hangul.seosusa(of: 20) // returns "스무째"
-    ///     Hangul.seosusa(of: 21) // returns "스물한째"
-    ///     Hangul.seosusa(of: 30) // returns "서른째"
-    ///     Hangul.seosusa(of: 40) // returns "마흔째"
-    ///     Hangul.seosusa(of: 99) // returns "아흔아홉째"
-    ///     Hangul.seosusa(of: 100) // returns "백째"
+    ///     HangulKit.seosusa(of: 1) // returns "첫째"
+    ///     HangulKit.seosusa(of: 2) // returns "둘째"
+    ///     HangulKit.seosusa(of: 3) // returns "셋째"
+    ///     HangulKit.seosusa(of: 10) // returns "열째"
+    ///     HangulKit.seosusa(of: 11) // returns "열한째"
+    ///     HangulKit.seosusa(of: 12) // returns "열두째"
+    ///     HangulKit.seosusa(of: 13) // returns "열셋째"
+    ///     HangulKit.seosusa(of: 20) // returns "스무째"
+    ///     HangulKit.seosusa(of: 21) // returns "스물한째"
+    ///     HangulKit.seosusa(of: 30) // returns "서른째"
+    ///     HangulKit.seosusa(of: 40) // returns "마흔째"
+    ///     HangulKit.seosusa(of: 99) // returns "아흔아홉째"
+    ///     HangulKit.seosusa(of: 100) // returns "백째"
     ///
     /// - Note:
     /// - `서수사`는 순서를 나타내는 단어입니다.

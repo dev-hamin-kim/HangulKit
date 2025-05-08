@@ -16,7 +16,7 @@ extension HangulKitWrapper where Base == Character {
     ///     "ㅏ".hk.canBeChoseong() // returns false
     ///     "가".hk.canBeChoseong() // returns false
     public func canBeChoseong() -> Bool {
-        return Hangul.canBeChoseong(base)
+        return HangulKit.canBeChoseong(base)
     }
     
     /// 문자가 중성으로 위치할 수 있는 문자인지 검사합니다.
@@ -27,7 +27,7 @@ extension HangulKitWrapper where Base == Character {
     ///     "ㄳ".hk.canBeJungseong() // false
     ///     "가".hk.canBeJungseong() // false
     public func canBeJungsung() -> Bool {
-        return Hangul.canBeJungseong(base)
+        return HangulKit.canBeJungseong(base)
     }
     
     /// 문자가 종성으로 위치할 수 있는 문자인지 검사합니다.
@@ -39,7 +39,7 @@ extension HangulKitWrapper where Base == Character {
     ///     "ㅏ".hk.canBeJongseong() // false
     ///     "ㅘ".hk.canBeJongseong() // false
     public func canbeJongseong() -> Bool {
-        return Hangul.canBeJongseong(base)
+        return HangulKit.canBeJongseong(base)
     }
     
     /// 한글 문자가 받침이 있는지 확인합니다.
@@ -55,7 +55,7 @@ extension HangulKitWrapper where Base == Character {
     ///     - batchimOption: 기본값은 .both이며, 받침이 있을 경우 true를 반환합니다.
     ///         - .double: 겹받침 혹은 쌍받침이 있을 때만 true를 반환합니다. 홀받침의 경우 false를 반환합니다.
     ///         - .single: 홀받침이 있을 때만 true를 반환합니다. 겹받침 또는 쌍받침의 경우 false를 반환합니다.
-    public func hasBatchim(_ batchimOption: Hangul.Batchim = .both) -> Bool {
-        return Hangul.hasBatchim(base, batchimOption)
+    public func hasBatchim(_ batchimOption: HangulKit.Batchim = .both) -> Bool {
+        return HangulKit.hasBatchim(base, batchimOption)
     }
 }
