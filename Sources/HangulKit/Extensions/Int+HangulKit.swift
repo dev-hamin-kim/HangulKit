@@ -6,6 +6,16 @@
 //
 
 extension Int: HangulKitCompatible { }
+extension Int8: HangulKitCompatible { }
+extension Int16: HangulKitCompatible { }
+extension Int32: HangulKitCompatible { }
+extension Int64: HangulKitCompatible { }
+
+extension UInt: HangulKitCompatible { }
+extension UInt8: HangulKitCompatible { }
+extension UInt16: HangulKitCompatible { }
+extension UInt32: HangulKitCompatible { }
+extension UInt64: HangulKitCompatible { }
 
 extension HangulKitWrapper where Base == Int {
     /// 날짜를 나타내는 숫자를 순 우리말 날짜로 변환해줍니다.

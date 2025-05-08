@@ -5,6 +5,10 @@
 //  Created by 김하민 on 5/2/25.
 //
 
+extension Double: HangulKitCompatible { }
+extension Float: HangulKitCompatible { }
+extension Float16: HangulKitCompatible { }
+
 extension HangulKitWrapper where Base: FloatingPoint {
     // MARK: 주석 추가 필요
     public func numberToHangul(withSpacing: Bool = false) -> String {
