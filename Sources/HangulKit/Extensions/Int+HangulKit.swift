@@ -5,6 +5,8 @@
 //  Created by 김하민 on 5/2/25.
 //
 
+extension Int: HangulKitCompatible { }
+
 extension HangulKitWrapper where Base == Int {
     /// 날짜를 나타내는 숫자를 순 우리말 날짜로 변환해줍니다.
     /// 1부터 30까지만 지원합니다.

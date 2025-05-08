@@ -7,6 +7,8 @@
 
 import Foundation
 
+extension String: HangulKitCompatible { }
+
 extension HangulKitWrapper where Base == String {
     
     public func isHangulSyllable() -> Bool {
