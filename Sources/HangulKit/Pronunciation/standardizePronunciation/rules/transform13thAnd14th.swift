@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/16/25.
 //
 
-public extension Hangul {
+extension Hangul {
     
     static func transform13And14th(currentSyllable: Syllable, nextSyllable: Syllable) -> (Syllable, Syllable) {
         let 제13_14항주요조건_충족 = (currentSyllable.jongseong != nil) && nextSyllable.choseong == "ㅇ"
@@ -19,7 +19,7 @@ public extension Hangul {
         return (updatedCurrent, updatedNext)
     }
 
-    static fileprivate func handle홀받침or쌍받침(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
+    static private func handle홀받침or쌍받침(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
         guard current.jongseong != "ㅇ" && current.has홀받침 || current.has쌍받침 else { return (current, next) }
         
         let updatedCurrent = Syllable(choseong: current.choseong,
@@ -31,7 +31,7 @@ public extension Hangul {
         return (updatedCurrent, updatedNext)
     }
     
-    static fileprivate func handle겹받침(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
+    static private func handle겹받침(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
         guard current.has겹받침 else { return (current, next) }
         
         let ㅅ겹받침: Set<Character> = ["ㄳ", "ㄽ", "ㅄ"]

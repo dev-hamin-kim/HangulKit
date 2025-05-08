@@ -141,7 +141,7 @@ public extension Hangul {
     }
     
     /// numberToHangul 메서드에서 내부적으로 사용되는 함수.
-    static fileprivate func numberToKoreanUpToThousands<T: StringProtocol>(_ number: T) -> String {
+    static private func numberToKoreanUpToThousands<T: StringProtocol>(_ number: T) -> String {
         var koreanDigits = number
             .reversed()
             .enumerated()
@@ -163,7 +163,7 @@ public extension Hangul {
     }
     
     // TODO: 이렇게 따로 빼서 리팩터링 하기.
-//    static fileprivate func integerPartToKorean() -> String {
+//    static private func integerPartToKorean() -> String {
 //        return ""
 //    }
 }

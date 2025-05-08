@@ -26,7 +26,7 @@ public extension Hangul {
         case 이라_라 = "이라/라"
     }
     
-    static let 로_조사: [JosaOption] = [.으로_로, .으로서_로서, .으로써_로써, .으로부터_로부터]
+    static internal let 로_조사: [JosaOption] = [.으로_로, .으로서_로서, .으로써_로써, .으로부터_로부터]
     
     // es-hangul에서의 이름은 josa이지만,
     // Swift에서 주로 봐온 함수 명명 형식이, josa 대신 putJosa라고 할 것 같아서 그렇게 하였다.

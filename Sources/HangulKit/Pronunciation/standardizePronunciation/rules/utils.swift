@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/15/25.
 //
 
-public extension Hangul {
+extension Hangul {
     
     typealias Syllable = DisassembledCharacter
     

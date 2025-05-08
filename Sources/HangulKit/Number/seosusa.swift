@@ -7,7 +7,7 @@
 
 public extension Hangul {
     
-    static fileprivate let SeosusaMap = [
+    static private let SeosusaMap = [
         1: "한",
         2: "두",
         3: "셋",
@@ -29,7 +29,7 @@ public extension Hangul {
         100: "백",
     ]
 
-    static fileprivate let SeosusaSpecialCaseMap = [
+    static private let SeosusaSpecialCaseMap = [
         1: "첫",
         2: "둘",
         20: "스무",
@@ -63,7 +63,7 @@ public extension Hangul {
         return "\(numberToHangul(num))째"
     }
     
-    static fileprivate func getOrdinalWord(_ num: Int) -> String {
+    static private func getOrdinalWord(_ num: Int) -> String {
         if let seosusaSpecialCaseMappedValue = SeosusaSpecialCaseMap[num] {
             return seosusaSpecialCaseMappedValue
         }

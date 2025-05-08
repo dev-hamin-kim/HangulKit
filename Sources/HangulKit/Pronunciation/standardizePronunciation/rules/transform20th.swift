@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/18/25.
 //
 
-public extension Hangul {
+extension Hangul {
 
     static func transform20th(currentSyllable: Syllable, nextSyllable: Syllable) -> (Syllable, Syllable) {
         var (current, next) = (currentSyllable, nextSyllable)
@@ -16,7 +16,7 @@ public extension Hangul {
         return (current, next)
     }
     
-    static fileprivate func applyMainCondition(current: Syllable, next: Syllable) -> Syllable {
+    static private func applyMainCondition(current: Syllable, next: Syllable) -> Syllable {
         guard current.jongseong == "ㄴ" && next.choseong == "ㄹ" else { return current }
         
         let updatedCurrent = Syllable(choseong: current.choseong,
@@ -26,7 +26,7 @@ public extension Hangul {
         return updatedCurrent
     }
 
-    static fileprivate func applySupplementaryCondition(current: Syllable, next: Syllable) -> Syllable {
+    static private func applySupplementaryCondition(current: Syllable, next: Syllable) -> Syllable {
         guard next.choseong == "ㄴ" && ["ㄹ", "ㄾ", "ㅀ"].contains(current.jongseong) else { return next }
         
         let updatedNext = Syllable(choseong: "ㄹ",

@@ -73,7 +73,7 @@ public extension Hangul {
         return result
     }
     
-    static fileprivate func integerPartToHangul(_ num: String, withSpacing: Bool) -> String {
+    static private func integerPartToHangul(_ num: String, withSpacing: Bool) -> String {
         var koreanParts: [String] = []
         
         var remainingDigits = num

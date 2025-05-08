@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/18/25.
 //
 
-public extension Hangul {
+extension Hangul {
     
     static func transform16th(
         currentSyllable: Syllable,
@@ -34,7 +34,7 @@ public extension Hangul {
         return (current, next)
     }
     
-    static fileprivate func handleHangulCharacters(
+    static private func handleHangulCharacters(
         current: Syllable,
         next: Syllable,
         combinedSyllables: String
@@ -53,7 +53,7 @@ public extension Hangul {
         return (updatedCurrent, updatedNext)
     }
     
-    static fileprivate func handleSpecialHangulCharacters(
+    static private func handleSpecialHangulCharacters(
         current: Syllable,
         next: Syllable,
         combinedSyllables: String

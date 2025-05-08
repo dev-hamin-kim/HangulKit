@@ -46,7 +46,7 @@ public extension Hangul {
     ///     let syllable = Syllable(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅇ")
     ///     let 강 = combineCharacter(syllable)
     ///     print(강) // prints "강"
-    static func combineCharacter(_ syllable: Syllable) -> Character {
+    static internal func combineCharacter(_ syllable: Syllable) -> Character {
         do {
             return try combineCharacter(choseong: syllable.choseong, jungseong: syllable.jungseong, jongseong: syllable.jongseong)
         } catch {

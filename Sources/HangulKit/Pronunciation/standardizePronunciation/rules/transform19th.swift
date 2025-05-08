@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/18/25.
 //
 
-public extension Hangul {
+extension Hangul {
     
     static func transform19th(currentSyllable: Syllable, nextSyllable: Syllable) -> Syllable {
         guard let currentJongseong = currentSyllable.jongseong else { return nextSyllable }

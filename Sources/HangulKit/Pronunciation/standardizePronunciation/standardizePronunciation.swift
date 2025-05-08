@@ -41,12 +41,12 @@ public extension Hangul {
         return transformHangulPhrase(hangul, hardConversion)
     }
 
-    fileprivate struct NonHangul {
+    private struct NonHangul {
         let index: Int
         let syllable: String.Element
     }
     
-    static fileprivate func 음절분해(hangulPhrase: String) -> (
+    static private func 음절분해(hangulPhrase: String) -> (
         nonHangulPhrases: [NonHangul],
         disassembledHangul: [Syllable]
     ) {
@@ -70,7 +70,7 @@ public extension Hangul {
         return (nonHangulPhrases, disassembledHangul)
     }
     
-    fileprivate struct ApplyParameters {
+    private struct ApplyParameters {
         let currentSyllable: Syllable
         let nextSyllable: Syllable?
         let index: Int
@@ -78,7 +78,7 @@ public extension Hangul {
         let hardConversion: Bool
     }
     
-    static fileprivate func applyRules(
+    static private func applyRules(
         parameters: ApplyParameters
     ) -> (current: Syllable, next: Syllable?) {
         var (current, next) = (parameters.currentSyllable, parameters.nextSyllable)
@@ -107,7 +107,7 @@ public extension Hangul {
         return (current, next)
     }
 
-    static fileprivate func assembleChangedHangul(
+    static private func assembleChangedHangul(
         disassembleHangul: [Syllable],
         nonHangulPhrase: [NonHangul]
     ) -> String {

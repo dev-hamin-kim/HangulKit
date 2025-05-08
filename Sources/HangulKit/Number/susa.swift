@@ -7,7 +7,7 @@
 
 public extension Hangul {
     
-    static fileprivate let susaMap = [
+    static private let susaMap = [
         1: "하나",
         2: "둘",
         3: "셋",
@@ -29,7 +29,7 @@ public extension Hangul {
         100: "백",
         ]
 
-    static fileprivate let susaClassifierMap = [
+    static private let susaClassifierMap = [
         1: "한",
         2: "두",
         3: "세",
@@ -64,7 +64,7 @@ public extension Hangul {
         return classifier ? getClassifierWord(of: num) : getNumberWord(of: num)
     }
     
-    static fileprivate func getClassifierWord(of num: Int) -> String {
+    static private func getClassifierWord(of num: Int) -> String {
         if num == 20 { return "스무" }
         
         let tens = num / 10 * 10
@@ -79,7 +79,7 @@ public extension Hangul {
         return tensWord + onesWord
     }
 
-    static fileprivate func getNumberWord(of num: Int) -> String {
+    static private func getNumberWord(of num: Int) -> String {
         if num == 100 { return "백" }
         
         let tens = num / 10 * 10

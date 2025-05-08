@@ -7,7 +7,7 @@
 
 public extension Hangul {
     
-    static let hangulToQWERTYKeyboardMap: [Character: Character] = [
+    static internal let hangulToQWERTYKeyboardMap: [Character: Character] = [
         "ㄱ": "r",
         "ㄲ": "R",
         "ㄴ": "s",

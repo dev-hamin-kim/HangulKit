@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/15/25.
 //
 
-public extension Hangul {
+extension Hangul {
     
     static func transform12th(currentSyllable: Syllable, nextSyllable: Syllable?) -> (Syllable, Syllable?) {
         guard let currentJongseong = currentSyllable.jongseong else { return (currentSyllable, nextSyllable) }
@@ -26,7 +26,7 @@ public extension Hangul {
         return handleNextChoseongIsㅎ(current: current, next: next)
     }
     
-    static fileprivate func handleNextChoseongIsㄱㄷㅈㅅ(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
+    static private func handleNextChoseongIsㄱㄷㅈㅅ(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
         let ㄱㄷㅈㅅ: [Character] = ["ㄱ", "ㄷ", "ㅈ", "ㅅ"]
         
         guard ㄱㄷㅈㅅ.contains(next.choseong) else { return (current, next) }
@@ -39,7 +39,7 @@ public extension Hangul {
         return (updatedCurrent, updatedNext)
     }
 
-    static fileprivate func handleNextChoseongIsㄴ(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
+    static private func handleNextChoseongIsㄴ(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
         let isCurrentJongseongㄶorㅀ = current.jongseong == "ㄶ" || current.jongseong == "ㅀ"
         
         guard next.choseong == "ㄴ" && isCurrentJongseongㄶorㅀ else { return (current, next) }
@@ -49,7 +49,7 @@ public extension Hangul {
         return (updatedCurrent, next)
     }
 
-    static fileprivate func handleNextChoseongIsㅇ(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
+    static private func handleNextChoseongIsㅇ(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
         let isCurrentJongseongㄶorㅀ = current.jongseong == "ㄶ" || current.jongseong == "ㅀ"
         
         var updatedCurrent = replace받침ㅎ(of: current)
@@ -62,13 +62,13 @@ public extension Hangul {
         return (updatedCurrent, next)
     }
     
-    static fileprivate func handleCurrentJongseongIsㅇ(current: Syllable) -> Syllable {
+    static private func handleCurrentJongseongIsㅇ(current: Syllable) -> Syllable {
         let updatedCurrent = replace받침ㅎ(of: current)
         
         return updatedCurrent
     }
 
-    static fileprivate func handleNextChoseongIsㅎ(current: Syllable, next: Syllable?) -> (Syllable, Syllable?) {
+    static private func handleNextChoseongIsㅎ(current: Syllable, next: Syllable?) -> (Syllable, Syllable?) {
         guard 발음변환_첫소리_ㅎ.contains(current.jongseong ?? " ") && next?.choseong == "ㅎ" else { return (current, next) }
         
         let updatedNext = Syllable(choseong: 발음변환_첫소리_ㅎ_발음[current.jongseong ?? " "] ?? " ",

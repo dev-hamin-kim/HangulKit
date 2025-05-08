@@ -5,7 +5,7 @@
 //  Created by 김하민 on 4/18/25.
 //
 
-public extension Hangul {
+extension Hangul {
     
     static func transformNLAssimilation(currentSyllable: Syllable, nextSyllable: Syllable) -> (Syllable, Syllable) {
         // ㄴㄹ이 덧나는 조건을 갖추지 못하면 early return
@@ -17,7 +17,7 @@ public extension Hangul {
         return applyㄴㄹ덧남(current: currentSyllable, next: nextSyllable)
     }
     
-    static fileprivate func applyㄴㄹ덧남(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
+    static private func applyㄴㄹ덧남(current: Syllable, next: Syllable) -> (Syllable, Syllable) {
         guard let currentJongseong = current.jongseong else { return (current, next) }
         
         guard ㄴㄹ이_덧나는_모음.contains(current.jungseong) else {

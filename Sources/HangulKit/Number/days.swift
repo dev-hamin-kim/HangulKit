@@ -7,7 +7,7 @@
 
 public extension Hangul {
     
-    static let daysMap: [Int: String] = [
+    static internal let daysMap: [Int: String] = [
         1: "하루",
         2: "이틀",
         3: "사흘",
@@ -21,7 +21,7 @@ public extension Hangul {
         20: "스무",
     ]
     
-    static let daysOnlyTensMap: [Int: String] = [
+    static internal let daysOnlyTensMap: [Int: String] = [
         10: "열흘",
         20: "스무날",
         30: "서른날",
@@ -40,7 +40,7 @@ public extension Hangul {
         return getNumberWords(number)
     }
     
-    static fileprivate func getNumberWords(_ number: Int) -> String {
+    static private func getNumberWords(_ number: Int) -> String {
         // 기존 es-hangul에 있던 validateNumber 함수의 기능은 대부분 Swift 컴파일러가 해주기 때문에,
         // (아닌가 Float랑 Double도 해야하나...)
         // 일단 1에서 30까지의 숫자인지 체크만 진행.
