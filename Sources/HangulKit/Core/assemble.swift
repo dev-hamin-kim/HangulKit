@@ -30,6 +30,4 @@ public extension HangulKit {
     static func assemble(_ fragments: [Character]) -> String {
         return fragments.reduce("") { binaryAssemble($0, $1) }
     }
-    
-    // TODO: HangulKitWrapper extension 추가하기?
 }
