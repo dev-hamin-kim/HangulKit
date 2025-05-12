@@ -284,7 +284,7 @@ public struct HangulKit {
         var sourceJamo: [Character] = disassembleToGroups(lhs.description)[0]
         let lastJamo = sourceJamo.removeLast()
         
-        var result = removeLastCharacter(lhs.description)
+        var result = removeLastCharacter(in: lhs.description)
         try! result.append(combineCharacter(choseong: lastJamo, jungseong: rhs))
 
         return result
