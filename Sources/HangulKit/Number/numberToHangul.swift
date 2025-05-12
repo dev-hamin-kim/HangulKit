@@ -16,66 +16,22 @@ public extension HangulKit {
         let isNegative = number.signum() == -1
         let absouluteValue = number.magnitude
         
-        let absouluteValueString = String(describing: absouluteValue)
+        let absouluteValueString = Substring(String(describing: absouluteValue))
+
+        let result = integerPartToKorean(absouluteValueString, withSpacing: withSpacing)
         
-        var koreanParts: [String] = []
+        let negative = withSpacing ? "마이너스 " : "마이너스"
         
-        var remainingDigits = Substring(absouluteValueString)
-        var placeIndex = 0
-        
-        while remainingDigits.count > 0 {
-            let currentPart = remainingDigits.suffix(4)
-            
-            let koreanNumber = numberToKoreanUpToThousands(currentPart)
-            
-            if koreanNumber != "" {
-                koreanParts.insert(koreanNumber + HangulKit.Digits[placeIndex], at: 0)
-            }
-            
-            remainingDigits = remainingDigits.dropLast(4)
-            placeIndex += 1
-        }
-        
-        var result: String = koreanParts
-            .filter { $0 != "" }
-            .joined(separator: withSpacing ? " " : "")
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        if isNegative {
-            result = withSpacing ? "마이너스 " + result : "마이너스" + result
-        }
-        
-        return result
+        return isNegative ? negative + result : result
     }
     
     static func numberToHangul<T: UnsignedInteger>(_ number: T, withSpacing: Bool = false) -> String {
         
         if number == 0 { return "영" }
         
-        let numberAsString = String(describing: number)
+        let numberAsString = Substring(String(describing: number))
         
-        var koreanParts: [String] = []
-        
-        var remainingDigits = Substring(numberAsString)
-        var placeIndex = 0
-        
-        while remainingDigits.count > 0 {
-            let currentPart = remainingDigits.suffix(4)
-            
-            let koreanNumber = numberToKoreanUpToThousands(currentPart)
-            
-            if koreanNumber != "" {
-                koreanParts.insert(koreanNumber + HangulKit.Digits[placeIndex], at: 0)
-            }
-            
-            remainingDigits = remainingDigits.dropLast(4)
-            placeIndex += 1
-        }
-        
-        let result: String = koreanParts
-            .filter { $0 != "" }
-            .joined(separator: withSpacing ? " " : "")
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+        let result = integerPartToKorean(numberAsString, withSpacing: withSpacing)
         
         return result
     }
@@ -96,37 +52,18 @@ public extension HangulKit {
         let separated = absouluteValueString.split(separator: ".")
         let integerPart = separated[0]
         let decimalPart = separated[1]
-        
-        var koreanParts: [String] = []
-        
-        var remainingDigits = integerPart
-        var placeIndex = 0
-        
-        while remainingDigits.count > 0 {
-            let currentPart = remainingDigits.suffix(4)
-            
-            let koreanNumber = numberToKoreanUpToThousands(currentPart)
-            
-            if koreanNumber != "" {
-                koreanParts.insert(koreanNumber + HangulKit.Digits[placeIndex], at: 0)
-            }
-            
-            remainingDigits = remainingDigits.dropLast(4)
-            placeIndex += 1
-        }
-        
-        var result: String = koreanParts
-            .filter { $0 != "" }
-            .joined(separator: withSpacing ? " " : "")
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+
+        var result = ""
         
         if integerPart == "0" {
             result = "영"
+        } else {
+            result = integerPartToKorean(integerPart, withSpacing: withSpacing)
         }
         
         if !decimalPart.isEmpty {
             let decimalKorean = decimalPart
-                .map { HangulKit.Numbers[$0.wholeNumberValue!] }
+                .map { HangulKit.Numbers[$0.wholeNumberValue ?? 0] }
                 .joined()
             
             if withSpacing { result += "점 " + decimalKorean }
@@ -163,7 +100,30 @@ public extension HangulKit {
     }
     
     // TODO: 이렇게 따로 빼서 리팩터링 하기.
-//    static private func integerPartToKorean() -> String {
-//        return ""
-//    }
+    static private func integerPartToKorean(_ integerPart: Substring, withSpacing: Bool) -> String {
+        var koreanParts: [String] = []
+        
+        var remainingDigits = integerPart
+        var placeIndex = 0
+        
+        while remainingDigits.count > 0 {
+            let currentPart = remainingDigits.suffix(4)
+            
+            let koreanNumber = numberToKoreanUpToThousands(currentPart)
+            
+            if koreanNumber != "" {
+                koreanParts.insert(koreanNumber + HangulKit.Digits[placeIndex], at: 0)
+            }
+            
+            remainingDigits = remainingDigits.dropLast(4)
+            placeIndex += 1
+        }
+        
+        let result: String = koreanParts
+            .filter { $0 != "" }
+            .joined(separator: withSpacing ? " " : "")
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        return result
+    }
 }
