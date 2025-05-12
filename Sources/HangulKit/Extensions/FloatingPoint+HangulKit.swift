@@ -9,6 +9,7 @@ extension Double: HangulKitCompatible { }
 extension Float: HangulKitCompatible { }
 extension Float16: HangulKitCompatible { }
 
+// TODO: 테스트 코드 작성
 extension HangulKitWrapper where Base: FloatingPoint {
     // MARK: 주석 추가 필요
     public func numberToHangul(withSpacing: Bool = false) -> String {

@@ -17,6 +17,7 @@ extension UInt16: HangulKitCompatible { }
 extension UInt32: HangulKitCompatible { }
 extension UInt64: HangulKitCompatible { }
 
+// TODO: 테스트 코드 작성
 extension HangulKitWrapper where Base == Int {
     /// 날짜를 나타내는 숫자를 순 우리말 날짜로 변환해줍니다.
     /// 1부터 30까지만 지원합니다.

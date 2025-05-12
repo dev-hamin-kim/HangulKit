@@ -9,6 +9,7 @@ import Foundation
 
 extension String: HangulKitCompatible { }
 
+// TODO: 테스트 코드 작성
 extension HangulKitWrapper where Base == String {
     
     public func isHangulSyllable() -> Bool {
