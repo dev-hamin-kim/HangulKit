@@ -17,10 +17,10 @@ struct removeLastCharacterTests {
     /// removeLastCharacter("신세계") // 신세ㄱ
     @Test
     func remove() {
-        #expect(HangulKit.removeLastCharacter("안녕하세요 값") == "안녕하세요 갑")
-        #expect(HangulKit.removeLastCharacter("아이오에스") == "아이오에ㅅ")
-        #expect(HangulKit.removeLastCharacter("일요일") == "일요이")
-        #expect(HangulKit.removeLastCharacter("전화") == "전호")
-        #expect(HangulKit.removeLastCharacter("신세계") == "신세ㄱ")
+        #expect(HangulKit.removeLastCharacter(in: "안녕하세요 값") == "안녕하세요 갑")
+        #expect(HangulKit.removeLastCharacter(in: "아이오에스") == "아이오에ㅅ")
+        #expect(HangulKit.removeLastCharacter(in: "일요일") == "일요이")
+        #expect(HangulKit.removeLastCharacter(in: "전화") == "전호")
+        #expect(HangulKit.removeLastCharacter(in: "신세계") == "신세ㄱ")
     }
 }
