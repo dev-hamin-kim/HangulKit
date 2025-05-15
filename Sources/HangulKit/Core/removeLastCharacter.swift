@@ -29,7 +29,7 @@ public extension HangulKit {
             let choseong = decomposedLastCharacter[0] // 초성
             let jungseong = decomposedLastCharacter[1] // 중성 첫번째 모음
             
-            result = try! combineCharacter(choseong: choseong, jungseong: jungseong)
+            result = combineCharacter(choseong: choseong, jungseong: jungseong)
             
         case 3:
             let first = decomposedLastCharacter[0] // 초성
@@ -39,9 +39,9 @@ public extension HangulKit {
             let thirdIsJungseong = canBeJungseong(third)
             
             if thirdIsJungseong {
-                result = try! combineCharacter(choseong: first, jungseong: HangulKit.assembledVowels["\(second)\(third)"]!)
+                result = combineCharacter(choseong: first, jungseong: HangulKit.assembledVowels["\(second)\(third)"]!)
             } else {
-                result = try! combineCharacter(choseong: first, jungseong: second, jongseong: third)
+                result = combineCharacter(choseong: first, jungseong: second, jongseong: third)
             }
             
         case 4:
@@ -53,9 +53,9 @@ public extension HangulKit {
             let thirdIsJungseong = canBeJungseong(third)
             
             if thirdIsJungseong {
-                result = try! combineCharacter(choseong: first, jungseong: HangulKit.assembledVowels["\(second)\(third)"]!, jongseong: fourth)
+                result = combineCharacter(choseong: first, jungseong: HangulKit.assembledVowels["\(second)\(third)"]!, jongseong: fourth)
             } else {
-                result = try! combineCharacter(choseong: first, jungseong: second, jongseong: HangulKit.assembledConsonants["\(third)\(fourth)"])
+                result = combineCharacter(choseong: first, jungseong: second, jongseong: HangulKit.assembledConsonants["\(third)\(fourth)"])
             }
             
         default: return ""

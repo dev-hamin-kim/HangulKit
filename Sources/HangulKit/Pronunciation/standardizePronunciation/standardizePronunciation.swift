@@ -111,7 +111,7 @@ public extension HangulKit {
         disassembleHangul: [Syllable],
         nonHangulPhrase: [NonHangul]
     ) -> String {
-        var changedSyllables = disassembleHangul.map { combineCharacter($0) }
+        var changedSyllables = disassembleHangul.map { combineCharacter($0) ?? " " }
         
         for item in nonHangulPhrase {
             changedSyllables.insert(item.syllable, at: item.index)
