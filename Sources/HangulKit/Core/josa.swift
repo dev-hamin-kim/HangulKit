@@ -72,7 +72,7 @@ public extension HangulKit {
         var is종성ㄹ = false
         
         if has받침 {
-            let 종성 = try! HangulKit.disassembleCompleteCharacter(word.last!).jongseong!
+            let 종성 = HangulKit.disassembleCompleteCharacter(word.last!)?.jongseong
             
             is종성ㄹ = 종성 == "ㄹ"
         }

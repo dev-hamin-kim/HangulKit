@@ -61,8 +61,8 @@ public extension HangulKit {
                 continue
             }
             
-            let syllable = try! disassembleCompleteCharacter(char)
-            disassembledHangul.append(syllable)
+            let syllable = disassembleCompleteCharacter(char)
+            disassembledHangul.append(syllable!)
             
             index += 1
         }
