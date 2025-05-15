@@ -7,12 +7,14 @@
 
 public extension HangulKit {
     /// 인자로 초성, 중성, 종성을 받아 하나의 한글 문자를 반환합니다.
+    /// 유효하지 않은 초, 중, 종성을 받았을 경우 nil을 반환합니다.
     ///
     ///     let 값 = HangulKit.combineCharacter(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅄ")
-    ///     print(값) // prints "값"
+    ///     print(값) // prints Optional("값")
     ///
     ///     let 토 = HangulKit.combineCharacter(choseong: "ㅌ", jungseong: "ㅗ")
-    ///     print(토) // prints "토"
+    ///     print(토) // prints Optional("토")
+    ///
     static func combineCharacter(choseong: Character,
                                  jungseong: Character,
                                  jongseong: Character? = nil) -> Character? {
@@ -36,6 +38,7 @@ public extension HangulKit {
     }
     
     /// 인자로 Syllable 구조체를 받아 하나의 한글 Character를 반환합니다.
+    /// 유효하지 않은 초, 중, 종성을 가지는 Syllable 구조체를 받았을 경우 nil을 반환합니다.
     ///
     ///     let syllable = Syllable(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅇ")
     ///     let 강 = combineCharacter(syllable)
