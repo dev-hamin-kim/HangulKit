@@ -38,12 +38,8 @@ public extension HangulKit {
     /// - Returns:
     /// 입력된 문자열의 초성, 중성, 종성을 프로퍼티로 갖는 ``HangulKit/DisassembledCharacter`` 구조체를 반환
     ///
-    static func disassembleCompleteCharacter(_ letter: Character) throws -> DisassembledCharacter {
-        
-        guard CompleteHangulStartUnicodeScalar <= letter.unicodeScalars.first!.value
-                && letter.unicodeScalars.first!.value <= CompleteHangulEndUnicodeScalar
-                // "가"..."힣".contains(letter.description)보다 효율적인가...?
-        else { throw InputError.notACompletedHangul }
+    static func disassembleCompleteCharacter(_ letter: Character) -> DisassembledCharacter? {
+        guard isHangulCharacter(letter) else { return nil }
         
         let charCode = letter.unicodeScalars.first!.value
         
