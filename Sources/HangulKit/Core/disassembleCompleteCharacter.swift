@@ -26,11 +26,17 @@ public extension HangulKit {
     /// 완전한 한글 문자를 초성, 중성, 종성으로 분리합니다.
     /// 입력된 문자가 완전한 한글 문자가 아닐 경우 nil을 반환합니다.
     ///
-    ///     let 값 = HangulKit.dissassembleCompleteCharacter("값")
+    ///     let 값 = HangulKit.disassembleCompleteCharacter("값")
     ///     print(값) // prints Optional(DisassembledCharacter(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅄ"))
     ///
-    ///     let 리 = HangulKit.dissassembleCompleteCharacter("리")
+    ///     let 리 = HangulKit.disassembleCompleteCharacter("리")
     ///     print(리) // prints Optional(DisassembledCharacter(choseong: "ㄹ", jungseong: "ㅣ"))
+    ///
+    ///     let a = HangulKit.disassembleCompleteCharacter("a")
+    ///     print(a) // prints nil
+    ///
+    ///     let wow = HangulKit.disassembleCompleteCharacter("ㅘ")
+    ///     print(wow) // also prints nil
     ///
     /// - Parameter letter:
     /// 분리하고자 하는 완전한 한글 문자

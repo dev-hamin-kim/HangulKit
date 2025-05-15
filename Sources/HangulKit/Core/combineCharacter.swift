@@ -15,6 +15,8 @@ public extension HangulKit {
     ///     let 토 = HangulKit.combineCharacter(choseong: "ㅌ", jungseong: "ㅗ")
     ///     print(토) // prints Optional("토")
     ///
+    ///     let ab = HangulKit.combineCharacter(choseong: "a", jungseong: "b")
+    ///     print(ab) // prints nil
     static func combineCharacter(choseong: Character,
                                  jungseong: Character,
                                  jongseong: Character? = nil) -> Character? {
