@@ -23,20 +23,21 @@ public extension HangulKit {
         }
     }
     
-    /// 완전한 한글 문자열을 초성, 중성, 종성으로 분리합니다.
-    ///
+    /// 완전한 한글 문자를 초성, 중성, 종성으로 분리합니다.
+    /// 입력된 문자가 완전한 한글 문자가 아닐 경우 nil을 반환합니다.
     ///
     ///     let 값 = HangulKit.dissassembleCompleteCharacter("값")
-    ///     print(값) // prints DisassembledCharacter(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅄ")
+    ///     print(값) // prints Optional(DisassembledCharacter(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅄ"))
     ///
     ///     let 리 = HangulKit.dissassembleCompleteCharacter("리")
-    ///     print(리) // prints DisassembledCharacter(choseong: "ㄹ", jungseong: "ㅣ")
+    ///     print(리) // prints Optional(DisassembledCharacter(choseong: "ㄹ", jungseong: "ㅣ"))
     ///
     /// - Parameter letter:
-    /// 분리하고자 하는 완전한 한글 문자열
+    /// 분리하고자 하는 완전한 한글 문자
     ///
     /// - Returns:
-    /// 입력된 문자열의 초성, 중성, 종성을 프로퍼티로 갖는 ``HangulKit/DisassembledCharacter`` 구조체를 반환
+    /// 입력된 문자의 초성, 중성, 종성을 프로퍼티로 갖는 옵셔널로 래핑된 ``HangulKit/DisassembledCharacter`` 구조체를 반환
+    /// 입력된 문자가 완전한 한글 문자가 아닐 경우 nil을 반환
     ///
     static func disassembleCompleteCharacter(_ letter: Character) -> DisassembledCharacter? {
         guard isHangulCharacter(letter) else { return nil }
