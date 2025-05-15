@@ -13,8 +13,8 @@ struct transform19thTests {
     
     @Test("받침 'ㅁ, ㅇ' 뒤에 연결되는 'ㄹ'은 'ㄴ'으로 발음한다")
     func test1() {
-        let current = try! HangulKit.disassembleCompleteCharacter("담")
-        let next = try! HangulKit.disassembleCompleteCharacter("력")
+        let current = HangulKit.disassembleCompleteCharacter("담")!
+        let next = HangulKit.disassembleCompleteCharacter("력")!
         
         let transformed = Syllable(choseong: "ㄴ",
                                    jungseong: "ㅕ",
@@ -25,8 +25,8 @@ struct transform19thTests {
 
     @Test("받침 ㄷ(ㅅ, ㅆ, ㅈ, ㅊ, ㅌ, ㅎ)은 'ㄴ, ㅁ' 앞에서 [ㅇ, ㄴ, ㅁ]으로 발음한다.")
     func test2() {
-        let current = try! HangulKit.disassembleCompleteCharacter("막")
-        let next = try! HangulKit.disassembleCompleteCharacter("론")
+        let current = HangulKit.disassembleCompleteCharacter("막")!
+        let next = HangulKit.disassembleCompleteCharacter("론")!
         
         let transformed = Syllable(choseong: "ㄴ",
                                    jungseong: "ㅗ",

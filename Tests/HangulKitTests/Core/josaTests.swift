@@ -119,17 +119,17 @@ struct addJosaTests {
         #expect(HangulKit.addJosa(after: "동굴", within: .으로부터_로부터) == "동굴로부터")
     }
     
-    @Test("단어가 빈 문자열일 경우 빈 문자열을 반환한다.")
+    @Test("단어가 빈 문자열일 경우 nil을 반환한다.")
     func addJosa20() {
-        #expect(HangulKit.addJosa(after: "", within: .이_가) == "")
+        #expect(HangulKit.addJosa(after: "", within: .이_가) == nil)
     }
 }
 
 struct pickJosaTests {
     
-    @Test("첫 번째 매개변수가 빈 문자열이라면 옵션 중 첫 번째 값을 반환한다.")
+    @Test("첫 번째 매개변수가 빈 문자열이라면 nil을 반환한다.")
     func pickJosa1() {
-        #expect(HangulKit.pickJosa(of: "", within: .이_가) == "이")
+        #expect(HangulKit.pickJosa(of: "", within: .이_가) == nil)
     }
     
     @Test("주격조사")
