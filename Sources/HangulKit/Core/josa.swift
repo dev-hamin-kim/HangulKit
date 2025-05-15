@@ -42,10 +42,12 @@ public extension HangulKit {
     /// - Parameters:
     ///     - word: 조사를 붙일 문자열
     ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``JosaOption`` 중 하나 선택 가능
-    static func addJosa(after word: String, within options: JosaOption) -> String {
-        if word.isEmpty { return "" }
+    static func addJosa(after word: String, within options: JosaOption) -> String? {
+        if word.isEmpty { return nil }
         
-        return word + pickJosa(of: word, within: options)
+        guard let pickedJosa = pickJosa(of: word, within: options) else { return nil }
+        
+        return word + pickedJosa
     }
     
     // es-hangul에서의 이름은 josaPicker이지만,
@@ -63,10 +65,11 @@ public extension HangulKit {
     /// - Parameters:
     ///     - word: 조사를 판단할 문자열
     ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``JosaOption`` 중 하나 선택 가능
-    static func pickJosa(of word: String, within options: JosaOption) -> String {
-        if word.isEmpty { return options.rawValue.components(separatedBy: "/")[0] }
+    static func pickJosa(of word: String, within options: JosaOption) -> String? {
+        if word.isEmpty { return nil }
+        guard let lastWord = word.last else { return nil }
         
-        let has받침 = HangulKit.hasBatchim(word.last!)
+        guard let has받침 = HangulKit.hasBatchim(lastWord) else { return nil }
         var index = has받침 ? 0 : 1
         
         var is종성ㄹ = false

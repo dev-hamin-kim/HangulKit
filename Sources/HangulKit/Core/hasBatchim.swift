@@ -25,9 +25,8 @@ public extension HangulKit {
     ///     - batchimOption: 기본값은 .both이며, 받침이 있을 경우 true를 반환합니다.
     ///         - .double: 겹받침 혹은 쌍받침이 있을 때만 true를 반환합니다. 홀받침의 경우 false를 반환합니다.
     ///         - .single: 홀받침이 있을 때만 true를 반환합니다. 겹받침 또는 쌍받침의 경우 false를 반환합니다.
-    static func hasBatchim(_ char: Character, _ batchimOption: Batchim = .both) -> Bool {
-        
-        guard isHangulCharacter(char) else { return false }
+    static func hasBatchim(_ char: Character, _ batchimOption: Batchim = .both) -> Bool? {
+        guard isHangulCharacter(char) else { return nil }
         
         let charCode = char.unicodeScalars.first!.value
         
