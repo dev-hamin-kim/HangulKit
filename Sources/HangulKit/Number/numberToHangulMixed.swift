@@ -38,9 +38,9 @@ public extension HangulKit {
         return result
     }
     
-    static func numberToHangulMixed<T: FloatingPoint>(_ number: T, withSpacing: Bool = false) throws -> String {
+    static func numberToHangulMixed<T: FloatingPoint>(_ number: T, withSpacing: Bool = false) -> String? {
 
-        if number.isNaN { throw InputError.notANumber }
+        if number.isNaN { return nil }
         if number == 0 { return "0" }
         
         let isNegative = number.sign == .minus
