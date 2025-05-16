@@ -46,7 +46,7 @@ public extension HangulKit {
         let isNegative = number.sign == .minus
         
         if number.isInfinite && !isNegative { return "무한대" }
-        if number.isInfinite && isNegative { return withSpacing ? "마이너스 무한대" : "마이너스무한대" }
+        if number.isInfinite && isNegative { return "-무한대" }
         
         let absouluteValue = number.magnitude
         let absouluteValueString = String(describing: absouluteValue)
@@ -55,15 +55,10 @@ public extension HangulKit {
         let integerPart = separated[0]
         let decimalPart = separated[1]
 
-        var result = integerPart == "0" ? "영" : integerPartToHangul(String(decimalPart), withSpacing: withSpacing)
+        var result = integerPart == "0" ? "0" : integerPartToHangul(String(integerPart), withSpacing: withSpacing)
         
         if !decimalPart.isEmpty {
-            let decimalKorean = decimalPart
-                .map { HangulKit.Numbers[$0.wholeNumberValue!] }
-                .joined()
-            
-            if withSpacing { result += "점 " + decimalKorean }
-            else { result += "점" + decimalKorean }
+            result += "." + decimalPart
         }
         
         if isNegative {
