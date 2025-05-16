@@ -67,66 +67,27 @@ struct numberToHangulTests {
     
     @Test("무한대")
     func infiniteNumbers() async throws {
-        #expect(throws: Never.self) {
-            try HangulKit.numberToHangul(Double.infinity) == "무한대"
-        }
-        
-        #expect(throws: Never.self) {
-            try HangulKit.numberToHangul(-Double.infinity) == "마이너스무한대"
-        }
-        
-        #expect(throws: Never.self) {
-            try HangulKit.numberToHangul(-Double.infinity, withSpacing: true) == "마이너스 무한대"
-        }
+        #expect(HangulKit.numberToHangul(Double.infinity) == "무한대")
+        #expect(HangulKit.numberToHangul(-Double.infinity) == "마이너스무한대")
+        #expect(HangulKit.numberToHangul(-Double.infinity, withSpacing: true) == "마이너스 무한대")
     }
     
     @Test("소수")
     func decimalNumbers() async throws {
-        #expect(throws: Never.self) {
-            try HangulKit.numberToHangul(0.1) == "영점일"
-        }
-        
-        #expect(throws: Never.self) {
-            try HangulKit.numberToHangul(12_345.678) == "일만이천삼백사십오점육칠팔"
-        }
-        
-        #expect(throws: Never.self) {
-            try HangulKit.numberToHangul(-0.1) == "마이너스영점일"
-        }
-        
-        #expect(throws: Never.self) {
-            try HangulKit.numberToHangul(-12_345.678) == "마이너스일만이천삼백사십오점육칠팔"
-        }
-        
-        #expect(throws: Never.self) {
-            try HangulKit.numberToHangul(0.1, withSpacing: true) == "영점 일"
-        }
-        
-        #expect(throws: Never.self) {
-            try HangulKit.numberToHangul(12_345.678, withSpacing: true) == "일만 이천삼백사십오점 육칠팔"
-        }
-        
-        #expect(throws: Never.self) {
-            try HangulKit.numberToHangul(-0.1, withSpacing: true) == "마이너스 영점 일"
-        }
-        
-        #expect(throws: Never.self) {
-            try HangulKit.numberToHangul(-12_345.678, withSpacing: true) == "마이너스 일만 이천삼백사십오점 육칠팔"
-        }
+        #expect(HangulKit.numberToHangul(0.1) == "영점일")
+        #expect(HangulKit.numberToHangul(12_345.678) == "일만이천삼백사십오점육칠팔")
+        #expect(HangulKit.numberToHangul(-0.1) == "마이너스영점일")
+        #expect(HangulKit.numberToHangul(-12_345.678) == "마이너스일만이천삼백사십오점육칠팔")
+        #expect(HangulKit.numberToHangul(0.1, withSpacing: true) == "영점 일")
+        #expect(HangulKit.numberToHangul(12_345.678, withSpacing: true) == "일만 이천삼백사십오점 육칠팔")
+        #expect(HangulKit.numberToHangul(-0.1, withSpacing: true) == "마이너스 영점 일")
+        #expect(HangulKit.numberToHangul(-12_345.678, withSpacing: true) == "마이너스 일만 이천삼백사십오점 육칠팔")
     }
     
     @Test("유효하지 않은 입력에 대한 오류 처리")
     func invalidInputs() async throws {
-        #expect(throws: HangulKit.InputError.notANumber) {
-            try HangulKit.numberToHangul(Double.nan)
-        }
-        
-        #expect(throws: HangulKit.InputError.notANumber) {
-            try HangulKit.numberToHangul(Float.nan)
-        }
-        
-        #expect(throws: HangulKit.InputError.notANumber) {
-            try HangulKit.numberToHangul(Float16.nan)
-        }
+        #expect(HangulKit.numberToHangul(Double.nan) == nil)
+        #expect(HangulKit.numberToHangul(Float.nan) == nil)
+        #expect(HangulKit.numberToHangul(Float16.nan) == nil)
     }
 }
