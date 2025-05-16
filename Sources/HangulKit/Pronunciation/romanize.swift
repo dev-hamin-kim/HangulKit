@@ -87,7 +87,7 @@ public extension HangulKit {
         let syllable = arrayHangul[index]
         
         if isHangulCharacter(syllable) {
-            let disassemble = try! disassembleCompleteCharacter(syllable)
+            let disassemble = disassembleCompleteCharacter(syllable)!
             
             var choseong = 초성_알파벳_발음[disassemble.choseong] ?? "l"
             let jungseong = 중성_알파벳_발음[disassemble.jungseong] ?? ""
@@ -95,9 +95,9 @@ public extension HangulKit {
             
             // 'ㄹ'은 모음 앞에서는 'r'로, 자음 앞이나 어말에서는 'l'로 적는다. 단, 'ㄹㄹ'은 'll'로 적는다. (ex.울릉, 대관령),
             if disassemble.choseong == "ㄹ" && index > 0 && isHangulCharacter(arrayHangul[index - 1]) {
-                let prevDisassemble = try! disassembleCompleteCharacter(arrayHangul[index - 1])
+                let prevDisassemble = disassembleCompleteCharacter(arrayHangul[index - 1])
                 
-                if prevDisassemble.jongseong == "ㄹ" {
+                if prevDisassemble?.jongseong == "ㄹ" {
                     choseong = "l"
                 }
             }

@@ -13,8 +13,8 @@ struct transform20thTests {
     
     @Test("'ㄴ'은 'ㄹ'의 앞이나 뒤에서 'ㄹ'로 발음한다")
     func test1() {
-        let current = try! HangulKit.disassembleCompleteCharacter("난")
-        let next = try! HangulKit.disassembleCompleteCharacter("로")
+        let current = HangulKit.disassembleCompleteCharacter("난")!
+        let next = HangulKit.disassembleCompleteCharacter("로")!
         
         let transformed: (Syllable, Syllable) = (
             Syllable(choseong: "ㄴ", jungseong: "ㅏ", jongseong: "ㄹ"),
@@ -26,8 +26,8 @@ struct transform20thTests {
     
     @Test("첫소리 'ㄴ'이 'ㅀ, ㄾ' 뒤에 연결되는 경우에도 'ㄹ'로 발음한다")
     func test2() {
-        let current = try! HangulKit.disassembleCompleteCharacter("닳")
-        let next = try! HangulKit.disassembleCompleteCharacter("는")
+        let current = HangulKit.disassembleCompleteCharacter("닳")!
+        let next = HangulKit.disassembleCompleteCharacter("는")!
         
         let transformed: (Syllable, Syllable) = (
             Syllable(choseong: "ㄷ", jungseong: "ㅏ", jongseong: "ㅀ"),

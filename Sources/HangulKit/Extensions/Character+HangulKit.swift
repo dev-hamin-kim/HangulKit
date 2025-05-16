@@ -56,7 +56,7 @@ extension HangulKitWrapper where Base == Character {
     ///     - batchimOption: 기본값은 .both이며, 받침이 있을 경우 true를 반환합니다.
     ///         - .double: 겹받침 혹은 쌍받침이 있을 때만 true를 반환합니다. 홀받침의 경우 false를 반환합니다.
     ///         - .single: 홀받침이 있을 때만 true를 반환합니다. 겹받침 또는 쌍받침의 경우 false를 반환합니다.
-    public func hasBatchim(_ batchimOption: HangulKit.Batchim = .both) -> Bool {
+    public func hasBatchim(_ batchimOption: HangulKit.Batchim = .both) -> Bool? {
         return HangulKit.hasBatchim(base, batchimOption)
     }
 }

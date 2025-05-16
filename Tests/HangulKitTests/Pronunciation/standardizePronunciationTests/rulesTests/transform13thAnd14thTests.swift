@@ -13,8 +13,8 @@ struct transform13thTests {
     
     @Test("홑받침이나 쌍받침이 모음으로 시작된 조사나 어미, 접미사와 결합되는 경우에는, 제 음가대로 뒤 음절 첫소리로 옮겨 발음한다")
     func test() {
-        let current = try! HangulKit.disassembleCompleteCharacter("깎")
-        let next = try! HangulKit.disassembleCompleteCharacter("아")
+        let current = HangulKit.disassembleCompleteCharacter("깎")!
+        let next = HangulKit.disassembleCompleteCharacter("아")!
         
         let transformed: (Syllable, Syllable) = (
             Syllable(choseong: "ㄲ", jungseong: "ㅏ"),
@@ -30,8 +30,8 @@ struct transform14thTests {
     
     @Test("겹받침이 모음으로 시작된 조사나 어미, 접미사와 결합되는 경우에는, 뒤엣것만을 뒤 음절 첫소리로 옮겨 발음한다.")
     func test() {
-        let current = try! HangulKit.disassembleCompleteCharacter("닭")
-        let next = try! HangulKit.disassembleCompleteCharacter("을")
+        let current = HangulKit.disassembleCompleteCharacter("닭")!
+        let next = HangulKit.disassembleCompleteCharacter("을")!
         
         let transformed: (Syllable, Syllable) = (
             Syllable(choseong: "ㄷ", jungseong: "ㅏ", jongseong: "ㄹ"),
@@ -40,5 +40,4 @@ struct transform14thTests {
         
         #expect(HangulKit.transform13And14th(currentSyllable: current, nextSyllable: next) == transformed)
     }
-    
 }

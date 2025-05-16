@@ -36,9 +36,9 @@ public extension HangulKit {
         return result
     }
     
-    static func numberToHangul<T: FloatingPoint>(_ number: T, withSpacing: Bool = false) throws -> String {
+    static func numberToHangul<T: FloatingPoint>(_ number: T, withSpacing: Bool = false) -> String? {
         
-        if number.isNaN { throw InputError.notANumber }
+        if number.isNaN { return nil }
         if number == 0 { return "영" }
         
         let isNegative = number.sign == .minus

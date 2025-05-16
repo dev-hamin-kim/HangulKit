@@ -35,7 +35,7 @@ extension HangulKitWrapper where Base == String {
     ///
     ///     let spacing = "띄어 쓰기".hk.getChoseong()
     ///     print(spacing) // prints "ㄸㅇ ㅆㄱ"
-    public func getChoseong() -> String {
+    public func getChoseong() -> String? {
         return HangulKit.getChoseong(of: base)
     }
     
@@ -49,7 +49,7 @@ extension HangulKitWrapper where Base == String {
     ///
     /// - Parameters:
     ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``Hangul/JosaOption`` 중 하나 선택 가능
-    public func addJosa(within options: HangulKit.JosaOption) -> String {
+    public func addJosa(within options: HangulKit.JosaOption) -> String? {
         return HangulKit.addJosa(after: base, within: options)
     }
     
@@ -63,7 +63,7 @@ extension HangulKitWrapper where Base == String {
     ///
     /// - Parameters:
     ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``JosaOption`` 중 하나 선택 가능
-    public func pickJosa(within options: HangulKit.JosaOption) -> String {
+    public func pickJosa(within options: HangulKit.JosaOption) -> String? {
         return HangulKit.pickJosa(of: base, within: options)
     }
     

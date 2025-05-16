@@ -95,12 +95,6 @@ public struct HangulKit {
         ]
     }
     
-    enum InputError: Error {
-        case notANumber
-        case notAHangul
-        case notACompletedHangul
-    }
-    
     static let JasoHangulNFD = "각힣".precomposedStringWithCanonicalMapping.unicodeScalars.map { String($0) }
     
     static let CompleteHangulStartUnicodeScalar = "가".unicodeScalars.first!.value
@@ -280,34 +274,39 @@ public struct HangulKit {
     // isHangul만 사용해도 충분하다고 결론. parseHangul과 safeParseHangul도 동일.
     
     /// 연음 법칙을 적용하여 두 개의 한글 문자를 연결합니다.
-    static func linkHangulCharacters(_ lhs: Character, _ rhs: Character) -> String {
+    static func linkHangulCharacters(_ lhs: Character, _ rhs: Character) -> String? {
         var sourceJamo: [Character] = disassembleToGroups(lhs.description)[0]
         let lastJamo = sourceJamo.removeLast()
         
         var result = removeLastCharacter(in: lhs.description)
-        try! result.append(combineCharacter(choseong: lastJamo, jungseong: rhs))
+        
+        guard let combinedCharacter = combineCharacter(choseong: lastJamo, jungseong: rhs) else {
+            return nil
+        }
+        
+        result.append(combinedCharacter)
 
         return result
     }
 
-    static func binaryAssembleAlphabets(_ source: Character, _ nextCharacter: Character) -> String {
+    static func binaryAssembleAlphabets(_ source: Character, _ nextCharacter: Character) -> String? {
         let combinedInputs = "\(source)\(nextCharacter)"
         let correspondingVowel = HangulKit.assembledVowels[combinedInputs]
         
         if let correspondingVowel { return correspondingVowel.description }
         
         if !canBeJungseong(source) && canBeJungseong(nextCharacter) {
-            return try! combineCharacter(choseong: source, jungseong: nextCharacter).description
+            guard let combinedCharacter = combineCharacter(choseong: source, jungseong: nextCharacter) else { return nil }
+            
+            return String(combinedCharacter)
         }
         
         return combinedInputs
     }
     
-    static func binaryAssembleCharacters(_ source: Character, _ nextCharacter: Character) -> String {
-        
-        // MARK: 이 가드문들이 던지는 에러를 적절하게 작성할 것.
+    static func binaryAssembleCharacters(_ source: Character, _ nextCharacter: Character) -> String? {
         guard source.isWhitespace == false else { return " \(nextCharacter)" }
-        guard isHangulCharacter(source) || isHangulAlphabet(source) else { return "" }
+        guard isHangulCharacter(source) || isHangulAlphabet(source) else { return nil }
         guard isHangulAlphabet(nextCharacter) else { return "\(source)\(nextCharacter)" }
         
         var sourceJamos: [Character] = disassembleToGroups(source.description)[0]
@@ -316,7 +315,9 @@ public struct HangulKit {
         
         if isSingleCharacter {
             let sourceCharacter = sourceJamos[0]
-            return binaryAssembleAlphabets(sourceCharacter, nextCharacter).description
+            guard let binaryAssembledAlphabets = binaryAssembleAlphabets(sourceCharacter, nextCharacter) else { return nil }
+            
+            return binaryAssembledAlphabets
         }
 
         let lastJamo = sourceJamos.removeLast()
@@ -334,19 +335,25 @@ public struct HangulKit {
         let lastJamoAndNextCharacterCombined = HangulKit.assembledVowels["\(lastJamo)\(nextCharacter)"] ?? " "
         
         if canBeJungseong(lastJamoAndNextCharacterCombined) {
-            return combineJungseong(lastJamoAndNextCharacterCombined)(nil).description
+            let jungseongCombined = combineJungseong(lastJamoAndNextCharacterCombined)(nil)!
+            
+            return String(describing: jungseongCombined)
         }
         
         // source의 마지막 두 글자가 합쳐서 중성, 그리고 nextCharacter가 종성이 될 수 있을 때.
         let lastTwoCombined = HangulKit.assembledVowels["\(secondLastJamo)\(lastJamo)"] ?? " "
 
         if canBeJungseong(lastTwoCombined) && canBeJongseong(nextCharacter) {
-            return combineJungseong(lastTwoCombined)(nextCharacter).description
+            let jungseongCombined = combineJungseong(lastTwoCombined)(nextCharacter)!
+            
+            return String(describing: jungseongCombined)
         }
         
         // source의 마지막 한 글자가 중성, nextCharacter가 종성이 될 수 있을 때.
         if canBeJungseong(lastJamo) && canBeJongseong(nextCharacter) {
-            return combineJungseong(lastJamo)(nextCharacter).description
+            let jungseongCombined = combineJungseong(lastJamo)(nextCharacter)!
+            
+            return String(describing: jungseongCombined)
         }
         
         let fixVowel = combineJungseong
@@ -358,13 +365,17 @@ public struct HangulKit {
         let restOfJamosCombined = HangulKit.assembledConsonants["\(lastJamo)\(nextCharacter)"] ?? " "
         
         if canBeJongseong(restOfJamosCombined) && restOfJamos.count == 1 {
-            return fixVowel(secondLastJamo)(restOfJamosCombined).description
+            let fixedVowel = fixVowel(secondLastJamo)(restOfJamosCombined)!
+            
+            return String(describing: fixedVowel)
         }
         
         if canBeJongseong(restOfJamosCombined) && restOfJamos.count == 2 {
             let combinedVowels = HangulKit.assembledVowels["\(restOfJamos[1])\(secondLastJamo)"] ?? " "
             
-            return fixVowel(combinedVowels)(restOfJamosCombined).description
+            let fixedVowel = fixVowel(combinedVowels)(restOfJamosCombined)!
+            
+            return String(describing: fixedVowel)
         }
         
         // 위까지의 로직을 차라리 초성 유무, 중성 유무 + 겹낱자 여부, 종성 유무 + 겹낱자 여부 이렇게? 바꾸는 건 어떨지 생각...?
@@ -388,14 +399,15 @@ public struct HangulKit {
     }
     
     static func binaryAssemble(_ source: String, _ nextCharacter: Character) -> String {
-        
         guard source != " " else { return " " + "\(nextCharacter)" }
         
         guard let lastCharacter = source.last else { return "\(nextCharacter)" }
         
+        let binaryAssembledCharacters = binaryAssembleCharacters(lastCharacter, nextCharacter) ?? ""
+        
         let result = [
             String(source.dropLast(1)),
-            binaryAssembleCharacters(lastCharacter, nextCharacter),
+            binaryAssembledCharacters,
         ].joined()
         
         return result
@@ -405,11 +417,11 @@ public struct HangulKit {
     static let curriedCombineCharacter:
     (_ choseong: Character) ->
     (_ jungseong: Character) ->
-    (_ jongseong: Character?) -> Character
+    (_ jongseong: Character?) -> Character?
     = { choseong in
         return { jungseong in
             return { jongseong in
-                return try! combineCharacter(choseong: choseong, jungseong: jungseong, jongseong: jongseong)
+                return combineCharacter(choseong: choseong, jungseong: jungseong, jongseong: jongseong)
             }
         }
     }

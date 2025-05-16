@@ -16,7 +16,7 @@ public extension HangulKit {
                 continue
             }
 
-            let disassembledCharacter = try? disassembleCompleteCharacter(char)
+            let disassembledCharacter = disassembleCompleteCharacter(char)
             
             guard let disassembledCharacter else {
                 if let char = HangulKit.DisassembledVowels[char] { result.append(char) }
@@ -57,7 +57,7 @@ public extension HangulKit {
                 continue
             }
             
-            let disassembledCharacter = try? disassembleCompleteCharacter(char)
+            let disassembledCharacter = disassembleCompleteCharacter(char)
             
             guard let disassembledCharacter else {
                 if let char = HangulKit.DisassembledVowels[char] { result.append(contentsOf: char) }

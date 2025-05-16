@@ -6,26 +6,24 @@
 //
 
 public extension HangulKit {
-    
-    enum CombineCharacterError: Error {
-        case invalidChoseong, invalidJungseong, invalidJongseong
-    }
-    
-    ///
     /// 인자로 초성, 중성, 종성을 받아 하나의 한글 문자를 반환합니다.
+    /// 유효하지 않은 초, 중, 종성을 받았을 경우 nil을 반환합니다.
     ///
     ///     let 값 = HangulKit.combineCharacter(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅄ")
-    ///     print(값) // prints "값"
+    ///     print(값) // prints Optional("값")
     ///
     ///     let 토 = HangulKit.combineCharacter(choseong: "ㅌ", jungseong: "ㅗ")
-    ///     print(토) // prints "토"
+    ///     print(토) // prints Optional("토")
+    ///
+    ///     let ab = HangulKit.combineCharacter(choseong: "a", jungseong: "b")
+    ///     print(ab) // prints nil
     static func combineCharacter(choseong: Character,
-                                 jungseong: Character, // MARK: throws를 쓰는 게 맞는지 생각해보기
-                                 jongseong: Character? = nil) throws -> Character {
+                                 jungseong: Character,
+                                 jongseong: Character? = nil) -> Character? {
         
-        guard canBeChoseong(choseong) else { throw CombineCharacterError.invalidChoseong }
-        guard canBeJungseong(jungseong) else { throw CombineCharacterError.invalidJungseong }
-        guard canBeJongseong(jongseong) else { throw CombineCharacterError.invalidJongseong }
+        guard canBeChoseong(choseong),
+              canBeJungseong(jungseong),
+              canBeJongseong(jongseong) else { return nil }
         
         let chosungIndex = Choseong.list.firstIndex(of: choseong)!
         let jungsungIndex = Jungseong.list.firstIndex(of: jungseong)!
@@ -42,15 +40,12 @@ public extension HangulKit {
     }
     
     /// 인자로 Syllable 구조체를 받아 하나의 한글 Character를 반환합니다.
+    /// 유효하지 않은 초, 중, 종성을 가지는 Syllable 구조체를 받았을 경우 nil을 반환합니다.
     ///
     ///     let syllable = Syllable(choseong: "ㄱ", jungseong: "ㅏ", jongseong: "ㅇ")
     ///     let 강 = combineCharacter(syllable)
     ///     print(강) // prints "강"
-    static internal func combineCharacter(_ syllable: Syllable) -> Character {
-        do {
-            return try combineCharacter(choseong: syllable.choseong, jungseong: syllable.jungseong, jongseong: syllable.jongseong)
-        } catch {
-            fatalError("Invalid syllable: \(syllable)")
-        }
+    static internal func combineCharacter(_ syllable: Syllable) -> Character? {
+        return combineCharacter(choseong: syllable.choseong, jungseong: syllable.jungseong, jongseong: syllable.jongseong)
     }
 }
