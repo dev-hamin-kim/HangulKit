@@ -15,6 +15,9 @@ public extension HangulKit {
     ///     let spacing = HangulKit.getChoseong(of: "띄어 쓰기")
     ///     print(spacing) // prints "ㄸㅇ ㅆㄱ"
     ///
+    ///     let english = HangulKit.getChoseong(of: "english")
+    ///     print(english) // prints nil
+    ///
     /// - Parameters:
     ///     - word: 초성을 추출할 단어
     static func getChoseong(of word: String) -> String? {

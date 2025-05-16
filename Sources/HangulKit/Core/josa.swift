@@ -32,12 +32,19 @@ public extension HangulKit {
     // Swift에서 주로 봐온 함수 명명 형식이, josa 대신 putJosa라고 할 것 같아서 그렇게 하였다.
     
     /// 입력된 문자열 뒤에 선택한 조사 옵션 중 규칙에 알맞은 조사를 붙여 반환합니다.
+    /// 문자열이 온전한 한글이 아닌 경우 nil을 반환합니다.
     ///
     ///     let 샴푸에조사추가 = HangulKit.addJosa(after: "샴푸", within: .이_가)
-    ///     print(샴푸에조사추가) // prints "샴푸가"
+    ///     print(샴푸에조사추가) // prints Optional("샴푸가")
     ///
     ///     let 칫솔에조사추가 = HangulKit.addJosa(after: "칫솔", within: .이_가)
-    ///     print(칫솔에조사추가) // prints "칫솔이"
+    ///     print(칫솔에조사추가) // prints Optional("칫솔이")
+    ///
+    ///     let ㅘ에조사추가 = HangulKit.addJosa(after: "ㅘ", within: .이_가)
+    ///     print(ㅘ에조사추가) // returns nil
+    ///
+    ///     let eng에조사추가 = HangulKit.addJosa(after: "eng", within: .이_가)
+    ///     print(eng에조사추가) // also returns nil
     ///
     /// - Parameters:
     ///     - word: 조사를 붙일 문자열
@@ -55,6 +62,7 @@ public extension HangulKit {
     // (Swift API design guidelines에서 본 것 같긴 한데 기억이 안난다. 나중에 추가할 것.)
     
     /// 입력된 문자열에 뒤따를 선택한 조사 옵션 중 규칙에 알맞은 조사를 반환합니다.
+    /// 문자열이 온전한 한글이 아닌 경우 nil을 반환합니다.
     ///
     ///     let 샴푸 = HangulKit.pickJosa(of: "샴푸", within: .이_가)
     ///     print(샴푸) // prints "가"
