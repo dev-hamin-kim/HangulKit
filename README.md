@@ -25,7 +25,7 @@
 [request-feature-url]: https://github.com/dev-hamin-kim/HangulKit/issues
 
 <!--URLS-->
-[license-url]: LICENSE.md
+[license-url]: LICENSE
 [readme-eng-url]: /README_en.md
 
 # HangulKit
