@@ -7,6 +7,8 @@
 
 extension Double: HangulKitCompatible { }
 extension Float: HangulKitCompatible { }
+
+@available(iOS 14.0, *)
 extension Float16: HangulKitCompatible { }
 
 // TODO: 테스트 코드 작성

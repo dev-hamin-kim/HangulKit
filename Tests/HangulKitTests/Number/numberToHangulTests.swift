@@ -88,6 +88,11 @@ struct numberToHangulTests {
     func invalidInputs() async throws {
         #expect(HangulKit.numberToHangul(Double.nan) == nil)
         #expect(HangulKit.numberToHangul(Float.nan) == nil)
+    }
+    
+    @available(iOS 14.0, *)
+    @Test("유효하지 않은 입력에 대한 오류 처리 - Float16")
+    func invalidInputFloat16() async throws {
         #expect(HangulKit.numberToHangul(Float16.nan) == nil)
     }
 }
