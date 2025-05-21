@@ -65,10 +65,16 @@ public extension HangulKit {
     /// 문자열이 온전한 한글이 아닌 경우 nil을 반환합니다.
     ///
     ///     let 샴푸 = HangulKit.pickJosa(of: "샴푸", within: .이_가)
-    ///     print(샴푸) // prints "가"
+    ///     print(샴푸) // prints Optional("가")
     ///
     ///     let 칫솔 = HangulKit.pickJosa(of: "칫솔", within: .이_가)
-    ///     print(칫솔) // prints "이"
+    ///     print(칫솔) // prints Optional("이")
+    ///
+    ///     let ㅘ = HangulKit.pickJosa(of: "ㅘ", within: .이_가)
+    ///     print(ㅘ) // returns nil
+    ///
+    ///     let eng = HangulKit.pickJosa(of: "eng", within: .이_가)
+    ///     print(eng) // also returns nil
     ///
     /// - Parameters:
     ///     - word: 조사를 판단할 문자열

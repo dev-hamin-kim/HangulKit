@@ -8,6 +8,7 @@
 public extension HangulKit {
     
     /// 단어에서 초성을 추출합니다.
+    /// 한글 단어가 아닐 경우 nil을 반환합니다.
     ///
     ///     let apple = HangulKit.getChoseong(of: "사과")
     ///     print(apple) // prints "ㅅㄱ"

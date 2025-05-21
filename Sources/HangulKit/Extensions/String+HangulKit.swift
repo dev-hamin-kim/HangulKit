@@ -29,37 +29,55 @@ extension HangulKitWrapper where Base == String {
     }
     
     /// 단어에서 초성을 추출합니다.
+    /// 한글 단어가 아닐 경우 nil을 반환합니다.
     ///
     ///     let apple = "사과".hk.getChoseong()
     ///     print(apple) // prints "ㅅㄱ"
     ///
     ///     let spacing = "띄어 쓰기".hk.getChoseong()
     ///     print(spacing) // prints "ㄸㅇ ㅆㄱ"
+    ///
+    ///     let english = "english".hk.getChoseong()
+    ///     print(english) // prints nil
     public func getChoseong() -> String? {
         return HangulKit.getChoseong(of: base)
     }
     
     /// 문자열 뒤에 선택한 조사 옵션 중 규칙에 알맞은 조사를 붙여 반환합니다.
+    /// 문자열이 온전한 한글이 아닌 경우 nil을 반환합니다.
     ///
     ///     let 샴푸에조사추가 = "샴푸".hk.addJosa(within: .이_가)
-    ///     print(샴푸에조사추가) // prints "샴푸가"
+    ///     print(샴푸에조사추가) // prints Optional("샴푸가")
     ///
     ///     let 칫솔에조사추가 = "칫솔".hk.addJosa(within: .이_가)
-    ///     print(칫솔에조사추가) // prints "칫솔이"
+    ///     print(칫솔에조사추가) // prints Optional("칫솔이")
+    ///
+    ///     let ㅘ에조사추가 = "ㅘ".hk.addJosa(within: .이_가)
+    ///     print(ㅘ에조사추가) // returns nil
+    ///
+    ///     let eng에조사추가 = "eng".hk.addJosa(within: .이_가)
+    ///     print(eng에조사추가) // also returns nil
     ///
     /// - Parameters:
-    ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``Hangul/JosaOption`` 중 하나 선택 가능
+    ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``HangulKit/JosaOption`` 중 하나 선택 가능
     public func addJosa(within options: HangulKit.JosaOption) -> String? {
         return HangulKit.addJosa(after: base, within: options)
     }
     
     /// 문자열에 뒤따를 선택한 조사 옵션 중 규칙에 알맞은 조사를 반환합니다.
+    /// 문자열이 온전한 한글이 아닌 경우 nil을 반환합니다.
     ///
     ///     let 샴푸 = "샴푸".hk.pickJosa(within: .이_가)
-    ///     print(샴푸) // prints "가"
+    ///     print(샴푸) // prints Optional("가")
     ///
     ///     let 칫솔 = "칫솔".hk.pickJosa(within: .이_가)
-    ///     print(칫솔) // prints "이"
+    ///     print(칫솔) // prints Optional("이")
+    ///
+    ///     let ㅘ = "ㅘ".hk.pickJosa(within: .이_가)
+    ///     print(ㅘ) // returns nil
+    ///
+    ///     let eng = "eng".hk.pickJosa(within: .이_가)
+    ///     print(eng) // also returns nil
     ///
     /// - Parameters:
     ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``JosaOption`` 중 하나 선택 가능

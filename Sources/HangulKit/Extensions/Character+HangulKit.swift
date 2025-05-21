@@ -22,35 +22,41 @@ extension HangulKitWrapper where Base == Character {
     
     /// 문자가 중성으로 위치할 수 있는 문자인지 검사합니다.
     ///
-    ///     "ㅘ".hk.canBeJungseong() // true
-    ///     "ㅏ".hk.canBeJungseong() // true
-    ///     "ㄱ".hk.canBeJungseong() // false
-    ///     "ㄳ".hk.canBeJungseong() // false
-    ///     "가".hk.canBeJungseong() // false
+    ///     "ㅘ".hk.canBeJungseong() // returns true
+    ///     "ㅏ".hk.canBeJungseong() // returns true
+    ///     "ㄱ".hk.canBeJungseong() // returns false
+    ///     "ㄳ".hk.canBeJungseong() // returns false
+    ///     "가".hk.canBeJungseong() // returns false
     public func canBeJungsung() -> Bool {
         return HangulKit.canBeJungseong(base)
     }
     
     /// 문자가 종성으로 위치할 수 있는 문자인지 검사합니다.
     ///
-    ///     "ㄱ".hk.canBeJongseong() // true
-    ///     "ㄳ".hk.canBeJongseong() // true
-    ///     "ㅃ".hk.canBeJongseong() // false
-    ///     "가".hk.canBeJongseong() // false
-    ///     "ㅏ".hk.canBeJongseong() // false
-    ///     "ㅘ".hk.canBeJongseong() // false
+    ///     "ㄱ".hk.canBeJongseong() // returns true
+    ///     "ㄳ".hk.canBeJongseong() // returns true
+    ///     "ㅃ".hk.canBeJongseong() // returns false
+    ///     "가".hk.canBeJongseong() // returns false
+    ///     "ㅏ".hk.canBeJongseong() // returns false
+    ///     "ㅘ".hk.canBeJongseong() // returns false
     public func canbeJongseong() -> Bool {
         return HangulKit.canBeJongseong(base)
     }
     
     /// 한글 문자가 받침이 있는지 확인합니다.
+    /// 입력된 문자가 온전한 한글 문자가 아닐 경우 nil을 반환합니다.
     ///
-    ///     "값".hk.hasBatchim() // true
-    ///     "토".hk.hasBatchim() // false
-    ///     "갑".hk.hasBatchim(.single) // true
-    ///     "값".hk.hasBatchim(.single) // false
-    ///     "값".hk.hasBatchim(.double) // true
-    ///     "토".hk.hasBatchim(.double) // false
+    ///     "값".hk.hasBatchim() // returns Optional(true)
+    ///     "토".hk.hasBatchim() // returns Optional(false)
+    ///
+    ///     "갑".hk.hasBatchim(.single) // returns Optional(true)
+    ///     "값".hk.hasBatchim(.single) // returns Optional(false)
+    ///
+    ///     "값".hk.hasBatchim(.double) // returns Optional(true)
+    ///     "토".hk.hasBatchim(.double) // returns Optional(false)
+    ///
+    ///     "d".hk.hasBatchim() // returns nil
+    ///     "ㅘ".hk.hasBatchim() // also returns nil
     ///
     /// - Parameters:
     ///     - batchimOption: 기본값은 .both이며, 받침이 있을 경우 true를 반환합니다.

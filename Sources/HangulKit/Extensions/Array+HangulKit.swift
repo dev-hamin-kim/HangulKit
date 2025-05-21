@@ -35,7 +35,7 @@ extension HangulKitWrapper where Base == Array<Character> {
     ///     아버지가.hk.assemble() // returns "아버지가 방에 들어갑니다"
     ///
     ///     let 아버지: [Character] = ["ㅇ", "ㅏ", "ㅂ", "ㅓ", "ㅈ", "ㅣ"]
-    ///     아버지.hk.assemble( // returns "아버지"
+    ///     아버지.hk.assemble() // returns "아버지"
     public func assemble() -> String {
         return HangulKit.assemble(base)
     }

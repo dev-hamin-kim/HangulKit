@@ -47,7 +47,7 @@ public extension HangulKit {
     
     /// 메서드 ``disassembleToGroups(_:)``와 동일 하지만, 2차원 배열이 아닌 1차원 배열으로 리턴함.
     ///
-    /// ``disassemble(_:)`` 사용 시 flatMap을 사용하지 않게 하기 위함.
+    /// ``disassemble(_:)-6x1hw`` 사용 시 flatMap을 사용하지 않게 하기 위함.
     static func disassembleToGroups(_ string: String) -> [Character] {
         var result: [Character] = []
         
