@@ -88,7 +88,7 @@ struct numberToHangulMixedTests {
         #expect(HangulKit.numberToHangulMixed(Float.nan) == nil)
     }
     
-    @available(iOS 14.0, *)
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, *)
     @Test("유효하지 않은 입력에 대한 오류 처리 - Float16")
     func invalidInputFloat16() async throws {
         #expect(HangulKit.numberToHangulMixed(Float16.nan) == nil)

@@ -8,7 +8,7 @@
 extension Double: HangulKitCompatible { }
 extension Float: HangulKitCompatible { }
 
-@available(iOS 14.0, *)
+@available(iOS 14.0, tvOS 14.0, watchOS 7.0, *)
 extension Float16: HangulKitCompatible { }
 
 // TODO: 테스트 코드 작성
