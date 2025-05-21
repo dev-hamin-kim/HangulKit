@@ -27,24 +27,22 @@ public extension HangulKit {
         var result = ""
         
         for char in word {
-            guard isHangulAlphabet(char) || isHangulCharacter(char) else {
-                result.append(char)
-                continue
-            }
-            
-            if canBeChoseong(char) {
-                result.append(char)
-                continue
-            }
-        
-            let value = char.unicodeScalars.first!.value - HangulKit.CompleteHangulStartUnicodeScalar
-            
-            let index = Int(value / 588)
-            
-            result.append(HangulKit.Choseong.list[index])
-
+            let choseong = getChoseong(char) ?? " "
+            result.append(choseong)
         }
         
         return result
+    }
+    
+    static private func getChoseong(_ char: Character) -> Character? {
+        guard isHangulAlphabet(char) || isHangulCharacter(char) else { return nil }
+        
+        if canBeChoseong(char) { return char }
+        
+        let value = char.unicodeScalars.first!.value - HangulKit.CompleteHangulStartUnicodeScalar
+        
+        let index = Int(value / 588)
+        
+        return HangulKit.Choseong.list[index]
     }
 }
