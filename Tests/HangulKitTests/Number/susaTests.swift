@@ -45,11 +45,11 @@ struct susaTests {
         }
     }
     
-    @Test("유효하지 않은 숫자에 대해 오류를 발생시켜야 한다.")
+    @Test("유효하지 않은 숫자에 대해 nil을 반환하여야 한다.")
     func test3() async throws {
         let num = 0
         
-        #expect(HangulKit.susa(of: num) == "지원하지 않는 숫자입니다.")
-        #expect(HangulKit.susa(of: num, classifier: true) == "지원하지 않는 숫자입니다.")
+        #expect(HangulKit.susa(of: num) == nil)
+        #expect(HangulKit.susa(of: num, classifier: true) == nil)
     }
 }

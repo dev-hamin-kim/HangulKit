@@ -44,8 +44,8 @@ struct SeosusaTests {
         }
     }
     
-    @Test("유효하지 않은 숫자에 대해 오류를 발생시켜야 한다.")
+    @Test("유효하지 않은 숫자에 대해 nil을 반환하여야 한다.")
     func test2() async throws {
-        #expect(HangulKit.seosusa(of: 0) == "1이상의 정수만 지원합니다.")
+        #expect(HangulKit.seosusa(of: 0) == nil)
     }
 }
