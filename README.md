@@ -40,22 +40,16 @@ Swift로 한글을 보다 쉽게 처리할 수 있도록 설계된 라이브러�
 
 ## 설치 (Installation)
 
-HangulKit을 Xcode 프로젝트에 통합하는 방법:
+### Swift Package Manager
 
-1. **Swift Package Manager**:
-
-### Xcode에서 직접 추가
+#### Xcode에서 직접 추가
 
 1. **Xcode를 열고** 상단 메뉴에서 `File` > `Add Package Dependencies...`를 클릭합니다.
-2. **패키지 URL 입력란**에 아래 주소를 입력하세요:
-https://github.com/dev-hamin-kim/HangulKit
-
+2. **패키지 URL 입력란**에 레포지토리 주소를 입력하세요: https://github.com/dev-hamin-kim/HangulKit
 3. Enter 키를 누르면 패키지가 검색됩니다.
 4. 원하는 버전을 선택하고 `Add Package`를 클릭합니다.
 
----
-
-### `Package.swift`에 직접 추가 (SwiftPM 프로젝트의 경우)
+#### Package.swift에 직접 추가 (SwiftPM 프로젝트의 경우)
 
 Swift 패키지 프로젝트를 사용 중이라면 `Package.swift` 파일에 아래 내용을 추가하세요:
 
@@ -72,7 +66,7 @@ targets: [
 ]
 ```
 
-2. **CocoaPods**: (개발 중)
+#### CocoaPods (개발 중)
 
 ## 사용법 (Usage)
 
