@@ -44,5 +44,10 @@ struct getChoseongTests {
     func getChoseong7() {
         #expect(HangulKit.getChoseong(of: "띄어 쓰기") == "ㄸㅇ ㅆㄱ")
     }
+    
+    @Test("한글 단어가 아닐 경우 nil을 반환한다.")
+    func getChoseong8() {
+        #expect(HangulKit.getChoseong(of: "english") == nil)
+    }
 
 }

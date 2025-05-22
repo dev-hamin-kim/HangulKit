@@ -31,5 +31,8 @@ struct combineCharacterTests {
         
         // 온전한 한글 문자가 하나라도 입력되면 에러를 반환한다. (가, ㅏ, ㄱ)
         #expect(HangulKit.combineCharacter(choseong: "가", jungseong: "ㅏ", jongseong: "ㄱ") == nil)
+        
+        // 영어 문자가 하나라도 입력되면 에러를 반환한다. (a, b)
+        #expect(HangulKit.combineCharacter(choseong: "a", jungseong: "b") == nil)
     }
 }

@@ -10,7 +10,7 @@ import Testing
 
 struct hasBatchimTests {
     
-    @Test
+    @Test // TODO: Test 설명 추가
     func example() {
         #expect(HangulKit.hasBatchim("값") == true)
         #expect(HangulKit.hasBatchim("토") == false)
@@ -18,5 +18,7 @@ struct hasBatchimTests {
         #expect(HangulKit.hasBatchim("값", .single) == false)
         #expect(HangulKit.hasBatchim("값", .double) == true)
         #expect(HangulKit.hasBatchim("토", .double) == false)
+        #expect(HangulKit.hasBatchim("d") == nil)
+        #expect(HangulKit.hasBatchim("ㅘ") == nil)
     }
 }

@@ -10,23 +10,66 @@ import Testing
 
 struct disassembleToGroupsTests {
     
-    @Test
-    func disassembleToGroups() {
-        #expect(HangulKit.disassembleToGroups("값") == [["ㄱ", "ㅏ", "ㅂ", "ㅅ"]])
-        #expect(HangulKit.disassembleToGroups("값이 비싸다") ==
-                [
-                    ["ㄱ", "ㅏ", "ㅂ", "ㅅ"],
-                    ["ㅇ", "ㅣ"],
-                    [" "],
-                    ["ㅂ", "ㅣ"],
-                    ["ㅆ", "ㅏ"],
-                    ["ㄷ", "ㅏ"],
-                ]
-        )
-        #expect(HangulKit.disassembleToGroups("사과 짱") == [["ㅅ", "ㅏ"], ["ㄱ", "ㅗ", "ㅏ"], [" "], ["ㅉ", "ㅏ", "ㅇ"]])
-        #expect(HangulKit.disassembleToGroups("ㄵ") == [["ㄴ", "ㅈ"]])
-        #expect(HangulKit.disassembleToGroups("ㅘ") == [["ㅗ", "ㅏ"]])
+    @Test("Stirng -> [[Character]]")
+    func disassembleToGroups1() {
+        let input: [String] = ["값", "값이 비싸다", "사과 짱", "ㄵ", "ㅘ", "뷁"]
+        let output: [[[Character]]] = [
+            [
+                ["ㄱ", "ㅏ", "ㅂ", "ㅅ"]
+            ],
+            [
+                ["ㄱ", "ㅏ", "ㅂ", "ㅅ"],
+                ["ㅇ", "ㅣ"],
+                [" "],
+                ["ㅂ", "ㅣ"],
+                ["ㅆ", "ㅏ"],
+                ["ㄷ", "ㅏ"],
+            ],
+            [
+                ["ㅅ", "ㅏ"], ["ㄱ", "ㅗ", "ㅏ"], [" "], ["ㅉ", "ㅏ", "ㅇ"]
+            ],
+            [
+                ["ㄴ", "ㅈ"]
+            ],
+            [
+                ["ㅗ", "ㅏ"]
+            ],
+            [
+                ["ㅂ", "ㅜ", "ㅔ", "ㄹ", "ㄱ"]
+            ]
+        ]
         
-        #expect(HangulKit.disassembleToGroups("뷁") == [["ㅂ", "ㅜ", "ㅔ", "ㄹ", "ㄱ"]])
+        for (input, output) in zip(input, output) {
+            #expect(HangulKit.disassembleToGroups(input) == output)
+        }
+    }
+    
+    @Test("Stirng -> [Character]")
+    func disassembleToGroups2() {
+        let input: [String] = ["값", "값이 비싸다", "사과 짱", "ㄵ", "ㅘ", "뷁"]
+        let output: [[Character]] = [
+            ["ㄱ", "ㅏ", "ㅂ", "ㅅ"],
+            
+            ["ㄱ", "ㅏ", "ㅂ", "ㅅ",
+             "ㅇ", "ㅣ",
+             " ",
+             "ㅂ", "ㅣ",
+             "ㅆ", "ㅏ",
+             "ㄷ", "ㅏ"],
+            
+            ["ㅅ", "ㅏ", "ㄱ", "ㅗ", "ㅏ",
+             " ",
+             "ㅉ", "ㅏ", "ㅇ"],
+            
+            ["ㄴ", "ㅈ"],
+            
+            ["ㅗ", "ㅏ"],
+            
+            ["ㅂ", "ㅜ", "ㅔ", "ㄹ", "ㄱ"]
+        ]
+        
+        for (input, output) in zip(input, output) {
+            #expect(HangulKit.disassembleToGroups(input) == output)
+        }
     }
 }

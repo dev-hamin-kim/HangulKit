@@ -24,4 +24,15 @@ struct assembleTests {
     func assemble3() {
         #expect(HangulKit.assemble(["ㅇ", "ㅏ", "ㅂ", "ㅓ", "ㅈ", "ㅣ"]) == "아버지")
     }
+    
+    @Test("[Character] 조합")
+    func assemble4() {
+        let 아버지가 = HangulKit.assemble([
+            "아", "버", "지", "가", " ",
+            "방", "에", " ",
+            "들", "어", "갑", "니", "다"
+        ])
+        
+        #expect(아버지가 == "아버지가 방에 들어갑니다")
+    }
 }
