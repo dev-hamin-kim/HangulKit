@@ -58,8 +58,8 @@ public extension HangulKit {
     /// - Note:
     /// - `수사`란 숫자를 나타내는 우리말 단어입니다. [자세히 알아보기](https://ko.dict.naver.com/#/entry/koko/d0ce2b674cae4b44b9028f648dd458b0)
     /// - `수관형사`는 사물의 수나 양을 나타내는 관형사입니다. "두 사람"의 "두", "세 근"의 "세" 따위를 뜻합니다. [자세히 알아보기](https://ko.dict.naver.com/#/entry/koko/c513782b82554ff499c80ec616c5b611)
-    static func susa(of num: Int, classifier: Bool = false) -> String {
-        guard 1...100 ~= num else { return "지원하지 않는 숫자입니다." }
+    static func susa(of num: Int, classifier: Bool = false) -> String? {
+        guard 1...100 ~= num else { return nil }
         
         return classifier ? getClassifierWord(of: num) : getNumberWord(of: num)
     }

@@ -36,15 +36,15 @@ public extension HangulKit {
     ///
     /// - Parameters:
     ///     - number: 순 우리말 날짜로 변환할 정수입니다. 1부터 30까지만 지원합니다.
-    static func days(_ number: Int) -> String {
+    static func days(_ number: Int) -> String? {
         return getNumberWords(number)
     }
     
-    static private func getNumberWords(_ number: Int) -> String {
+    static private func getNumberWords(_ number: Int) -> String? {
         // 기존 es-hangul에 있던 validateNumber 함수의 기능은 대부분 Swift 컴파일러가 해주기 때문에,
         // (아닌가 Float랑 Double도 해야하나...)
         // 일단 1에서 30까지의 숫자인지 체크만 진행.
-        guard 1...30 ~= number else { return "" } // MARK: es-hangul에선 에러 타입을 리턴하는데... 어떻게 할지 생각해볼 것.
+        guard 1...30 ~= number else { return nil }
         
         let tens = number / 10 * 10
         let ones = number % 10

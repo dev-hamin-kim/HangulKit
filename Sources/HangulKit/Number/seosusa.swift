@@ -55,8 +55,8 @@ public extension HangulKit {
     /// - `서수사`는 순서를 나타내는 단어입니다.
     /// - 1부터 99까지의 정수는 순우리말 서수사 문자열로 변환합니다.
     /// - 100 이상의 정수는 한자어 서수사 문자열로 변환합니다.
-    static func seosusa(of num: Int) -> String {
-        guard num > 0 else { return "1이상의 정수만 지원합니다." }
+    static func seosusa(of num: Int) -> String? {
+        guard num > 0 else { return nil }
         
         if 1...99 ~= num { return "\(getOrdinalWord(num))째" }
         
