@@ -7,7 +7,7 @@
 
 public extension HangulKit {
     
-    static private let SeosusaMap = [
+    static private let seosusaMap = [
         1: "한",
         2: "두",
         3: "셋",
@@ -29,7 +29,7 @@ public extension HangulKit {
         100: "백",
     ]
 
-    static private let SeosusaSpecialCaseMap = [
+    static private let seosusaSpecialCaseMap = [
         1: "첫",
         2: "둘",
         20: "스무",
@@ -64,15 +64,15 @@ public extension HangulKit {
     }
     
     static private func getOrdinalWord(_ num: Int) -> String {
-        if let seosusaSpecialCaseMappedValue = SeosusaSpecialCaseMap[num] {
+        if let seosusaSpecialCaseMappedValue = seosusaSpecialCaseMap[num] {
             return seosusaSpecialCaseMappedValue
         }
         
         let tens = num / 10 * 10
         let ones = num % 10
         
-        let tensWord = SeosusaMap[tens] ?? ""
-        let onesWord = SeosusaMap[ones] ?? ""
+        let tensWord = seosusaMap[tens] ?? ""
+        let onesWord = seosusaMap[ones] ?? ""
         
         return tensWord + onesWord
     }
