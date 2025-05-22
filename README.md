@@ -30,47 +30,52 @@
 
 # HangulKit
 
-HangulKit은 iOS 애플리케이션에서 한글 문자를 보다 쉽게 처리할 수 있도록 설계된 Swift 라이브러리입니다.  
-[Toss](https://github.com/toss)의 [es-hangul](https://github.com/toss/es-hangul)에서 영감을 받아 개발되었습니다.
-
-HangulKit은 다음과 같은 기능을 제공하는 것을 목표로 합니다:  
-(개발 진행 중)
+HangulKit은 [Toss](https://github.com/toss)의 [es-hangul](https://github.com/toss/es-hangul)에서 영감을 받아,
+Swift로 한글을 보다 쉽게 처리할 수 있도록 설계된 라이브러리입니다.  
 
 ## 기능 (Features)
 
-(추후 추가 예정)
+### Core
+1. assemble
+```
 
 ## 설치 (Installation)
 
 HangulKit을 Xcode 프로젝트에 통합하는 방법:
 
-1. **Swift Package Manager**: (개발 중)
+1. **Swift Package Manager**:
+
+### Xcode에서 직접 추가
+
+1. **Xcode를 열고** 상단 메뉴에서 `File` > `Add Package Dependencies...`를 클릭합니다.
+2. **패키지 URL 입력란**에 아래 주소를 입력하세요:
+https://github.com/dev-hamin-kim/HangulKit
+
+3. Enter 키를 누르면 패키지가 검색됩니다.
+4. 원하는 버전을 선택하고 `Add Package`를 클릭합니다.
+
+---
+
+### `Package.swift`에 직접 추가 (SwiftPM 프로젝트의 경우)
+
+Swift 패키지 프로젝트를 사용 중이라면 `Package.swift` 파일에 아래 내용을 추가하세요:
+
+```swift
+dependencies: [
+ .package(url: "https://github.com/dev-hamin-kim/HangulKit", from: "1.0.0")
+ // 실제 사용 시에는 from: "1.0.0" 대신 GitHub 저장소에서 지원하는 최신 버전을 확인하여 지정하세요.
+],
+targets: [
+ .target(
+     name: "YourTargetName",
+     dependencies: ["HangulKit"]
+ )
+]
+```
+
 2. **CocoaPods**: (개발 중)
 
 ## 사용법 (Usage)
-
-(추후 추가 예정)
-
-## 개발 로드맵 (Roadmap)
-
-현재 HangulKit은 개발 진행 중입니다.
-
-추후 추가될 기능:
-- 종합적인 유닛 테스트
-- 텍스트 일괄 처리 지원
-- 공식 문서 작성
-
-## 기여하기 (Contributions)
-
-기여를 환영합니다! 기여하려면 다음 단계를 따르세요:
-
-1. 리포지토리를 포크합니다.
-2. 새로운 브랜치를 생성합니다. (`git checkout -b feature-branch`)
-3. 변경 사항을 커밋합니다. (`git commit -am 'Add new feature'`)
-4. 브랜치를 푸시합니다. (`git push origin feature-branch`)
-5. 새로운 Pull Request를 생성합니다.
-
-## 라이선스 (License)
 
 (추후 추가 예정)
 
@@ -78,7 +83,6 @@ HangulKit을 Xcode 프로젝트에 통합하는 방법:
 
 - [Toss](https://github.com/toss)의 [es-hangul](https://github.com/toss/es-hangul)
 - [Img Shields](https://shields.io/)
-- ()
 
 ## 문의 (Contact)
 
