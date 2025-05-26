@@ -7,7 +7,7 @@
 
 public extension HangulKit {
     
-    static internal let daysMap: [Int: String] = [
+    static private let daysMap: [Int: String] = [
         1: "하루",
         2: "이틀",
         3: "사흘",
@@ -21,7 +21,7 @@ public extension HangulKit {
         20: "스무",
     ]
     
-    static internal let daysOnlyTensMap: [Int: String] = [
+    static private let daysOnlyTensMap: [Int: String] = [
         10: "열흘",
         20: "스무날",
         30: "서른날",
