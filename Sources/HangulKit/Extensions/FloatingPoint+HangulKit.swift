@@ -22,7 +22,7 @@ extension HangulKitWrapper where Base: FloatingPoint {
     
     // MARK: 주석 추가 필요
     public func numberToHangulMixed(withSpacing: Bool = false) -> String? {
-        guard let result = HangulKit.numberToHangul(base, withSpacing: withSpacing) else { return nil }
+        guard let result = HangulKit.numberToHangulMixed(base, withSpacing: withSpacing) else { return nil }
         
         return result
     }
