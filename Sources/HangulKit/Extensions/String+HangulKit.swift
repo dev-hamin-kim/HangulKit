@@ -32,10 +32,10 @@ extension HangulKitWrapper where Base == String {
     /// 한글 단어가 아닐 경우 nil을 반환합니다.
     ///
     ///     let apple = "사과".hk.getChoseong()
-    ///     print(apple) // prints "ㅅㄱ"
+    ///     print(apple) // prints Optional("ㅅㄱ")
     ///
     ///     let spacing = "띄어 쓰기".hk.getChoseong()
-    ///     print(spacing) // prints "ㄸㅇ ㅆㄱ"
+    ///     print(spacing) // prints Optional("ㄸㅇ ㅆㄱ")
     ///
     ///     let english = "english".hk.getChoseong()
     ///     print(english) // prints nil
@@ -98,11 +98,11 @@ extension HangulKitWrapper where Base == String {
     
     /// 두벌식 한글 자판에서 입력된 한글을 QWERTY 자판과 매칭되는 영어 알파벳으로 변환합니다.
     ///
-    ///     "겨노".hk.convertHangulToQwerty(); // returns "rush"
-    ///     "쨰ㅉ".hk.convertHangulToQwerty(); // returns "WOW"
-    ///     "iOS개발!".hk.convertHangulToQwerty(); // returns "iOSroqkf!"
-    ///     "ㅇPdml".hk.convertHangulToQwerty(); // returns "dPdml"
-    ///     "".hk.convertHangulToQwerty(); // returns ""
+    ///     "겨노".hk.convertHangulToQwerty() // returns "rush"
+    ///     "쨰ㅉ".hk.convertHangulToQwerty() // returns "WOW"
+    ///     "iOS개발!".hk.convertHangulToQwerty() // returns "iOSroqkf!"
+    ///     "ㅇPdml".hk.convertHangulToQwerty() // returns "dPdml"
+    ///     "".hk.convertHangulToQwerty() // returns ""
     public func convertHangulToQWERTY() -> String {
         return HangulKit.convertHangulToQWERTY(base)
     }
