@@ -19,13 +19,13 @@ extension UInt64: HangulKitCompatible { }
 
 // TODO: 테스트 코드 작성
 extension HangulKitWrapper where Base == Int {
-    /// 날짜를 나타내는 숫자를 순 우리말 날짜로 변환해줍니다.
-    /// 주어진 숫자가 1부터 30까지의 정수가 아니라면 nil을 반환합니다.
+    /// 날짜를 나타내는 정수를 순 우리말 날짜로 변환해줍니다.
+    /// 1부터 30까지의 정수가 아니라면 nil을 반환합니다.
     ///
-    ///     1.hk.days() // returns "하루"
-    ///     3.hk.days() // returns "사흘"
-    ///     10.hk.days() // returns "열흘"
-    ///     30.hk.days() // returns "서른날"
+    ///     1.hk.days() // returns Optional("하루")
+    ///     3.hk.days() // returns Optional("사흘")
+    ///     10.hk.days() // returns Optional("열흘")
+    ///     30.hk.days() // returns Optional("서른날")
     ///
     ///     0.hk.days() // returns nil
     ///     31.hk.days() // also returns nil

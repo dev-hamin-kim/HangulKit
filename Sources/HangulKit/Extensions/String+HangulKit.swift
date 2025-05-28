@@ -53,10 +53,10 @@ extension HangulKitWrapper where Base == String {
     ///     print(칫솔에조사추가) // prints Optional("칫솔이")
     ///
     ///     let ㅘ에조사추가 = "ㅘ".hk.addJosa(within: .이_가)
-    ///     print(ㅘ에조사추가) // returns nil
+    ///     print(ㅘ에조사추가) // prints nil
     ///
     ///     let eng에조사추가 = "eng".hk.addJosa(within: .이_가)
-    ///     print(eng에조사추가) // also returns nil
+    ///     print(eng에조사추가) // also prints nil
     ///
     /// - Parameters:
     ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``HangulKit/JosaOption`` 중 하나 선택 가능
@@ -74,10 +74,10 @@ extension HangulKitWrapper where Base == String {
     ///     print(칫솔) // prints Optional("이")
     ///
     ///     let ㅘ = "ㅘ".hk.pickJosa(within: .이_가)
-    ///     print(ㅘ) // returns nil
+    ///     print(ㅘ) // prints nil
     ///
     ///     let eng = "eng".hk.pickJosa(within: .이_가)
-    ///     print(eng) // also returns nil
+    ///     print(eng) // also prints nil
     ///
     /// - Parameters:
     ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``JosaOption`` 중 하나 선택 가능
@@ -126,13 +126,16 @@ extension HangulKitWrapper where Base == String {
         return HangulKit.convertQWERTYToHangul(base)
     }
     
-    /// 날짜를 나타내는 숫자 문자열을 순 우리말 날짜로 변환해줍니다.
-    /// 1부터 30까지만 지원합니다.
+    /// 날짜를 나타내는 정수 문자열을 순 우리말 날짜로 변환해줍니다.
+    /// 주어진 문자열을 정수로 변환한 결과가 1부터 30까지의 정수가 아니라면 nil을 반환합니다.
     ///
-    ///     "1".hk.days() // returns "하루"
-    ///     "3".hk.days() // returns "사흘"
-    ///     "10".hk.days() // returns "열흘"
-    ///     "30".hk.days() // returns "서른날"
+    ///     "1".hk.days() // returns Optional("하루")
+    ///     "3".hk.days() // returns Optional("사흘")
+    ///     "10".hk.days() // returns Optional("열흘")
+    ///     "30".hk.days() // returns Optional("서른날")
+    ///
+    ///     "0".hk.days() // returns nil
+    ///     "31".hk.days() // also returns nil
     public func days() -> String? {
         guard let input = Int(base) else { return nil }
         
