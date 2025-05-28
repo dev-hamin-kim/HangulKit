@@ -36,20 +36,24 @@ public extension HangulKit {
     ]
 
     /// 숫자를 한글 서수사로 변환합니다.
+    /// 0 이하의 숫자는 nil을 반환합니다.
     ///
-    ///     HangulKit.seosusa(of: 1) // returns "첫째"
-    ///     HangulKit.seosusa(of: 2) // returns "둘째"
-    ///     HangulKit.seosusa(of: 3) // returns "셋째"
-    ///     HangulKit.seosusa(of: 10) // returns "열째"
-    ///     HangulKit.seosusa(of: 11) // returns "열한째"
-    ///     HangulKit.seosusa(of: 12) // returns "열두째"
-    ///     HangulKit.seosusa(of: 13) // returns "열셋째"
-    ///     HangulKit.seosusa(of: 20) // returns "스무째"
-    ///     HangulKit.seosusa(of: 21) // returns "스물한째"
-    ///     HangulKit.seosusa(of: 30) // returns "서른째"
-    ///     HangulKit.seosusa(of: 40) // returns "마흔째"
-    ///     HangulKit.seosusa(of: 99) // returns "아흔아홉째"
-    ///     HangulKit.seosusa(of: 100) // returns "백째"
+    ///     HangulKit.seosusa(of: 1) // returns Optional("첫째")
+    ///     HangulKit.seosusa(of: 2) // returns Optional("둘째")
+    ///     HangulKit.seosusa(of: 3) // returns Optional("셋째")
+    ///     HangulKit.seosusa(of: 10) // returns Optional("열째")
+    ///     HangulKit.seosusa(of: 11) // returns Optional("열한째")
+    ///     HangulKit.seosusa(of: 12) // returns Optional("열두째")
+    ///     HangulKit.seosusa(of: 13) // returns Optional("열셋째")
+    ///     HangulKit.seosusa(of: 20) // returns Optional("스무째")
+    ///     HangulKit.seosusa(of: 21) // returns Optional("스물한째")
+    ///     HangulKit.seosusa(of: 30) // returns Optional("서른째")
+    ///     HangulKit.seosusa(of: 40) // returns Optional("마흔째")
+    ///     HangulKit.seosusa(of: 99) // returns Optional("아흔아홉째")
+    ///     HangulKit.seosusa(of: 100) // returns Optional("백째")
+    ///
+    ///     HangulKit.seosusa(of: 0) // returns nil
+    ///     HangulKit.seosusa(of: -1) // also returns nil
     ///
     /// - Note:
     /// - `서수사`는 순서를 나타내는 단어입니다.
