@@ -34,20 +34,24 @@ extension HangulKitWrapper where Base == Int {
     }
     
     /// 정수를 한글 서수사로 변환합니다.
+    /// 0 이하의 정수는 nil을 반환합니다.
     ///
-    ///     1.hk.seosusa() // returns "첫째"
-    ///     2.hk.seosusa() // returns "둘째"
-    ///     3.hk.seosusa() // returns "셋째"
-    ///     10.hk.seosusa() // returns "열째"
-    ///     11.hk.seosusa() // returns "열한째"
-    ///     12.hk.seosusa() // returns "열두째"
-    ///     13.hk.seosusa() // returns "열셋째"
-    ///     20.hk.seosusa() // returns "스무째"
-    ///     21.hk.seosusa() // returns "스물한째"
-    ///     30.hk.seosusa() // returns "서른째"
-    ///     40.hk.seosusa() // returns "마흔째"
-    ///     99.hk.seosusa() // returns "아흔아홉째"
-    ///     100.hk.seosusa() // returns "백째"
+    ///     1.hk.seosusa() // returns Optional("첫째")
+    ///     2.hk.seosusa() // returns Optional("둘째")
+    ///     3.hk.seosusa() // returns Optional("셋째")
+    ///     10.hk.seosusa() // returns Optional("열째")
+    ///     11.hk.seosusa() // returns Optional("열한째")
+    ///     12.hk.seosusa() // returns Optional("열두째")
+    ///     13.hk.seosusa() // returns Optional("열셋째")
+    ///     20.hk.seosusa() // returns Optional("스무째")
+    ///     21.hk.seosusa() // returns Optional("스물한째")
+    ///     30.hk.seosusa() // returns Optional("서른째")
+    ///     40.hk.seosusa() // returns Optional("마흔째")
+    ///     99.hk.seosusa() // returns Optional("아흔아홉째")
+    ///     100.hk.seosusa() // returns Optional("백째")
+    ///
+    ///     0.hk.seosusa() // returns nil
+    ///     -1.hk.seosusa() // also returns nil
     ///
     /// - Note:
     /// - `서수사`는 순서를 나타내는 단어입니다.

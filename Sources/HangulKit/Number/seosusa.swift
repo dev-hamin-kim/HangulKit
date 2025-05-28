@@ -35,8 +35,8 @@ public extension HangulKit {
         20: "스무",
     ]
 
-    /// 숫자를 한글 서수사로 변환합니다.
-    /// 0 이하의 숫자는 nil을 반환합니다.
+    /// 정수를 한글 서수사로 변환합니다.
+    /// 0 이하의 정수는 nil을 반환합니다.
     ///
     ///     HangulKit.seosusa(of: 1) // returns Optional("첫째")
     ///     HangulKit.seosusa(of: 2) // returns Optional("둘째")
