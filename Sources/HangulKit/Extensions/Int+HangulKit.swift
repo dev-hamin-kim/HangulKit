@@ -61,19 +61,23 @@ extension HangulKitWrapper where Base == Int {
         return HangulKit.seosusa(of: base)
     }
     
-    /// 정수를 순 우리말 수사로 변환합니다. 주어진 숫자가 0보다 크고 100이하일 때 유효합니다.
+    /// 정수를 순 우리말 순 우리말 수사로 변환합니다.
+    /// 주어진 정수가 0보다 크고 100 이하일 때 유효하며, 범위를 벗어났을 경우, nil을 반환합니다.
     ///
-    ///     1.hk.susa() // returns "하나"
-    ///     2.hk.susa() // returns "둘"
-    ///     11.hk.susa() // returns "열하나"
-    ///     21.hk.susa() // returns "스물하나"
-    ///     99.hk.susa() // returns "아흔아홉"
-    ///     100.hk.susa() // returns "백"
-    ///     1.hk.susa(classifier: true) // returns "한"
-    ///     2.hk.susa(classifier: true) // returns "두"
-    ///     11.hk.susa(classifier: true) // returns "열한"
-    ///     20.hk.susa(classifier: true) // returns "스무"
-    ///     21.hk.susa(classifier: true) // returns "스물한"
+    ///     1.hk.susa() // returns Optional("하나")
+    ///     2.hk.susa() // returns Optional("둘")
+    ///     11.hk.susa() // returns Optional("열하나")
+    ///     21.hk.susa() // returns Optional("스물하나")
+    ///     99.hk.susa() // returns Optional("아흔아홉")
+    ///     100.hk.susa() // returns Optional("백")
+    ///     1.hk.susa(classifier: true) // returns Optional("한")
+    ///     2.hk.susa(classifier: true) // returns Optional("두")
+    ///     11.hk.susa(classifier: true) // returns Optional("열한")
+    ///     20.hk.susa(classifier: true) // returns Optional("스무")
+    ///     21.hk.susa(classifier: true) // returns Optional("스물한")
+    ///
+    ///     0.hk.susa() // returns nil
+    ///     101.hk.susa() // also returns nil
     ///
     /// - Parameters:
     ///     - classifier: 수관형사를 사용할지 여부를 입력합니다. 기본값은 false입니다.

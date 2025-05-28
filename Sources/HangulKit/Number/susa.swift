@@ -38,7 +38,7 @@ public extension HangulKit {
     ]
     
     /// 숫자를 순 우리말 수사로 변환합니다.
-    /// 주어진 숫자가 0보다 크고 100이하일 때 유효하며, 범위를 벗어났을 경우, nil을 반환합니다.
+    /// 주어진 숫자가 0보다 크고 100 이하일 때 유효하며, 범위를 벗어났을 경우, nil을 반환합니다.
     ///
     ///     HangulKit.susa(of: 1) // returns Optional("하나")
     ///     HangulKit.susa(of: 2) // returns Optional("둘")
