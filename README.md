@@ -1,11 +1,7 @@
 <!--배지-->
 ![][license-shield] ![Repository Size][repository-size-shield]
 
-<!--Swift Package Index Compatibility Badges-->
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fdev-hamin-kim%2FHangulKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/dev-hamin-kim/HangulKit) [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fdev-hamin-kim%2FHangulKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/dev-hamin-kim/HangulKit)
-
 <!--프로젝트 대문 이미지-->
-
 
 <!--프로젝트 버튼-->
  [![Readme in English][readme-eng-shield]][readme-eng-url] [![Report bug][report-bug-shield]][report-bug-url] [![Request feature][request-feature-shield]][request-feature-url]
@@ -28,31 +24,86 @@
 [license-url]: LICENSE
 [readme-eng-url]: /README_en.md
 
-# HangulKit
+# HangulKit [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fdev-hamin-kim%2FHangulKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/dev-hamin-kim/HangulKit) [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fdev-hamin-kim%2FHangulKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/dev-hamin-kim/HangulKit)
 
 HangulKit은 [Toss](https://github.com/toss)의 [es-hangul](https://github.com/toss/es-hangul)에서 영감을 받아,
 Swift로 한글을 보다 쉽게 처리할 수 있도록 설계된 라이브러리입니다.  
 
-## 기능 (Features)
+## 무엇을 할 수 있나요? (HangulKit 101)
 
-### Core
-- 문자열 뒤에 조사 넣기/고르기
-
-### Number
-- 날짜를 나타내는 숫자를 순 우리말 날짜로 변환하기
+- 문자열의 초성 추출하기
+  ```swift
+  let apple = HangulKit.getChoseong(of: "사과")
+  print(apple) // prints Optional("ㅅㄱ")
+  ```
+  
+- 문자열 뒤에 조사 넣기
+  ```swift
+  let 샴푸에조사추가 = HangulKit.addJosa(after: "샴푸", within: .이_가)
+  print(샴푸에조사추가) // prints Optional("샴푸가")
+  
+  let 칫솔에조사추가 = HangulKit.addJosa(after: "칫솔", within: .이_가)
+  print(칫솔에조사추가) // prints Optional("칫솔이")
+  ```
+  
 - 주어진 숫자를 한자어 수사로 바꾸기
-- 주어진 숫자에 대해 4자리마다 달라지는 한글의 숫자 단위를 자동으로 붙이기
+  ```swift
+  let number = HangulKit.numberToHangul(123_456_780)
+  print(number) // prints "일억이천삼백사십오만육천칠백팔십"
+
+  let anotherNumber = HangulKit.numberToHangul(123_456_780, withSpace: true)
+  print(anotherNumber) // prints "일억 이천삼백사십오만 육천칠백팔십"
+
+  let decimalNumber = HangulKit.numberToHangul(-12_345.678, withSpace: true)
+  print(decimalNumber) // prints Optional("마이너스 일만 이천삼백사십오점 육칠팔")
+  ```
+  
+- 주어진 숫자에 대해 4자리마다 달라지는 한글의 숫자 단위를 자동으로 붙이기 
+  ```swift
+  let number = HangulKit.numberToHangulMixed(123_456_780)
+  print(number) // prints "1억2,345만6,780"
+
+  let anotherNumber = HangulKit.numberToHangulMixed(123_456_780, withSpace: true)
+  print(anotherNumber) // prints "1억 2,345만 6,780"
+
+  let decimalNumber = HangulKit.numberToHangulMixed(-12_345.678, withSpace: true)
+  print(decimalNumber) // prints Optional("-1만 2,345.678")
+  ```
+
 - 숫자를 순 우리말 수사로 변환하거나 수 관형사로 변환하기
-- 숫자를 순우리말 날로 바꿔줍니다
+  ```swift
+  HangulKit.susa(of: 1) // returns Optional("하나")
+  HangulKit.susa(of: 2) // returns Optional("둘")
+  HangulKit.susa(of: 11) // returns Optional("열하나")
+  HangulKit.susa(of: 21) // returns Optional("스물하나")
+  ```
+  
+- 숫자를 한글 서수사로 변환하기.
+  ```swift
+  HangulKit.seosusa(of: 1) // returns Optional("첫째")
+  HangulKit.seosusa(of: 2) // returns Optional("둘째")
+  HangulKit.seosusa(of: 3) // returns Optional("셋째")
+  HangulKit.seosusa(of: Int.max) // returns Optional("구백이십이경삼천삼백칠십이조삼백육십팔억오천사백칠십칠만오천팔백칠째")
+  ```
 
-### Pronunciation
-- 한글 문자열을 표준 발음법으로 변경하기
 - 한글 문자열을 로마자 표기로 변경하기
-
-
+  ```swift
+  HangulKit.romanize(hangul: "종로") // returns "jongno"
+  HangulKit.romanize(hangul: "한국은korea") // returns "hangugeunkorea"
+  HangulKit.romanize(hangul: "고양이는cat") // returns "goyangineuncat"
+  ```
 <!-- 그 외에도 많은 기능이 있으며, 여기에 Docc 링크 추가?-->
 
-## 설치 (Installation)
+## 어떤 함수들은 옵셔널을 리턴하는데 왜 그런건가요?
+
+HangulKit은 크게 세 가지 상황에서 옵셔널을 리턴합니다:
+1. 입력받은 String에서 한글이 아닌 문자열을 받았거나,
+2. Float.nan과 같은 예외사항,
+3. 메서드가 지원하는 범위가 아닐때.
+
+이와 같은 상황들에 대한 설명은 각 메서드의 주석으로 남겨져 있으니, 사용 시에 참고하시면 되겠습니다.
+
+## 사용해 보고 싶어요! (How to install)
 
 ### Swift Package Manager
 
@@ -80,11 +131,17 @@ targets: [
 ]
 ```
 
-#### CocoaPods (개발 중)
+## 또 다른 사용법 (Usage)
+몇몇 메서드들은 Swift의 기본 타입에 .hk 익스텐션을 거쳐서 사용이 가능합니다.
+(RxSwift, Kingfisher, SnapKit 등을 사용하셨다면 익숙하실 방법입니다.)
 
-## 사용법 (Usage)
+- 예시
+```swift
+let apple = "사과".hk.getChoseong()
+print(apple) // prints Optional("ㅅㄱ")
+```
 
-(추후 추가 예정)
+자세한 사용방법은 DocC(링크 추가 필요)를 참고해주세요.
 
 ## 감사의 말 (Acknowledgements)
 
