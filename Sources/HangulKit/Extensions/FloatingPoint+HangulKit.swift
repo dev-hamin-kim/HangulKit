@@ -14,15 +14,15 @@ extension Float16: HangulKitCompatible { }
 // TODO: 테스트 코드 작성
 extension HangulKitWrapper where Base: FloatingPoint {
     // MARK: 주석 추가 필요
-    public func numberToHangul(withSpacing: Bool = false) -> String? {
-        guard let result = HangulKit.numberToHangul(base, withSpacing: withSpacing) else { return nil }
+    public func numberToHangul(withSpace: Bool = false) -> String? {
+        guard let result = HangulKit.numberToHangul(base, withSpace: withSpace) else { return nil }
         
         return result
     }
     
     // MARK: 주석 추가 필요
-    public func numberToHangulMixed(withSpacing: Bool = false) -> String? {
-        guard let result = HangulKit.numberToHangulMixed(base, withSpacing: withSpacing) else { return nil }
+    public func numberToHangulMixed(withSpace: Bool = false) -> String? {
+        guard let result = HangulKit.numberToHangulMixed(base, withSpace: withSpace) else { return nil }
         
         return result
     }

@@ -92,24 +92,24 @@ extension HangulKitWrapper where Base == Int {
 
 extension HangulKitWrapper where Base: UnsignedInteger {
     // MARK: 주석 추가 필요
-    public func numberToHangul(withSpacing: Bool = false) -> String {
-        return HangulKit.numberToHangul(base, withSpacing: withSpacing)
+    public func numberToHangul(withSpace: Bool = false) -> String {
+        return HangulKit.numberToHangul(base, withSpace: withSpace)
     }
     
     // MARK: 주석 추가 필요
-    public func numberToHangulMixed(withSpacing: Bool = false) -> String {
-        return HangulKit.numberToHangulMixed(base, withSpacing: withSpacing)
+    public func numberToHangulMixed(withSpace: Bool = false) -> String {
+        return HangulKit.numberToHangulMixed(base, withSpace: withSpace)
     }
 }
 
 extension HangulKitWrapper where Base: SignedInteger {
     // MARK: 주석 추가 필요
-    public func numberToHangul(withSpacing: Bool = false) -> String {
-        return HangulKit.numberToHangul(base, withSpacing: withSpacing)
+    public func numberToHangul(withSpace: Bool = false) -> String {
+        return HangulKit.numberToHangul(base, withSpace: withSpace)
     }
     
     // MARK: 주석 추가 필요
-    public func numberToHangulMixed(withSpacing: Bool = false) -> String {
-        return HangulKit.numberToHangulMixed(base, withSpacing: withSpacing)
+    public func numberToHangulMixed(withSpace: Bool = false) -> String {
+        return HangulKit.numberToHangulMixed(base, withSpace: withSpace)
     }
 }

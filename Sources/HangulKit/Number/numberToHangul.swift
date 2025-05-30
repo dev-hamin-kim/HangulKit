@@ -9,7 +9,9 @@ public extension HangulKit {
     
     // Swift 특성상 JS/TS를 사용하는 es-hangul과는 다르게 정수/실수 중 하나만을 사용가능.
     // 따라서 로직이 조금 차이가 있으니 유의.
-    static func numberToHangul<T: SignedInteger>(_ number: T, withSpacing: Bool = false) -> String {
+    
+    /// 주어진 숫자를 한자어 수사로 바꿔줍니다.
+    static func numberToHangul<T: SignedInteger>(_ number: T, withSpace: Bool = false) -> String {
         
         if number == 0 { return "영" }
         
@@ -18,25 +20,25 @@ public extension HangulKit {
         
         let absouluteValueString = Substring(String(describing: absouluteValue))
 
-        let result = integerPartToKorean(absouluteValueString, withSpacing: withSpacing)
+        let result = integerPartToKorean(absouluteValueString, withSpace: withSpace)
         
-        let negative = withSpacing ? "마이너스 " : "마이너스"
+        let negative = withSpace ? "마이너스 " : "마이너스"
         
         return isNegative ? negative + result : result
     }
     
-    static func numberToHangul<T: UnsignedInteger>(_ number: T, withSpacing: Bool = false) -> String {
+    static func numberToHangul<T: UnsignedInteger>(_ number: T, withSpace: Bool = false) -> String {
         
         if number == 0 { return "영" }
         
         let numberAsString = Substring(String(describing: number))
         
-        let result = integerPartToKorean(numberAsString, withSpacing: withSpacing)
+        let result = integerPartToKorean(numberAsString, withSpace: withSpace)
         
         return result
     }
     
-    static func numberToHangul<T: FloatingPoint>(_ number: T, withSpacing: Bool = false) -> String? {
+    static func numberToHangul<T: FloatingPoint>(_ number: T, withSpace: Bool = false) -> String? {
         
         if number.isNaN { return nil }
         if number == 0 { return "영" }
@@ -44,7 +46,7 @@ public extension HangulKit {
         let isNegative = number.sign == .minus
         
         if number.isInfinite && !isNegative { return "무한대" }
-        if number.isInfinite && isNegative { return withSpacing ? "마이너스 무한대" : "마이너스무한대" }
+        if number.isInfinite && isNegative { return withSpace ? "마이너스 무한대" : "마이너스무한대" }
         
         let absouluteValue = number.magnitude
         let absouluteValueString = String(describing: absouluteValue)
@@ -58,7 +60,7 @@ public extension HangulKit {
         if integerPart == "0" {
             result = "영"
         } else {
-            result = integerPartToKorean(integerPart, withSpacing: withSpacing)
+            result = integerPartToKorean(integerPart, withSpace: withSpace)
         }
         
         if !decimalPart.isEmpty {
@@ -66,12 +68,12 @@ public extension HangulKit {
                 .map { HangulKit.Numbers[$0.wholeNumberValue ?? 0] }
                 .joined()
             
-            if withSpacing { result += "점 " + decimalKorean }
+            if withSpace { result += "점 " + decimalKorean }
             else { result += "점" + decimalKorean }
         }
         
         if isNegative {
-            result = withSpacing ? "마이너스 " + result : "마이너스" + result
+            result = withSpace ? "마이너스 " + result : "마이너스" + result
         }
         
         return result
@@ -100,7 +102,7 @@ public extension HangulKit {
     }
     
     // TODO: 이렇게 따로 빼서 리팩터링 하기.
-    static private func integerPartToKorean(_ integerPart: Substring, withSpacing: Bool) -> String {
+    static private func integerPartToKorean(_ integerPart: Substring, withSpace: Bool) -> String {
         var koreanParts: [String] = []
         
         var remainingDigits = integerPart
@@ -121,7 +123,7 @@ public extension HangulKit {
         
         let result: String = koreanParts
             .filter { $0 != "" }
-            .joined(separator: withSpacing ? " " : "")
+            .joined(separator: withSpace ? " " : "")
             .trimmingCharacters(in: .whitespacesAndNewlines)
         
         return result
