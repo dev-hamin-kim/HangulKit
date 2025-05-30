@@ -26,7 +26,7 @@ struct numberToHangulTests {
     }
     
     @Test("공백 포함 변환")
-    func withSpacing() async throws {
+    func withSpace() async throws {
         let tests: [(input: Int, output: String)] = [
             (210_000, "이십일만"),
             (12_345, "일만 이천삼백사십오"),
@@ -34,7 +34,7 @@ struct numberToHangulTests {
         ]
 
         tests.forEach { input, output in
-            #expect(HangulKit.numberToHangul(input, withSpacing: true) == output)
+            #expect(HangulKit.numberToHangul(input, withSpace: true) == output)
         }
     }
     
@@ -75,7 +75,7 @@ struct numberToHangulTests {
     
     @Test("음수")
     func negativeNumbers() async throws {
-        let tests: [(input: Int, withSpacing: Bool, output: String)] = [
+        let tests: [(input: Int, withSpace: Bool, output: String)] = [
             (-210_000, false, "마이너스이십일만"),
             (-12_345, false, "마이너스일만이천삼백사십오"),
             (-123_456_780, false, "마이너스일억이천삼백사십오만육천칠백팔십"),
@@ -84,8 +84,8 @@ struct numberToHangulTests {
             (-123_456_780, true, "마이너스 일억 이천삼백사십오만 육천칠백팔십"),
         ]
 
-        tests.forEach { input, withSpacing, output in
-            #expect(HangulKit.numberToHangul(input, withSpacing: withSpacing) == output)
+        tests.forEach { input, withSpace, output in
+            #expect(HangulKit.numberToHangul(input, withSpace: withSpace) == output)
         }
     }
     
@@ -93,12 +93,12 @@ struct numberToHangulTests {
     func infiniteNumbers() async throws {
         #expect(HangulKit.numberToHangul(Double.infinity) == "무한대")
         #expect(HangulKit.numberToHangul(-Double.infinity) == "마이너스무한대")
-        #expect(HangulKit.numberToHangul(-Double.infinity, withSpacing: true) == "마이너스 무한대")
+        #expect(HangulKit.numberToHangul(-Double.infinity, withSpace: true) == "마이너스 무한대")
     }
     
     @Test("소수")
     func decimalNumbers() async throws {
-        let tests: [(input: Double, withSpacing: Bool, output: String)] = [
+        let tests: [(input: Double, withSpace: Bool, output: String)] = [
             (0.1, false, "영점일"),
             (12_345.678, false, "일만이천삼백사십오점육칠팔"),
             (-0.1, false, "마이너스영점일"),
@@ -109,8 +109,8 @@ struct numberToHangulTests {
             (-12_345.678, true, "마이너스 일만 이천삼백사십오점 육칠팔"),
         ]
 
-        tests.forEach { input, withSpacing, output in
-            #expect(HangulKit.numberToHangul(input, withSpacing: withSpacing) == output)
+        tests.forEach { input, withSpace, output in
+            #expect(HangulKit.numberToHangul(input, withSpace: withSpace) == output)
         }
     }
     

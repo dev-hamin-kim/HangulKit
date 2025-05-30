@@ -18,10 +18,10 @@ struct numberToHangulMixedTests {
     }
     
     @Test("공백 포함 변환")
-    func withSpacing() async throws {
-        #expect(HangulKit.numberToHangulMixed(210_000, withSpacing: true) == "21만")
-        #expect(HangulKit.numberToHangulMixed(12_345, withSpacing: true) == "1만 2,345")
-        #expect(HangulKit.numberToHangulMixed(123_456_780, withSpacing: true) == "1억 2,345만 6,780")
+    func withSpace() async throws {
+        #expect(HangulKit.numberToHangulMixed(210_000, withSpace: true) == "21만")
+        #expect(HangulKit.numberToHangulMixed(12_345, withSpace: true) == "1만 2,345")
+        #expect(HangulKit.numberToHangulMixed(123_456_780, withSpace: true) == "1억 2,345만 6,780")
     }
     
     @Test("0 이상 10,000 미만인 경우")
@@ -58,16 +58,16 @@ struct numberToHangulMixedTests {
         #expect(HangulKit.numberToHangulMixed(-210_000) == "-21만")
         #expect(HangulKit.numberToHangulMixed(-12_345) == "-1만2,345")
         #expect(HangulKit.numberToHangulMixed(-123_456_780) == "-1억2,345만6,780")
-        #expect(HangulKit.numberToHangulMixed(-210_000, withSpacing: true) == "-21만")
-        #expect(HangulKit.numberToHangulMixed(-12_345, withSpacing: true) == "-1만 2,345")
-        #expect(HangulKit.numberToHangulMixed(-123_456_780, withSpacing: true) == "-1억 2,345만 6,780")
+        #expect(HangulKit.numberToHangulMixed(-210_000, withSpace: true) == "-21만")
+        #expect(HangulKit.numberToHangulMixed(-12_345, withSpace: true) == "-1만 2,345")
+        #expect(HangulKit.numberToHangulMixed(-123_456_780, withSpace: true) == "-1억 2,345만 6,780")
     }
     
     @Test("무한대")
     func infiniteNumbers() async throws {
         #expect(HangulKit.numberToHangulMixed(Double.infinity) == "무한대")
         #expect(HangulKit.numberToHangulMixed(-Double.infinity) == "-무한대")
-        #expect(HangulKit.numberToHangulMixed(-Double.infinity, withSpacing: true) == "-무한대")
+        #expect(HangulKit.numberToHangulMixed(-Double.infinity, withSpace: true) == "-무한대")
     }
     
     @Test("소수")
@@ -76,10 +76,10 @@ struct numberToHangulMixedTests {
         #expect(HangulKit.numberToHangulMixed(12_345.678) == "1만2,345.678")
         #expect(HangulKit.numberToHangulMixed(-0.1) == "-0.1")
         #expect(HangulKit.numberToHangulMixed(-12_345.678) == "-1만2,345.678")
-        #expect(HangulKit.numberToHangulMixed(0.1, withSpacing: true) == "0.1")
-        #expect(HangulKit.numberToHangulMixed(12_345.678, withSpacing: true) == "1만 2,345.678")
-        #expect(HangulKit.numberToHangulMixed(-0.1, withSpacing: true) == "-0.1")
-        #expect(HangulKit.numberToHangulMixed(-12_345.678, withSpacing: true) == "-1만 2,345.678")
+        #expect(HangulKit.numberToHangulMixed(0.1, withSpace: true) == "0.1")
+        #expect(HangulKit.numberToHangulMixed(12_345.678, withSpace: true) == "1만 2,345.678")
+        #expect(HangulKit.numberToHangulMixed(-0.1, withSpace: true) == "-0.1")
+        #expect(HangulKit.numberToHangulMixed(-12_345.678, withSpace: true) == "-1만 2,345.678")
     }
     
     @Test("유효하지 않은 입력에 대한 오류 처리")

@@ -57,7 +57,7 @@ struct IntHangulKitExtensionTests {
         }
         
         @Test("공백 포함 변환")
-        func withSpacing() async throws {
+        func withSpace() async throws {
             let tests: [(input: Int, output: String)] = [
                 (210_000, "이십일만"),
                 (12_345, "일만 이천삼백사십오"),
@@ -65,7 +65,7 @@ struct IntHangulKitExtensionTests {
             ]
 
             tests.forEach { input, output in
-                #expect(input.hk.numberToHangul(withSpacing: true) == output)
+                #expect(input.hk.numberToHangul(withSpace: true) == output)
             }
         }
         
@@ -106,7 +106,7 @@ struct IntHangulKitExtensionTests {
         
         @Test("음수")
         func negativeNumbers() async throws {
-            let tests: [(input: Int, withSpacing: Bool, output: String)] = [
+            let tests: [(input: Int, withSpace: Bool, output: String)] = [
                 (-210_000, false, "마이너스이십일만"),
                 (-12_345, false, "마이너스일만이천삼백사십오"),
                 (-123_456_780, false, "마이너스일억이천삼백사십오만육천칠백팔십"),
@@ -115,8 +115,8 @@ struct IntHangulKitExtensionTests {
                 (-123_456_780, true, "마이너스 일억 이천삼백사십오만 육천칠백팔십"),
             ]
 
-            tests.forEach { input, withSpacing, output in
-                #expect(input.hk.numberToHangul(withSpacing: withSpacing) == output)
+            tests.forEach { input, withSpace, output in
+                #expect(input.hk.numberToHangul(withSpace: withSpace) == output)
             }
         }
         
@@ -127,12 +127,12 @@ struct IntHangulKitExtensionTests {
             
             #expect(positiveInfinity.hk.numberToHangul() == "무한대")
             #expect(negativeInfinity.hk.numberToHangul() == "마이너스무한대")
-            #expect(negativeInfinity.hk.numberToHangul(withSpacing: true) == "마이너스 무한대")
+            #expect(negativeInfinity.hk.numberToHangul(withSpace: true) == "마이너스 무한대")
         }
         
         @Test("소수")
         func decimalNumbers() async throws {
-            let tests: [(input: Double, withSpacing: Bool, output: String)] = [
+            let tests: [(input: Double, withSpace: Bool, output: String)] = [
                 (0.1, false, "영점일"),
                 (12_345.678, false, "일만이천삼백사십오점육칠팔"),
                 (-0.1, false, "마이너스영점일"),
@@ -143,8 +143,8 @@ struct IntHangulKitExtensionTests {
                 (-12_345.678, true, "마이너스 일만 이천삼백사십오점 육칠팔"),
             ]
 
-            tests.forEach { input, withSpacing, output in
-                #expect(input.hk.numberToHangul(withSpacing: withSpacing) == output)
+            tests.forEach { input, withSpace, output in
+                #expect(input.hk.numberToHangul(withSpace: withSpace) == output)
             }
         }
         
@@ -177,7 +177,7 @@ struct IntHangulKitExtensionTests {
         }
         
         @Test("공백 포함 변환")
-        func withSpacing() async throws {
+        func withSpace() async throws {
             let tests: [(input: Int, output: String)] = [
                 (210_000, "21만"),
                 (12_345, "1만 2,345"),
@@ -185,7 +185,7 @@ struct IntHangulKitExtensionTests {
             ]
             
             tests.forEach { input, output in
-                #expect(input.hk.numberToHangulMixed(withSpacing: true) == output)
+                #expect(input.hk.numberToHangulMixed(withSpace: true) == output)
             }
         }
         
@@ -226,7 +226,7 @@ struct IntHangulKitExtensionTests {
 
         @Test("음수")
         func negativeNumbers() async throws {
-            let tests: [(input: Int, withSpacing: Bool, output: String)] = [
+            let tests: [(input: Int, withSpace: Bool, output: String)] = [
                 (-210_000, false, "-21만"),
                 (-12_345, false, "-1만2,345"),
                 (-123_456_780, false, "-1억2,345만6,780"),
@@ -235,8 +235,8 @@ struct IntHangulKitExtensionTests {
                 (-123_456_780, true, "-1억 2,345만 6,780"),
             ]
             
-            tests.forEach { input, withSpacing, output in
-                #expect(input.hk.numberToHangulMixed(withSpacing: withSpacing) == output)
+            tests.forEach { input, withSpace, output in
+                #expect(input.hk.numberToHangulMixed(withSpace: withSpace) == output)
             }
         }
         
@@ -247,12 +247,12 @@ struct IntHangulKitExtensionTests {
             
             #expect(positiveInfinity.hk.numberToHangulMixed() == "무한대")
             #expect(negativeInfinity.hk.numberToHangulMixed() == "-무한대")
-            #expect(negativeInfinity.hk.numberToHangulMixed(withSpacing: true) == "-무한대")
+            #expect(negativeInfinity.hk.numberToHangulMixed(withSpace: true) == "-무한대")
         }
         
         @Test("소수")
         func decimalNumbers() async throws {
-            let tests: [(input: Double, withSpacing: Bool, output: String)] = [
+            let tests: [(input: Double, withSpace: Bool, output: String)] = [
                 (0.1, false, "0.1"),
                 (12_345.678, false, "1만2,345.678"),
                 (-0.1, false, "-0.1"),
@@ -264,8 +264,8 @@ struct IntHangulKitExtensionTests {
                 (-12_345.678, true, "-1만 2,345.678"),
             ]
             
-            tests.forEach { input, withSpacing, output in
-                #expect(input.hk.numberToHangulMixed(withSpacing: withSpacing) == output)
+            tests.forEach { input, withSpace, output in
+                #expect(input.hk.numberToHangulMixed(withSpace: withSpace) == output)
             }
         }
         
