@@ -132,13 +132,26 @@ targets: [
 ```
 
 ## 또 다른 사용법 (Usage)
-몇몇 메서드들은 Swift의 기본 타입에 .hk 익스텐션을 거쳐서 사용이 가능합니다.
+몇몇 메서드들은 Swift의 기본 타입(String, Int 등)에 .hk 익스텐션을 거쳐서 사용이 가능합니다.
 (RxSwift, Kingfisher, SnapKit 등을 사용하셨다면 익숙하실 방법입니다.)
 
 - 예시
 ```swift
 let apple = "사과".hk.getChoseong()
 print(apple) // prints Optional("ㅅㄱ")
+
+let 샴푸에조사추가 = "샴푸".hk.addJosa(within: .이_가)
+print(샴푸에조사추가) // prints Optional("샴푸가")
+
+let number = 123_456_780.hk.numberToHangulMixed()
+print(number) // prints "1억2,345만6,780"
+
+let seosusaOfIntMax = Int.max.hk.seosusa()
+print(seosusaOfIntMax)// prints Optional("구백이십이경삼천삼백칠십이조삼백육십팔억오천사백칠십칠만오천팔백칠째")
+
+let romanized = "고양이는cat".hk.romanize()
+print(romanized) // prints "goyangineuncat"
+
 ```
 
 자세한 사용방법은 DocC(링크 추가 필요)를 참고해주세요.
