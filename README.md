@@ -4,8 +4,7 @@
 <!--프로젝트 대문 이미지-->
 
 <!--프로젝트 버튼-->
- [![Readme in English][readme-eng-shield]][readme-eng-url] [![Report bug][report-bug-shield]][report-bug-url] [![Request feature][request-feature-shield]][request-feature-url]
-
+[![Report bug][report-bug-shield]][report-bug-url] [![Request feature][request-feature-shield]][request-feature-url]
 
 <!--Url for Badges-->
 [license-shield]: https://img.shields.io/github/license/dev-hamin-kim/HangulKit?labelColor=D8D8D8&color=04B4AE
@@ -22,12 +21,11 @@
 
 <!--URLS-->
 [license-url]: LICENSE
-[readme-eng-url]: /README_en.md
 
 # HangulKit [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fdev-hamin-kim%2FHangulKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/dev-hamin-kim/HangulKit) [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fdev-hamin-kim%2FHangulKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/dev-hamin-kim/HangulKit)
 
-HangulKit은 [Toss](https://github.com/toss)의 [es-hangul](https://github.com/toss/es-hangul)에서 영감을 받아,
-Swift로 한글을 보다 쉽게 처리할 수 있도록 설계된 라이브러리입니다.  
+HangulKit은 [Toss](https://github.com/toss)의 TypeScript 라이브러리 [es-hangul](https://github.com/toss/es-hangul)를 Swift로 포팅하여,
+iOS / iPadOS / macOS / watchOS 등에서 Swift 코드로 한글을 보다 쉽게 처리할 수 있도록 설계된 라이브러리입니다.  
 
 ## 무엇을 할 수 있나요? (HangulKit 101)
 
@@ -131,7 +129,7 @@ targets: [
 ]
 ```
 
-## 또 다른 사용법 (Usage)
+## 또 다른 사용법 (Use through extension)
 몇몇 메서드들은 Swift의 기본 타입(String, Int 등)에 .hk 익스텐션을 거쳐서 사용이 가능합니다.
 (RxSwift, Kingfisher, SnapKit 등을 사용하셨다면 익숙하실 방법입니다.)
 
