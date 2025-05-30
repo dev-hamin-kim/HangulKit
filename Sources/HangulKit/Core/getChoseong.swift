@@ -11,10 +11,10 @@ public extension HangulKit {
     /// 한글 단어가 아닐 경우 nil을 반환합니다.
     ///
     ///     let apple = HangulKit.getChoseong(of: "사과")
-    ///     print(apple) // prints "ㅅㄱ"
+    ///     print(apple) // prints Optional("ㅅㄱ")
     ///
     ///     let spacing = HangulKit.getChoseong(of: "띄어 쓰기")
-    ///     print(spacing) // prints "ㄸㅇ ㅆㄱ"
+    ///     print(spacing) // prints Optional("ㄸㅇ ㅆㄱ")
     ///
     ///     let english = HangulKit.getChoseong(of: "english")
     ///     print(english) // prints nil
