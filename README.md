@@ -26,8 +26,8 @@
 
 # HangulKit [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fdev-hamin-kim%2FHangulKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/dev-hamin-kim/HangulKit) [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fdev-hamin-kim%2FHangulKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/dev-hamin-kim/HangulKit)
 
-HangulKit은 [Toss](https://github.com/toss)의 [es-hangul](https://github.com/toss/es-hangul)에서 영감을 받아,
-Swift로 한글을 보다 쉽게 처리할 수 있도록 설계된 라이브러리입니다.  
+HangulKit은 [Toss](https://github.com/toss)의 TypeScript 라이브러리 [es-hangul](https://github.com/toss/es-hangul)를 Swift로 포팅하여,
+iOS / iPadOS / macOS / watchOS 등에서 Swift 코드로 한글을 보다 쉽게 처리할 수 있도록 설계된 라이브러리입니다.  
 
 ## 무엇을 할 수 있나요? (HangulKit 101)
 
