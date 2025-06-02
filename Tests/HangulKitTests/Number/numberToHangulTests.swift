@@ -5,6 +5,7 @@
 //  Created by 김하민 on 3/23/25.
 //
 
+#if swift(>=5.10)
 import Testing
 @testable import HangulKit
 
@@ -126,3 +127,5 @@ struct numberToHangulTests {
         #expect(HangulKit.numberToHangul(Float16.nan) == nil)
     }
 }
+
+#endif

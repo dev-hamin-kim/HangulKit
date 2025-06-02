@@ -5,6 +5,7 @@
 //  Created by 김하민 on 4/8/25.
 //
 
+#if swift(>=5.10)
 import Testing
 @testable import HangulKit
 
@@ -38,3 +39,5 @@ struct binaryAssembleTests {
     }
 
 }
+
+#endif

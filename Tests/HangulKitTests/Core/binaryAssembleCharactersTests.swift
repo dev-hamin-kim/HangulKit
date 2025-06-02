@@ -5,6 +5,7 @@
 //  Created by 김하민 on 4/3/25.
 //
 
+#if swift(>=5.10)
 import Testing
 @testable import HangulKit
 
@@ -84,3 +85,5 @@ struct binaryAssembleCharactersTests {
 //      });
 // 위의 테스트는 Character와 String을 다르게 취급하는 Swift 특성 상 컴파일러에서 에러를 던지므로 미구현.
 }
+
+#endif

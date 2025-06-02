@@ -5,6 +5,7 @@
 //  Created by 김하민 on 4/16/25.
 //
 
+#if swift(>=5.10)
 import Testing
 @testable import HangulKit
 
@@ -103,3 +104,5 @@ struct transform12thTests {
         #expect(HangulKit.transform12th(currentSyllable: current, nextSyllable: next) == transformed)
     }
 }
+
+#endif

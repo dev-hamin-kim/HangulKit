@@ -5,6 +5,7 @@
 //  Created by 김하민 on 4/9/25.
 //
 
+#if swift(>=5.10)
 import Testing
 @testable import HangulKit
 
@@ -44,3 +45,5 @@ struct convertHangulToQWERTYTests {
 
     }
 }
+
+#endif

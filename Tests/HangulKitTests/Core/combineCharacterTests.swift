@@ -5,6 +5,7 @@
 //  Created by 김하민 on 3/18/25.
 //
 
+#if swift(>=5.10)
 import Testing
 @testable import HangulKit
 
@@ -36,3 +37,5 @@ struct combineCharacterTests {
         #expect(HangulKit.combineCharacter(choseong: "a", jungseong: "b") == nil)
     }
 }
+
+#endif

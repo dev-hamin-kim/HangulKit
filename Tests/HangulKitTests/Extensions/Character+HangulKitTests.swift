@@ -5,6 +5,7 @@
 //  Created by 김하민 on 5/24/25.
 //
 
+#if swift(>=5.10)
 import Testing
 @testable import HangulKit
 
@@ -80,3 +81,5 @@ struct CharacterHangulKitExtensionTests {
         }
     }
 }
+
+#endif

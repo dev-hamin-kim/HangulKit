@@ -5,6 +5,7 @@
 //  Created by 김하민 on 3/18/25.
 //
 
+#if swift(>=5.10)
 import Testing
 @testable import HangulKit
 
@@ -46,3 +47,5 @@ struct canBeTests {
         #expect(HangulKit.canBeJongseong("ㅏ") == false)
     }
 }
+
+#endif

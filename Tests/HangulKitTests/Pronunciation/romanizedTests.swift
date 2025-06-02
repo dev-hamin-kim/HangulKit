@@ -5,6 +5,7 @@
 //  Created by 김하민 on 4/23/25.
 //
 
+#if swift(>=5.10)
 import Testing
 @testable import HangulKit
 
@@ -110,3 +111,5 @@ struct romanizedTests {
         }
     }
 }
+
+#endif

@@ -5,6 +5,7 @@
 //  Created by 김하민 on 3/28/25.
 //
 
+#if swift(>=5.10)
 import Testing
 @testable import HangulKit
 
@@ -19,3 +20,5 @@ struct disassembleTests {
         #expect(HangulKit.disassemble("ㅘ") == "ㅗㅏ")
     }
 }
+
+#endif

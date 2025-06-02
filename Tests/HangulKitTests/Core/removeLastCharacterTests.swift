@@ -5,6 +5,7 @@
 //  Created by 김하민 on 3/29/25.
 //
 
+#if swift(>=5.10)
 import Testing
 @testable import HangulKit
 
@@ -24,3 +25,5 @@ struct removeLastCharacterTests {
         #expect(HangulKit.removeLastCharacter(in: "신세계") == "신세ㄱ")
     }
 }
+
+#endif
