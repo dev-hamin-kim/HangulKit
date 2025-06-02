@@ -24,7 +24,8 @@
 
 # HangulKit [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fdev-hamin-kim%2FHangulKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/dev-hamin-kim/HangulKit) [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fdev-hamin-kim%2FHangulKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/dev-hamin-kim/HangulKit)
 
-HangulKit은 [Toss](https://github.com/toss)의 TypeScript 라이브러리 [es-hangul](https://github.com/toss/es-hangul)를 Swift로 포팅하여,
+HangulKit은 [Toss](https://github.com/toss)의 TypeScript 라이브러리,
+ [es-hangul](https://github.com/toss/es-hangul)을 Swift로 포팅하여,
 iOS / iPadOS / macOS / watchOS 등에서 Swift 코드로 한글을 보다 쉽게 처리할 수 있도록 설계된 라이브러리입니다.  
 
 ## 무엇을 할 수 있나요? (HangulKit 101)
@@ -68,7 +69,7 @@ iOS / iPadOS / macOS / watchOS 등에서 Swift 코드로 한글을 보다 쉽게
   print(decimalNumber) // prints Optional("-1만 2,345.678")
   ```
 
-- 숫자를 순 우리말 수사로 변환하거나 수 관형사로 변환하기
+- 숫자를 순 우리말 수사로 변환하기
   ```swift
   HangulKit.susa(of: 1) // returns Optional("하나")
   HangulKit.susa(of: 2) // returns Optional("둘")
@@ -90,7 +91,8 @@ iOS / iPadOS / macOS / watchOS 등에서 Swift 코드로 한글을 보다 쉽게
   HangulKit.romanize(hangul: "한국은korea") // returns "hangugeunkorea"
   HangulKit.romanize(hangul: "고양이는cat") // returns "goyangineuncat"
   ```
-<!-- 그 외에도 많은 기능이 있으며, 여기에 Docc 링크 추가?-->
+
+이 외에도 많은 기능들이 있으며, 더 자세한 내용은 [공식 문서](https://swiftpackageindex.com/dev-hamin-kim/HangulKit/documentation/hangulkit)를 참고하여 주세요!
 
 ## 어떤 함수들은 옵셔널을 리턴하는데 왜 그런건가요?
 
