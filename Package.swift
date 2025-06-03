@@ -13,7 +13,8 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "HangulKit"
+            name: "HangulKit",
+            swiftSettings: [.enableExperimentalFeature("StrictConcurrency")]
         ),
         .testTarget(
             name: "HangulKitTests",
