@@ -19,6 +19,26 @@ public struct HangulKitWrapper<Base> {
     }
 }
 
+/// HangulKit과 호환이 가능한 타입을 나타냅니다.
+/// 이 프로토콜을 적용한 타입에서 hk 프로퍼티를 통하여 값을 HangulKit의 메서드로 전달하여 사용할 수 있습니다.
+///
+/// HangulKit의 메서드가 입력값으로 받을 수 있는 자료형들이 본 프로토콜을 준수합니다.
+///
+/// 예시로 아래 코드를 보면, String 자료형에서 hk 프로퍼티를 접근하여 String을 입력값으로 받는 addJosa 메서드를 호출하는 것을 불 수 있습니다:
+///
+/// ```swift
+/// let 샴푸에조사추가 = "샴푸".hk.addJosa(within: .이_가)
+/// print(샴푸에조사추가) // prints Optional("샴푸가")
+/// ```
+///
+/// 다른 예시를 보면, Int 자료형에서 hk 프로퍼티를 접근하여 Int를 입력값으로 받는 numberToHangulMixed 메서드를 호출하는 것을 볼 수 있습니다:
+///
+/// ```swift
+/// let number = 123_456_780.hk.numberToHangulMixed()
+/// print(number) // prints "1억2,345만6,780"
+/// ```
+///
+/// 이 외에도 HangulKit의 기본적인 사용방법에 대해 더 알아보려면, <doc:시작하기> 문서를 참고해주세요.
 public protocol HangulKitCompatible {
     associatedtype HangulKitBase
     
