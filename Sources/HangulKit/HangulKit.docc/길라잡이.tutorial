@@ -1,0 +1,11 @@
+@Tutorials(name: "길라잡이") {
+    @Intro(title: "길라잡이") {
+        Getting started with Kingfisher by following a sample app.
+    }
+    
+    @Chapter(name: "시작하기") {
+        @Image(source: ColorCodedHangul)
+        설치하고 어쩌고저쩌고
+        @TutorialReference(tutorial: "doc:신규사용자")
+    }
+}

@@ -1,0 +1,47 @@
+@Tutorial(time: 10) {
+    @Intro(title: "신규 사용자를 위한 안내") {
+        HangulKit을 설치하고 기본적인 사용법을 익혀보세요.
+    }
+    
+    @Section(title: "요약") {
+        @ContentAndMedia {
+            이 안내는 다음 사항을 포함하고 있습니다:
+            
+            - 프로젝트에 HangulKit을 설치하는 방법
+            - 
+            
+            안내의 마지막 단계에 도달하면, 다음과 같은 ???를 
+        }
+        
+        @Steps { }
+    }
+    
+    @Section(title: "설치하기") {
+        
+        @Steps { }
+    }
+}
+
+
+<!--@Tutorial(time: 10) {-->
+<!--    @Intro(title: "Getting Started with Kingfisher (SwiftUI)") {-->
+<!--        Install Kingfisher and learn basic usage of the framework with SwiftUI.-->
+<!--        @Image(source: getting-started-card, alt: "Title image of the tutorial. A kingfisher bird standing on a tree.")    -->
+<!--    }-->
+<!--    -->
+<!--    @Section(title: "Overview") {-->
+<!--        @ContentAndMedia {-->
+<!--            This tutorial guides you through building a SwiftUI `List` that displays rounded images of kingfisher birds, -->
+<!--            downloaded using the Kingfisher library. It includes:-->
+<!---->
+<!--            - Setting Up `List`: Quick setup for a basic list.-->
+<!--            - Using Kingfisher: Download and display bird images.-->
+<!--            - Image Processing: Convert images to rounded corners for display.-->
+<!--            - Cache Size Button: A feature to check cache usage.-->
+<!--            -->
+<!--            At the final stage of this tutorial, you will have a list like this:-->
+<!--            -->
+<!--            @Image(source:preview-3-swiftui.png, alt:"The first image is loaded into the image view in cell.")-->
+<!--        }-->
+<!--        @Steps { }-->
+<!--    }-->
