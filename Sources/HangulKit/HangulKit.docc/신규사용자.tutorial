@@ -1,3 +1,5 @@
+<!-- 나중에 불필요한 외래어 줄이면 어떨지? -->
+
 @Tutorial(time: 10) {
     @Intro(title: "신규 사용자를 위한 안내") {
         HangulKit을 설치하고 기본적인 사용법을 익혀보세요.
@@ -8,9 +10,9 @@
             이 안내는 다음 사항을 포함하고 있습니다:
             
             - 프로젝트에 HangulKit을 설치하는 방법
-            - 
+            - UITableView에서 HangulKit을 사용하는 방법
             
-            안내의 마지막 단계에 도달하면, 다음과 같은 ???를 
+            안내의 마지막 단계에 도달하면, 예시와 같은 리스트가 만들어질 것입니다:
         }
         
         @Steps { }
@@ -18,30 +20,101 @@
     
     @Section(title: "설치하기") {
         
-        @Steps { }
+        @ContentAndMedia {
+            UIKit 기반 앱을 생성한 뒤, 처음으로 진행할 것은 `Swift Package Manager`를 이용하여 `HangulKit`을 설치하는 것이에요. 
+            
+<!--            > There are also other way to add Kingfisher to your project, such as CocoaPods or manually. Check the related documentation for more information.-->
+            
+            @Image(source: create-project.png, alt: "")
+            
+        }
+        
+        @Steps {
+            @Step {
+                Xcode의 우측 상단 메뉴에서 `File → Add Package Dependencies…`를 선택해주세요.
+                
+                @Image(source: xcode-menu-file.png, alt: "")
+
+            }
+            
+            @Step {
+                팝업창의 검색바에서 아래 URL을 입력한 뒤, `Add Package` 버튼을 눌러주세요.
+                
+                `https://github.com/dev-hamin-kim/HangulKit` 
+                
+                @Image(source: add-dependency.png, alt: "")
+            }
+            
+            @Step {
+                다운로드가 완료된 뒤, `HangulKit` 라이브러리를 생성된 프로젝트에 추가해주세요.
+                
+                @Image(source: add-to-project.png, alt: "")
+            }
+            
+            @Step {
+                Xcode에서 앱 타겟을 선택한 뒤에, `Build Phases` 탭으로 이동하세요.
+                그 후, `Link Binary With Libraries` 옆의 하단 화살표(⋁)를 눌러 목록을 펼쳐준 뒤, `HangulKit`이 추가되었는지 확인해주세요.
+                추가되지 않았다면, 목록 하단 우측의 더하기(+) 버튼을 눌러 목록에 추가해주세요.
+                
+                @Image(source: add-library.png, alt: "")
+            }
+            
+            @Step {
+                `HangulKit`이 정상적으로 설치가 되었는지 확인하려면, `ViewController.swift` 파일을 선택하세요.
+
+                @Code(name: "ViewController.swift", file: 01-ViewController-1.swift)
+            }
+            
+            @Step {
+                `ViewController.swift` 파일 내부에서`HangulKit`을 import하세요.
+                
+                @Code(name: "ViewController.swift", file: 01-ViewController-2.swift)
+            }
+            
+            @Step {
+                아래 테스트 코드를 viewDidLoad() 메서드 내부에 작성하여 실행해주세요.
+                
+                `print(HangulKit.addJosa(after: "한글킷", within: .으로_로) ?? "")`
+                
+                @Code(name: "ViewController.swift", file: 01-ViewController-3.swift)
+            }
+            
+            @Step {
+                Xcode의 디버그 콘솔에 `"한글킷으로"`가 나온다면, HangulKit을 프로젝트에서 사용할 준비가 완료된 것입니다.
+                
+                @Image(source: hangulkit-added.png)
+            }
+        }
+        
+        
+    }
+    
+    @Section(title: "UITableView에서 사용해보기") {
+        @Steps {
+            
+        }
     }
 }
 
 
-<!--@Tutorial(time: 10) {-->
-<!--    @Intro(title: "Getting Started with Kingfisher (SwiftUI)") {-->
-<!--        Install Kingfisher and learn basic usage of the framework with SwiftUI.-->
-<!--        @Image(source: getting-started-card, alt: "Title image of the tutorial. A kingfisher bird standing on a tree.")    -->
-<!--    }-->
-<!--    -->
-<!--    @Section(title: "Overview") {-->
-<!--        @ContentAndMedia {-->
-<!--            This tutorial guides you through building a SwiftUI `List` that displays rounded images of kingfisher birds, -->
-<!--            downloaded using the Kingfisher library. It includes:-->
-<!---->
-<!--            - Setting Up `List`: Quick setup for a basic list.-->
-<!--            - Using Kingfisher: Download and display bird images.-->
-<!--            - Image Processing: Convert images to rounded corners for display.-->
-<!--            - Cache Size Button: A feature to check cache usage.-->
-<!--            -->
-<!--            At the final stage of this tutorial, you will have a list like this:-->
-<!--            -->
-<!--            @Image(source:preview-3-swiftui.png, alt:"The first image is loaded into the image view in cell.")-->
+<!--    @Section(title: "Next Steps") {-->
+<!--            @ContentAndMedia {-->
+<!--                -->
+<!--                Congratulations! -->
+<!--                -->
+<!--                You have now mastered some basic uses of Kingfisher: including loading images from the web or cache using-->
+<!--                the `UIImageView` extension, processing images before display using ``ImageProcessor``, and basic methods-->
+<!--                for inspecting and clearing the cache. -->
+<!--                -->
+<!--                Kingfisher also contains a considerable number of other features, and it has been designed to be simple to-->
+<!--                use while considering flexibility. As you deepen your understanding of the framework, we hope you will-->
+<!--                gradually grow to like it. -->
+<!--                -->
+<!--                Next, we recommend that you start using Kingfisher in your projects to help you accomplish tasks. You can -->
+<!--                also read the <doc:CommonTasks> and its related articles to get a better understanding. When -->
+<!--                you encounter problems, come back to consult the documentation or ask the community. -->
+<!--                -->
+<!--                Have a nice day!-->
+<!--            }-->
+<!--            @Steps { }-->
 <!--        }-->
-<!--        @Steps { }-->
-<!--    }-->
