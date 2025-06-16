@@ -10,6 +10,7 @@
             이 안내는 다음 사항을 포함하고 있습니다:
             
             - 프로젝트에 HangulKit을 설치하는 방법
+            - HangulKit을 사용할 UITableView와 UITableViewCell을 만드는 방법
             - UITableView에서 HangulKit을 사용하는 방법
             
             안내의 마지막 단계에 도달하면, 예시와 같은 리스트가 만들어질 것입니다:
@@ -89,7 +90,51 @@
         
     }
     
-    @Section(title: "UITableView에서 사용해보기") {
+    @Section(title: "UITableView 만들기") {
+        @ContentAndMedia {
+            이 안내에서는 HangulKit을 익히기 위한 `UITableView`을 구성하게 됩니다. `UITableView`가 충분히 익숙하다면 다음 단계로 건너뛰어도 좋습니다.
+            
+            @Image(source: UIKit-preview-1.png, alt: "An iOS app with a list which contains a single cell.")
+        }
+        
+        @Steps {
+            @Step {
+                `UITableView`에서 사용할 셀, `SampleCell.swift` 파일을 만들어주세요.
+                @Code(name: "SampleCell.swift", file: UIKit-SampleCell-1.swift)
+            }
+
+            @Step {
+                `indexLabel`, `dayLabel`, `choseongLabel`을 추가해주세요. 나중에 `HangulKit`으로 설정할 텍스트 라벨입니다.
+                @Code(name: "SampleCell.swift", file: UIKit-SampleCell-2.swift)
+            }
+            
+            @Step {
+                필요한 뷰와 레이아웃 관련 코드를 추가해줍니다. (기니까 복사-붙여넣기 하셔도 돼요!)
+                @Code(name: "SampleCell.swift", file: UIKit-SampleCell-3.swift)
+            }
+            
+            @Step {
+                `ViewController.swift` 파일로 돌아와서,
+                @Code(name: "ViewController.swift", file: UIKit-ViewController-3.swift)
+            }
+            
+            @Step {
+                `tableView`를 `ViewController`에 추가해줍니다.
+                @Code(name: "ViewController.swift", file: UIKit-ViewController-4.swift)
+            }
+            
+            @Step {
+                `ViewController`가 `UITableViewDataSource` 프로토콜을 준수하도록 해주세요.
+                일단은 1개의 셀만 나타내도록 합니다.
+                
+                @Code(name: "ViewController.swift", file: UIKit-ViewController-5.swift) {
+                    @Image(source:UIKit-preview-1.png, alt: "An iOS app with a list which contains a single cell.")
+                }
+                
+                설정한 후 실행하면, 미리보기에서 볼 수 있는 것과 같은 "0"이 들어간 하나의 셀이 나타나야 해요. 
+            }
+        }
+    }
         @Steps {
             
         }
