@@ -92,7 +92,7 @@
     
     @Section(title: "UITableView 만들기") {
         @ContentAndMedia {
-            이 안내에서는 HangulKit을 익히기 위한 `UITableView`을 구성하게 됩니다. `UITableView`가 충분히 익숙하다면 다음 단계로 건너뛰어도 좋습니다.
+            이 안내에서는 HangulKit을 익히기 위한 `UITableView`을 구성하게 됩니다.
             
             @Image(source: UIKit-preview-1.png, alt: "An iOS app with a list which contains a single cell.")
         }
@@ -132,6 +132,55 @@
                 }
                 
                 설정한 후 실행하면, 미리보기에서 볼 수 있는 것과 같은 "0"이 들어간 하나의 셀이 나타나야 해요. 
+            }
+        }
+    }
+    
+    @Section(title: "UITableView에서 HangulKit 사용해보기") {
+        @ContentAndMedia {
+            이 안내에서는 `HangulKit`의 메서드를 사용하여 날짜를 나타내는 정수를 순 우리말 날짜로 변환하는 방법을 배우게 됩니다.
+          
+            @Image(source: UIKit-preview-3.png, alt: "")
+        }
+        
+        @Steps {
+            @Step {
+                이전 섹션을 잘 따라오셨다면 예시와 같은 코드가 완성되었을 거에요. 
+                
+                @Code(name: "ViewController.swift", file: UIKit-ViewController-5.swift)
+            }
+            
+            @Step {
+                `ViewController`에 1부터 10까지의 정수 배열을 선언해주세요. 이 배열을 사용하여 `SampleCell`의 내용을 구성할 것이에요.
+                
+                @Code(name: "ViewController.swift", file: UIKit-ViewController-6.swift)
+            }
+
+            @Step {
+                선언해준 정수 배열의 각 요소를 ``HangulKit/HangulKit/days(_:)`` 메서드를 사용하여 순 우리말 날짜로 바꾸어 봅시다.
+                
+                @Code(name: "ViewController.swift", file: UIKit-ViewControllerExtension-1.swift)
+            }
+        
+            @Step {
+                기존의 코드를 `listOfNumbers.count`로 변경해줍니다.
+                또한, 배열 내 현재 숫자를 나타내주는 `currentNumber`를 설정해주고, `setIndex`에 전달해줍니다.
+                
+                @Code(name: "ViewController.swift", file: UIKit-ViewControllerExtension-2.swift) {
+                    @Image(source: UIKit-preview-2.png, alt: "An iOS app with a list which contains 10 cells.")
+                }
+                
+                실행 시, 미리보기에서 볼 수 있는 것과 같이 1부터 10까지의 숫자가 `UITableView`의 각 셀에 위치해야 합니다.
+            }
+            
+            @Step {
+                현재 숫자를 순 우리말 날짜로 변환한 `currentNumberAsKoreanDay`를 `SampleCell`의 `setDay` 메서드를 통해 셀에 설정해줍니다.
+                
+                @Code(name: "ViewController.swift", file: UIKit-ViewControllerExtension-3.swift) {
+                    @Image(source: UIKit-preview-3.png, alt: "An iOS app with a list which contains 10 cells.")
+                }
+                
+                실행 시, 미리보기에서 볼 수 있는 것과 같이 1부터 10까지의 숫자, 숫자에 해당하는 순 우리말 날짜가 `UITableView`의 각 셀에 위치해야 합니다.
             }
         }
     }
