@@ -30,14 +30,15 @@ public extension HangulKit {
     /// 날짜를 나타내는 정수를 순 우리말 날짜로 변환해줍니다.
     /// 주어진 숫자가 1부터 30까지의 정수가 아니라면 nil을 반환합니다.
     ///
-    ///     HangulKit.days(1) // returns Optional("하루")
-    ///     HangulKit.days(3) // returns Optional("사흘")
-    ///     HangulKit.days(10) // returns Optional("열흘")
-    ///     HangulKit.days(30) // returns Optional("서른날")
+    /// ```swift
+    /// HangulKit.days(1) // returns Optional("하루")
+    /// HangulKit.days(3) // returns Optional("사흘")
+    /// HangulKit.days(10) // returns Optional("열흘")
+    /// HangulKit.days(30) // returns Optional("서른날")
     ///
-    ///     HangulKit.days(0) // returns nil
-    ///     HangulKit.days(31) // also returns nil
-    ///
+    /// HangulKit.days(0) // returns nil
+    /// HangulKit.days(31) // also returns nil
+    /// ```
     /// - Parameters:
     ///     - number: 순 우리말 날짜로 변환할 정수입니다. 1부터 30까지만 지원합니다.
     static func days(_ number: Int) -> String? {

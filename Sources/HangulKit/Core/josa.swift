@@ -34,17 +34,19 @@ public extension HangulKit {
     /// 입력된 문자열 뒤에 선택한 조사 옵션 중 규칙에 알맞은 조사를 붙여 반환합니다.
     /// 문자열이 온전한 한글이 아닌 경우 nil을 반환합니다.
     ///
-    ///     let 샴푸에조사추가 = HangulKit.addJosa(after: "샴푸", within: .이_가)
-    ///     print(샴푸에조사추가) // prints Optional("샴푸가")
+    /// ```swift
+    /// let 샴푸에조사추가 = HangulKit.addJosa(after: "샴푸", within: .이_가)
+    /// print(샴푸에조사추가) // prints Optional("샴푸가")
     ///
-    ///     let 칫솔에조사추가 = HangulKit.addJosa(after: "칫솔", within: .이_가)
-    ///     print(칫솔에조사추가) // prints Optional("칫솔이")
+    /// let 칫솔에조사추가 = HangulKit.addJosa(after: "칫솔", within: .이_가)
+    /// print(칫솔에조사추가) // prints Optional("칫솔이")
     ///
-    ///     let ㅘ에조사추가 = HangulKit.addJosa(after: "ㅘ", within: .이_가)
-    ///     print(ㅘ에조사추가) // returns nil
+    /// let ㅘ에조사추가 = HangulKit.addJosa(after: "ㅘ", within: .이_가)
+    /// print(ㅘ에조사추가) // returns nil
     ///
-    ///     let eng에조사추가 = HangulKit.addJosa(after: "eng", within: .이_가)
-    ///     print(eng에조사추가) // also returns nil
+    /// let eng에조사추가 = HangulKit.addJosa(after: "eng", within: .이_가)
+    /// print(eng에조사추가) // also returns nil
+    ///```
     ///
     /// - Parameters:
     ///     - word: 조사를 붙일 문자열
@@ -64,17 +66,19 @@ public extension HangulKit {
     /// 입력된 문자열에 뒤따를 선택한 조사 옵션 중 규칙에 알맞은 조사를 반환합니다.
     /// 문자열이 온전한 한글이 아닌 경우 nil을 반환합니다.
     ///
-    ///     let 샴푸 = HangulKit.pickJosa(of: "샴푸", within: .이_가)
-    ///     print(샴푸) // prints Optional("가")
+    /// ```swift
+    /// let 샴푸 = HangulKit.pickJosa(of: "샴푸", within: .이_가)
+    /// print(샴푸) // prints Optional("가")
     ///
-    ///     let 칫솔 = HangulKit.pickJosa(of: "칫솔", within: .이_가)
-    ///     print(칫솔) // prints Optional("이")
+    /// let 칫솔 = HangulKit.pickJosa(of: "칫솔", within: .이_가)
+    /// print(칫솔) // prints Optional("이")
     ///
-    ///     let ㅘ = HangulKit.pickJosa(of: "ㅘ", within: .이_가)
-    ///     print(ㅘ) // returns nil
+    /// let ㅘ = HangulKit.pickJosa(of: "ㅘ", within: .이_가)
+    /// print(ㅘ) // returns nil
     ///
-    ///     let eng = HangulKit.pickJosa(of: "eng", within: .이_가)
-    ///     print(eng) // also returns nil
+    /// let eng = HangulKit.pickJosa(of: "eng", within: .이_가)
+    /// print(eng) // also returns nil
+    /// ```
     ///
     /// - Parameters:
     ///     - word: 조사를 판단할 문자열

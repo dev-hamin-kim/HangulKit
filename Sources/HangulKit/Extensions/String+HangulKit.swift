@@ -80,7 +80,7 @@ extension HangulKitWrapper where Base == String {
     ///     print(eng) // also prints nil
     ///
     /// - Parameters:
-    ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``JosaOption`` 중 하나 선택 가능
+    ///     - options: `word` 뒤에 붙일 조사의 선택지이며, enum ``HangulKit/JosaOption`` 중 하나 선택 가능
     public func pickJosa(within options: HangulKit.JosaOption) -> String? {
         return HangulKit.pickJosa(of: base, within: options)
     }
