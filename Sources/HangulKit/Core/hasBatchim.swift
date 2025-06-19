@@ -14,17 +14,19 @@ public extension HangulKit {
     /// 입력된 한글 문자가 받침이 있는지 확인합니다.
     /// 입력된 문자가 온전한 한글 문자가 아닐 경우 nil을 반환합니다.
     ///
-    ///     HangulKit.hasBatchim("값") // returns Optional(true)
-    ///     HangulKit.hasBatchim("토") // returns Optional(false)
+    /// ```swift
+    /// HangulKit.hasBatchim("값") // returns Optional(true)
+    /// HangulKit.hasBatchim("토") // returns Optional(false)
     ///
-    ///     HangulKit.hasBatchim("갑", .single) // returns Optional(true)
-    ///     HangulKit.hasBatchim("값", .single) // returns Optional(false)
+    /// HangulKit.hasBatchim("갑", .single) // returns Optional(true)
+    /// HangulKit.hasBatchim("값", .single) // returns Optional(false)
     ///
-    ///     HangulKit.hasBatchim("값", .double) // returns Optional(true)
-    ///     HangulKit.hasBatchim("토", .double) // returns Optional(false)
+    /// HangulKit.hasBatchim("값", .double) // returns Optional(true)
+    /// HangulKit.hasBatchim("토", .double) // returns Optional(false)
     ///
-    ///     HangulKit.hasBatchim("d") // returns nil
-    ///     HangulKit.hasBatchim("ㅘ") // also returns nil
+    /// HangulKit.hasBatchim("d") // returns nil
+    /// HangulKit.hasBatchim("ㅘ") // also returns nil
+    /// ```
     ///
     /// - Parameters:
     ///     - char: 받침이 있는지 확인할 한글 문자입니다.

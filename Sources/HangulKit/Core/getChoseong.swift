@@ -10,14 +10,16 @@ public extension HangulKit {
     /// 단어에서 초성을 추출합니다.
     /// 한글 단어가 아닐 경우 nil을 반환합니다.
     ///
-    ///     let apple = HangulKit.getChoseong(of: "사과")
-    ///     print(apple) // prints Optional("ㅅㄱ")
+    /// ```swift
+    /// let apple = HangulKit.getChoseong(of: "사과")
+    /// print(apple) // prints Optional("ㅅㄱ")
     ///
-    ///     let spacing = HangulKit.getChoseong(of: "띄어 쓰기")
-    ///     print(spacing) // prints Optional("ㄸㅇ ㅆㄱ")
+    /// let spacing = HangulKit.getChoseong(of: "띄어 쓰기")
+    /// print(spacing) // prints Optional("ㄸㅇ ㅆㄱ")
     ///
-    ///     let english = HangulKit.getChoseong(of: "english")
-    ///     print(english) // prints nil
+    /// let english = HangulKit.getChoseong(of: "english")
+    /// print(english) // prints nil
+    /// ```
     ///
     /// - Parameters:
     ///     - word: 초성을 추출할 단어

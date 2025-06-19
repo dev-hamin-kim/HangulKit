@@ -8,11 +8,13 @@
 public extension HangulKit {
     /// 주어진 한글 문자열에서 가장 마지막 문자 하나를 제거하여 반환합니다.
     ///
-    ///     HangulKit.removeLastCharacter("안녕하세요 값") // returns "안녕하세요 갑"
-    ///     HangulKit.removeLastCharacter("아이오에스") // returns "아이오에ㅅ"
-    ///     HangulKit.removeLastCharacter("일요일") // returns "일요이"
-    ///     HangulKit.removeLastCharacter("전화") // returns "전호"
-    ///     HangulKit.removeLastCharacter("신세계") // returns "신세ㄱ"
+    /// ```swift
+    /// HangulKit.removeLastCharacter("안녕하세요 값") // returns "안녕하세요 갑"
+    /// HangulKit.removeLastCharacter("아이오에스") // returns "아이오에ㅅ"
+    /// HangulKit.removeLastCharacter("일요일") // returns "일요이"
+    /// HangulKit.removeLastCharacter("전화") // returns "전호"
+    /// HangulKit.removeLastCharacter("신세계") // returns "신세ㄱ"
+    /// ```
     static func removeLastCharacter(in words: String) -> String {
         let lastCharacter = words.last
         
