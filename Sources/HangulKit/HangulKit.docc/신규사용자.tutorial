@@ -12,8 +12,11 @@
             - 프로젝트에 HangulKit을 설치하는 방법
             - HangulKit을 사용할 UITableView와 UITableViewCell을 만드는 방법
             - UITableView에서 HangulKit을 사용하는 방법
+            - `hk` wrapper의 메서드와 옵셔널 체이닝을 통해 HangulKit을 사용하는 방법
             
             안내의 마지막 단계에 도달하면, 예시와 같은 리스트가 만들어질 것입니다:
+            
+            @Image(source: UIKit-preview-6)
         }
         
         @Steps { }
@@ -23,8 +26,6 @@
         
         @ContentAndMedia {
             UIKit 기반 앱을 생성한 뒤, 처음으로 진행할 것은 `Swift Package Manager`를 이용하여 `HangulKit`을 설치하는 것이에요. 
-            
-<!--            > There are also other way to add Kingfisher to your project, such as CocoaPods or manually. Check the related documentation for more information.-->
             
             @Image(source: create-project.png, alt: "")
             
@@ -163,7 +164,7 @@
             }
         
             @Step {
-                기존의 코드를 `listOfNumbers.count`로 변경해줍니다.
+                기존 `numberOfRowsInSection`의 코드를 `listOfNumbers.count`로 변경해줍니다.
                 또한, 배열 내 현재 숫자를 나타내주는 `currentNumber`를 설정해주고, `setIndex`에 전달해줍니다.
                 
                 @Code(name: "ViewController.swift", file: UIKit-ViewControllerExtension-2.swift) {
@@ -184,31 +185,69 @@
             }
         }
     }
-        @Steps {
+    
+    @Section(title: "또 다른 방법으로 HangulKit 사용해보기") {
+        @ContentAndMedia {
+            이 안내에서는 `hk` wrapper의 메서드를 사용하여 더 간단한 방법으로 이전 단계에서 변환된 날짜에 조사를 붙힌 후, 초성을 추출하는 방법을 배우게 됩니다.
             
+            @Image(source: create-project.png, alt: "")
+        }
+        
+        @Steps {
+            @Step {
+                이제 ``HangulKit/HangulKitWrapper/addJosa(within:)`` 메서드를 사용하여 순 우리말 날짜에 조사를 붙여봅시다.
+                
+                @Code(name: "ViewController.swift", file: UIKit-ViewControllerExtension-3.swift)
+            }
+            
+            @Step {
+                다음과 같이 `koreanDayWithJosa`를 작성해준 뒤, `setDay` 메서드에 전달해줍니다.
+                
+                @Code(name: "ViewController.swift", file: UIKit-ViewControllerExtension-4.swift) {
+                    @Image(source: UIKit-preview-4.png, alt: "An iOS app with a list which contains 10 cells.")
+                }
+                
+                실행 시, 미리보기에서 볼 수 있는 것과 같이 1부터 10까지의 숫자, 숫자에 해당하는 순 우리말 날짜에 조사 "을" 또는 "를" 중 알맞은 것이 추가되어 `UITableView`의 각 셀에 위치해야 합니다.
+            }
+            
+            @Step {
+                이번엔 ``HangulKit/HangulKitWrapper/getChoseong()`` 메서드를 사용하여 초성을 추출해봅시다.
+                다음과 같이 `choseong`을 작성해준 뒤, `setChoseong` 메서드에 전달해줍니다.
+                
+                @Code(name: "ViewController.swift", file: UIKit-ViewControllerExtension-5.swift) {
+                    @Image(source: UIKit-preview-5.png)
+                }
+                
+                실행 시, 미리보기에서 볼 수 있는 것과 같이 이전 단계
+            }
+            
+            @Step {
+                마지막으로 옵셔널 체이닝을 통한 예외처리가 잘 되었는지 확인해봅시다.
+                
+                @Code(name: "ViewController.swift", file: UIKit-ViewController-7.swift)
+            }
+            
+            @Step {
+                다음과 같이 `listOfNumbers` 배열을 수정해줍니다.
+                
+                @Code(name: "ViewController.swift", file: UIKit-ViewController-8.swift) {
+                    @Image(source: UIKit-preview-6)
+                }
+                
+                실행 시, 미리보기에서 볼 수 있는 것과 같이 -1과 0은 예외처리가 되어야 하며, 나머지 숫자는 이전 단계에서의 미리보기와 다름이 없어야 합니다.
+            }
         }
     }
+    
+    @Section(title: "다음 이정표") {
+        @ContentAndMedia {
+            `HangulKit`의 기본적인 사용 방법을 익히게 된 것을 축하합니다!
+            
+            이후 단계에선, ``HangulKit/HangulKit`` 구조체의 메서드를 둘러보며, 유용하게 사용할 수 있는 메서드를 찾아보는 것을 추천드립니다.
+            
+            좋은 하루 보내세요!
+        }
+        
+        @Steps { }
+    }
 }
-
-
-<!--    @Section(title: "Next Steps") {-->
-<!--            @ContentAndMedia {-->
-<!--                -->
-<!--                Congratulations! -->
-<!--                -->
-<!--                You have now mastered some basic uses of Kingfisher: including loading images from the web or cache using-->
-<!--                the `UIImageView` extension, processing images before display using ``ImageProcessor``, and basic methods-->
-<!--                for inspecting and clearing the cache. -->
-<!--                -->
-<!--                Kingfisher also contains a considerable number of other features, and it has been designed to be simple to-->
-<!--                use while considering flexibility. As you deepen your understanding of the framework, we hope you will-->
-<!--                gradually grow to like it. -->
-<!--                -->
-<!--                Next, we recommend that you start using Kingfisher in your projects to help you accomplish tasks. You can -->
-<!--                also read the <doc:CommonTasks> and its related articles to get a better understanding. When -->
-<!--                you encounter problems, come back to consult the documentation or ask the community. -->
-<!--                -->
-<!--                Have a nice day!-->
-<!--            }-->
-<!--            @Steps { }-->
-<!--        }-->

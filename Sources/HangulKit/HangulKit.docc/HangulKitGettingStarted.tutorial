@@ -1,6 +1,6 @@
-@Tutorials(name: "길라잡이") {
-    @Intro(title: "길라잡이") {
-        Getting started with Kingfisher by following a sample app.
+@Tutorials(name: "HangulKit 길라잡이") {
+    @Intro(title: "HangulKit 시작하기") {
+        예제 앱을 만들며 HangulKit을 경험해보세요.
     }
     
     @Chapter(name: "시작하기") {
