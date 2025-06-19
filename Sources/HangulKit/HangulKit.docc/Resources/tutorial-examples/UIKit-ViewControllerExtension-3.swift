@@ -7,6 +7,7 @@ extension ViewController: UITableViewDataSource {
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SampleCell.self),
                                                  for: indexPath) as! SampleCell
+        
         let currentNumber = listOfNumbers[indexPath.row]
         let currentNumberAsKoreanDay = HangulKit.days(currentNumber)
 
