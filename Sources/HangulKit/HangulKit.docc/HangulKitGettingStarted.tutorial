@@ -1,11 +1,11 @@
-@Tutorials(name: "HangulKit 길라잡이") {
+@Tutorials(name: "HangulKit") {
     @Intro(title: "HangulKit 시작하기") {
-        예제 앱을 만들며 HangulKit을 경험해보세요.
+        
     }
     
     @Chapter(name: "시작하기") {
         @Image(source: ColorCodedHangul)
-        설치하고 어쩌고저쩌고
-        @TutorialReference(tutorial: "doc:신규사용자")
+        예제 앱을 만들며 HangulKit을 경험해보세요.
+        @TutorialReference(tutorial: "doc:HangulKit101")
     }
 }

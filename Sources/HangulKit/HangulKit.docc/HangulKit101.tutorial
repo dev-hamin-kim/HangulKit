@@ -190,7 +190,7 @@
         @ContentAndMedia {
             이 안내에서는 `hk` wrapper의 메서드를 사용하여 더 간단한 방법으로 이전 단계에서 변환된 날짜에 조사를 붙힌 후, 초성을 추출하는 방법을 배우게 됩니다.
             
-            @Image(source: create-project.png, alt: "")
+            @Image(source: UIKit-preview-6.png, alt: "")
         }
         
         @Steps {
@@ -218,7 +218,7 @@
                     @Image(source: UIKit-preview-5.png)
                 }
                 
-                실행 시, 미리보기에서 볼 수 있는 것과 같이 이전 단계
+                실행 시, 미리보기에서 볼 수 있는 것과 같이 이전 단계의 조사가 붙은 순 우리말 날짜의 초성이 회면에 나타나야 합니다.
             }
             
             @Step {
@@ -231,7 +231,7 @@
                 다음과 같이 `listOfNumbers` 배열을 수정해줍니다.
                 
                 @Code(name: "ViewController.swift", file: UIKit-ViewController-8.swift) {
-                    @Image(source: UIKit-preview-6)
+                    @Image(source: UIKit-preview-6.png)
                 }
                 
                 실행 시, 미리보기에서 볼 수 있는 것과 같이 -1과 0은 예외처리가 되어야 하며, 나머지 숫자는 이전 단계에서의 미리보기와 다름이 없어야 합니다.
