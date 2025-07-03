@@ -154,7 +154,7 @@ print(romanized) // prints "goyangineuncat"
 
 ```
 
-자세한 사용방법은 DocC(링크 추가 필요)를 참고해주세요.
+자세한 사용방법은 DocC [Tutorial](https://swiftpackageindex.com/dev-hamin-kim/hangulkit/v0.1.12/tutorials/hangulkit/hangulkit101)을 참고해주세요.
 
 ## 감사의 말 (Acknowledgements)
 
